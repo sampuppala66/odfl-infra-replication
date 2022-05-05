@@ -59,7 +59,7 @@ Apply variables needed for the modules defined in your main.tf in this file. Var
 Resources being created for the client project should be designed by referencing modules from this repository.  To Reference a module use the following format:
 
 ``` shell
-resource "google_bigquery_dataset" "cdp_data" {
+resource "google_bigquery_dataset" "sba_data" {
   # source  = "terraform-google-modules/bigquery/google"
   # version = "~> 4.0"
   dataset_id                  = "${var.project_id}_${var.dataset_name}_${var.env}"
