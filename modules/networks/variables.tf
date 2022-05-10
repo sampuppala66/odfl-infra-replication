@@ -17,3 +17,17 @@ variable "env" {
   type        = string
   description = "Environment"
 }
+
+variable "drone_subnetwork_cidr_range" {
+  description = "The ip_cidr_range for the subnetwork"
+  type = string
+  default = "10.1.0.0/26"
+  
+}
+
+variable "drone_subnetwork_region" {
+  description = "The region for the for the subnetwork"
+  type = string
+  default = "us-central1"
+  
+}

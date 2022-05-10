@@ -31,26 +31,14 @@ Two dimention structure for IaC:
 │   |        outputs.tf
 │   |        variables.tf
 │   └───...
-├───dev
-|   |   backend.tf
-|   |   main.tf
-|   |   variables.tf
-|   |   versions.tf
-|   |   values.tfvars
-|───prod
-|   |   backend.tf
-|   |   main.tf
-|   |   variables.tf
-|   |   versions.tf
-|   |   values.tfvars
-├───stage
-|   |   backend.tf
-|   |   main.tf
-|   |   variables.tf
-|   |   versions.tf
-|   |   values.tfvars
-│
+├───backend.tf
+├───dev.tfvars
+├───main.tf
+├───provider.tf
+├───variables.tf
+├───versions.tf
 ```
+
 # File Contents
 ## config/terraform.tfvars
 Apply variables needed for the modules defined in your main.tf in this file. Variables include: `project ID`, ... and `service account credentials file`

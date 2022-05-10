@@ -1,10 +1,9 @@
 resource "google_project" "project_drone" {
   name            = "${var.project_id}-${var.env}"
   project_id      = var.project_id
-  folder_id          = var.sba_folder_id
+  folder_id          =  google_folder.drone_folder.name
   auto_create_network = false
 }
-
 
 resource "google_project_service" "drone_service" {
   for_each = toset([
@@ -18,12 +17,14 @@ resource "google_project_service" "drone_service" {
   service = each.key
   project            = google_project.project_drone.project_id
 }
+
 resource "google_project" "project_audit" {
   name            = var.audit_project_name
-  project_id      = "sba-gov-audit-345113"
-  folder_id          = var.audit_folder_id
+  project_id      = var.audit_project_id
+  folder_id          = google_folder.audit_folder.name
   auto_create_network = false
 }
+
 resource "google_project_service" "audit_service" {
   for_each = toset([
     "cloudresourcemanager.googleapis.com",
@@ -34,5 +35,5 @@ resource "google_project_service" "audit_service" {
     "bigquery.googleapis.com"
   ])
   service = each.key
-  project            = "sba-gov-audit-345113"
+  project            = google_project.project_audit.project_id
 }

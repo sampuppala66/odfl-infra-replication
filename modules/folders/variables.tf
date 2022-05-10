@@ -8,3 +8,9 @@ variable "drone_folder_name" {
     type = string
     default = "Drone"
 }
+
+variable "organization_path" {
+    description = "Organization Path"
+    type = string
+    default = "organizations/834347040152"
+}
