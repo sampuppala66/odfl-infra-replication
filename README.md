@@ -47,15 +47,9 @@ Apply variables needed for the modules defined in your main.tf in this file. Var
 Resources being created for the client project should be designed by referencing modules from this repository.  To Reference a module use the following format:
 
 ``` shell
-resource "google_bigquery_dataset" "sba_data" {
-  # source  = "terraform-google-modules/bigquery/google"
-  # version = "~> 4.0"
-  dataset_id                  = "${var.project_id}_${var.dataset_name}_${var.env}"
-  friendly_name                = "${var.project_id}_${var.dataset_name}_${var.env}"
-}
-```
 
-## test/backend.tf
+
+## backend.tf
 Terrafrom remote state being created in GCP storage.
 ``` shell
   terraform {
@@ -66,7 +60,7 @@ Terrafrom remote state being created in GCP storage.
   }
 ```
 
-## test/variables.tf
+## variables.tf
 Define all the variables being used.
 
 # Terraform commands
