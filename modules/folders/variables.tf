@@ -9,6 +9,12 @@ variable "drone_folder_name" {
     default = "Drone"
 }
 
+
+variable "shared_folder_name" {
+    description = "Shared folder name"
+    type = string
+    default = "Shared"
+}
 variable "organization_path" {
     description = "Organization Path"
     type = string
