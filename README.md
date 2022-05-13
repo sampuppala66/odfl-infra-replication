@@ -14,6 +14,26 @@ Two dimention structure for IaC:
 │       terraform.tfvars
 │
 ├───modules
+│   ├───bigquery
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
+│   ├───cloudfunctions
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
+│   ├───cloudsql
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
+│   ├───cloudstorage
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
+│   ├───firebase
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
 │   ├───folders
 │   │       main.tf
 │   │       outputs.tf
@@ -30,6 +50,10 @@ Two dimention structure for IaC:
 │   |        main.tf
 │   |        outputs.tf
 │   |        variables.tf
+│   ├───pubsub
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
 │   └───...
 ├───backend.tf
 ├───dev.tfvars
