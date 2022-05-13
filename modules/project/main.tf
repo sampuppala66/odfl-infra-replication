@@ -21,7 +21,7 @@ resource "google_project_service" "drone_service" {
 resource "google_project" "project_audit" {
   name            = var.audit_project_name
   project_id      = var.audit_project_id
-  folder_id          = google_folder.audit_folder.name
+  folder_id          = google_folder.audit_folder.folder_id
   auto_create_network = false
 }
 
@@ -37,3 +37,5 @@ resource "google_project_service" "audit_service" {
   service = each.key
   project            = google_project.project_audit.project_id
 }
+
+

@@ -7,4 +7,4 @@ gcp_region           = "us-central1"
 credential_file      = "sba-devops-terraform-20950a7a4e21"
 
 //Add members or group of users
-members = ["user:erik.willsey@gws.propetro.services","user:sam.puppala@gws.propetro.services"]
+members = []

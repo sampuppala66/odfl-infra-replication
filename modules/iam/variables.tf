@@ -12,3 +12,9 @@ variable "env" {
   description = "Environment"
   type = string
 }
+
+variable "cloud_sql_name" {
+  description = "The name of the db"
+  type        = string
+  default = "sba-drone-db"
+}
