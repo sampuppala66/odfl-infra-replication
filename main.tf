@@ -4,7 +4,6 @@ module "folders" {
 
 module "projects" {
   source = "./modules/project"
-  project_id = var.project_id
   env = var.env
 }
 
