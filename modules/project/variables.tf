@@ -14,15 +14,15 @@ variable "audit_project_id" {
   default = "sba-gov-audit-123445"
 }
 
-variable "audit_folder_id" {
+variable "gov_folder_id" {
   description = "The ID of the folder in which the resource belongs."
   type        = string
-  default = "452593624721"
+  default = "sba-gov"
 }
 variable "drone_folder_id" {
   description = "The ID of the folder in which the resource belongs."
   type        = string
-  default = "668637149123"
+  default = "sba-drone"
 }
 
 variable "billing_project_id" {

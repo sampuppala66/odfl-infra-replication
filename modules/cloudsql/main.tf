@@ -1,7 +1,7 @@
 resource "google_sql_database" "drone_cloud_sql" {
   name     = var.cloud_sql_name
   instance = google_sql_database_instance.instance.name
-  project = google_project.project_drone.project_id
+  project = var.project_id
 }
 
 
