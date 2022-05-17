@@ -1,8 +1,8 @@
-variable "drone_project_id" {
-  description = "The ID of the project in which the resource belongs."
+variable "project_id" {
+  description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
   type        = string
-  default = "sba-drone"
 }
+
 variable "audit_project_name" {
   description = "The name of the project in which the resource belongs."
   type        = string

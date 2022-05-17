@@ -15,7 +15,7 @@ resource "google_cloudfunctions_function" "drone_function" {
   name        = var.drone_function_name
   description = var.cloud_function_description
   runtime     = var.cloud_function_runtime
-  project = google_project.project_drone.project_id
+  project = var.project_id
 
   available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.drone_cloud_function_bucket.name
