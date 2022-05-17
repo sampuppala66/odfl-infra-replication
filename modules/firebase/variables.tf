@@ -19,3 +19,8 @@ variable "drone_firebase_project_location_id" {
   type        = string
   default = "sba-drone-db"
 }
+
+variable "project_id" {
+  description = "The name of the db"
+  type        = string
+}
