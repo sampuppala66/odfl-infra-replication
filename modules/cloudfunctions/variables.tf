@@ -21,7 +21,7 @@ variable "drone_archive_source" {
 variable "drone_archive_name" {
   description = "The name of the bucket reserved for the google cloud function"
   type        = string
-  default = "sba-drone-function"
+  default = "index.zip"
 
 }
 
@@ -54,10 +54,5 @@ variable "cloud_function_description" {
 
 }
 
-variable "drone_archive_name" {
-  description = "The name of the bucket reserved for the google cloud function"
-  type        = string
-  default = "index.zip"
 
-}
 
