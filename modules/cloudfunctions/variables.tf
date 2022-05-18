@@ -59,4 +59,8 @@ variable "project_id" {
   type        = string
 }
 
-
+variable "cloud_function_entry_point" {
+  description = "the entypoint off the function"
+  type        = string
+  default = "/"
+}
