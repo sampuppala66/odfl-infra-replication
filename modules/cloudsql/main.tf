@@ -1,8 +1,4 @@
-resource "google_sql_database" "drone_cloud_sql" {
-  name     = var.cloud_sql_name
-  instance = google_sql_database_instance.instance.name
-  project = var.project_id
-}
+
 
 
 resource "google_sql_database_instance" "drone_instance" {
@@ -14,4 +10,10 @@ resource "google_sql_database_instance" "drone_instance" {
   }
 
   deletion_protection  = var.drone_database_protection
+}
+
+resource "google_sql_database" "drone_cloud_sql" {
+  name     = var.cloud_sql_name
+  instance = google_sql_database_instance.drone_instance.name
+  project = var.project_id
 }
