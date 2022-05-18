@@ -11,7 +11,7 @@ resource "google_bigquery_dataset" "audit_data" {
   dataset_id                  = var.audit_dataset_id
   friendly_name                = var.audit_dataset_name
   description                 = var.audit_dataset_description
-  project                     = google_project.project_audit.project_id
+  project                     = var.audit_project_id
   location                    = var.location
   labels    = var.dataset_labels
 }
