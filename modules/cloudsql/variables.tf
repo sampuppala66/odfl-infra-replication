@@ -35,7 +35,7 @@ variable "drone_database_tier" {
 variable "drone_database_protection" {
   description = "The database deletion protection"
   type        = string
-  default = "sba-drone-db"
+  default = "true"
 }
 
 variable "project_id" {
