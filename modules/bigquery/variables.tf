@@ -6,7 +6,7 @@ variable "project_id" {
 variable "audit_project_id" {
   description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
   type        = string
-  default = "sba-audit"
+  default = "sba-gov-audit-123445"
 }
 
 variable "env" {
@@ -41,7 +41,7 @@ variable "dataset_labels" {
 variable "audit_dataset_name" {
   description = "Name of dataset"
   type = string
-  default = "sba-audit"
+  default = "sba-audit-logs"
 }
 
 variable "audit_dataset_description" {
