@@ -1,6 +1,7 @@
 resource "google_storage_bucket" "drone_cloud_function_bucket" {
   name     = var.drone_cloud_function_bucket_name
   location = var.storage_bucket_location
+  project = var.project_id
 }
 
 resource "google_storage_bucket_object" "drone_archive" {
