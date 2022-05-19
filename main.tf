@@ -2,7 +2,7 @@ module "folders" {
   source = "./modules/folders"
 }
 
-module "projects" {
+module "project" {
   source = "./modules/project"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
@@ -32,7 +32,7 @@ module "pubsub" {
   env = var.env
 }
 
-module "cloud_storage" {
+module "cloudstorage" {
   source = "./modules/cloudstorage"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
@@ -44,7 +44,7 @@ module "cloud_storage" {
 #   env = var.env
 # }
 
-module "cloud_sql" {
+module "cloudsql" {
   source = "./modules/cloudsql"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
