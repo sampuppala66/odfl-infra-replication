@@ -59,7 +59,7 @@ variable "audit_dataset_id" {
 variable "drone_dataset_id" {
   description = "sba audit logs"
   type = string
-  default = "sba audit logs data"
+  default = "sba_drone_data"
 }
 
 variable "drone_dataset_name" {
