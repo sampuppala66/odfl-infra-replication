@@ -23,7 +23,7 @@ variable "drone_database_region" {
 variable "drone_database_version" {
   description = "The version of the db"
   type        = string
-  default = "sba-drone-db"
+  default = ""
 }
 
 variable "drone_database_tier" {

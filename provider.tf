@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "sba-devops-terraform"
+  project     = var.project_id
   credentials = file(var.credential_file)
   region = var.gcp_region
 }
