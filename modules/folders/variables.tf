@@ -1,19 +1,19 @@
 variable "gov_folder_name" {
     description = "Gov folder name"
     type = string
-    default = "Governance"
+    default = "sba-gov"
 }
 variable "drone_folder_name" {
     description = "Drone folder name"
     type = string
-    default = "Drone"
+    default = "sba-drone"
 }
 
 
 variable "shared_folder_name" {
     description = "Shared folder name"
     type = string
-    default = "Shared"
+    default = "sba-shared"
 }
 variable "organization_path" {
     description = "Organization Path"

@@ -1,6 +1,6 @@
 resource "google_project" "project_drone" {
   name            = "${var.project_id}-${var.env}"
-  project_id      = var.project_id
+  project_id      = "${var.project_id}-${var.env}"
   folder_id          =  var.drone_folder_id
   auto_create_network = false
 }

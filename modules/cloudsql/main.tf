@@ -1,8 +1,5 @@
-
-
-
 resource "google_sql_database_instance" "drone_instance" {
-  name             = var.drone_database_name
+  name             = "${var.project_id}-${var.env}-${var.drone_database_name}"
   region           = var.drone_database_region
   database_version = var.drone_database_version
   settings {
@@ -13,7 +10,7 @@ resource "google_sql_database_instance" "drone_instance" {
 }
 
 resource "google_sql_database" "drone_cloud_sql" {
-  name     = var.cloud_sql_name
+  name     = "${var.project_id}-${var.env}-${var.cloud_sql_name}"
   instance = google_sql_database_instance.drone_instance.name
-  project = var.project_id
+  project = "${var.project_id}-${var.env}"
 }

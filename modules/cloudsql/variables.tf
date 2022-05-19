@@ -1,7 +1,7 @@
 variable "cloud_sql_name" {
   description = "The name of the db"
   type        = string
-  default = "sba-drone-db"
+  default = "cloudsql"
 }
 variable "env" {
   type        = string
@@ -11,25 +11,25 @@ variable "env" {
 variable "drone_database_name" {
   description = "The name of the db"
   type        = string
-  default = "sba-drone-db"
+  default = "dronedb"
 }
 
 variable "drone_database_region" {
   description = "The region of the db"
   type        = string
-  default = "sba-drone-db"
+  default = "us-central1"
 }
 
 variable "drone_database_version" {
   description = "The version of the db"
   type        = string
-  default = ""
+  default = "MYSQL_8_0"
 }
 
 variable "drone_database_tier" {
   description = "The tier of the db"
   type        = string
-  default = "sba-drone-db"
+  default = "db-f1-micro"
 }
 
 variable "drone_database_protection" {

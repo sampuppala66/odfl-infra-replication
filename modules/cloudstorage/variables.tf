@@ -6,7 +6,7 @@ variable "env" {
 variable "drone_storage_name" {
   description = "The name of the db"
   type        = string
-  default = "sba-drone-s3"
+  default = "s3"
 }
 
 variable "drone_storage_location" {
