@@ -38,11 +38,11 @@ module "cloud_storage" {
   env = var.env
 }
 
-module "cloud_functions" {
-  source = "./modules/cloudfunctions"
-  project_id = "${var.project_id}-${var.env}"
-  env = var.env
-}
+# module "cloud_functions" {
+#   source = "./modules/cloudfunctions"
+#   project_id = "${var.project_id}-${var.env}"
+#   env = var.env
+# }
 
 module "cloud_sql" {
   source = "./modules/cloudsql"
