@@ -18,11 +18,11 @@ resource "google_project_iam_binding" "compute_admin" {
   members = []
 }
 
-resource "google_project_iam_binding" "log_admin" {
-  project     =  "${var.project_id}"
-  role = " roles/logging.admin "
-  members = []
-}
+# resource "google_project_iam_binding" "log_admin" {
+#   project     =  "${var.project_id}"
+#   role = " roles/logging.admin "
+#   members = []
+# }
 
 resource "google_project_iam_binding" "monitoring_admin" {
   project     =  "${var.project_id}"
@@ -36,11 +36,11 @@ resource "google_project_iam_binding" "dns_reader" {
   members = []
 }
 
-resource "google_project_iam_binding" "compute_network_viewer" {
-  project     =  "${var.project_id}"
-  role = " roles/compute.networkViewer"
-  members = []
-}
+# resource "google_project_iam_binding" "compute_network_viewer" {
+#   project     =  "${var.project_id}"
+#   role = " roles/compute.networkViewer"
+#   members = []
+# }
 
 resource "google_project_iam_binding" "container_admin" {
   project     =  "${var.project_id}"
@@ -48,11 +48,11 @@ resource "google_project_iam_binding" "container_admin" {
   members = []
 }
 
-resource "google_project_iam_binding" "project_creatorNote" {
-  project     =  "${var.project_id}"
-  role = " roles/project.creatorNote"
-  members = []
-}
+# resource "google_project_iam_binding" "project_creatorNote" {
+#   project     =  "${var.project_id}"
+#   role = " roles/project.creatorNote"
+#   members = []
+# }
 
 resource "google_project_iam_binding" "storage_admin" {
   project     =  "${var.project_id}"
