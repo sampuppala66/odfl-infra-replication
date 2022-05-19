@@ -4,6 +4,7 @@ variable "env" {
 }
 
 
+
 variable "drone_cloud_function_bucket_name" {
   description = "The name of the bucket reserved for the google cloud function"
   type        = string
@@ -26,7 +27,7 @@ variable "drone_archive_name" {
 variable "drone_archive_source" {
   description = "The name of the bucket reserved for the google cloud function"
   type        = string
-  default = "./path/to/zip/file/which/contains/code"
+  default = "."
 
 }
 
@@ -64,8 +65,4 @@ variable "project_id" {
   type        = string
 }
 
-variable "cloud_function_entry_point" {
-  description = "the entypoint off the function"
-  type        = string
-  default = "/"
-}
+
