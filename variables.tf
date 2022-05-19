@@ -6,7 +6,7 @@ variable "project_id" {
 variable "credential_file" {
   type        = string
   description = "Service account key file"
-  default     = "./sba-devops-terraform-f6b0430121cd.json"
+  default     = "./sba-devops-terraform-777240d02250.json"
 }
 variable "gcp_region" {
   type        = string
