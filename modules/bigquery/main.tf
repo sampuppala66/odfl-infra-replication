@@ -1,5 +1,7 @@
 module "project"{
     source = "../project"
+    env = var.env
+    project_id = var.project_id
 }
 
 resource "google_bigquery_dataset" "drone_data" {

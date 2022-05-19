@@ -22,6 +22,8 @@ module "iam" {
 
 module "bigquery" {
   source = "./modules/bigquery"
+  project_id = "${var.project_id}-${var.env}"
+  env = var.env
 }
 
 module "pubsub" {
