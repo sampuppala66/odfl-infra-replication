@@ -6,12 +6,12 @@ variable "project_id" {
 variable "audit_project_name" {
   description = "The name of the project in which the resource belongs."
   type        = string
-  default = "sba-gov-audit-2"
+  default = "sba-gov-audit-3"
 }
 variable "audit_project_id" {
     description = "The ID of the project in which the resource belongs."
   type        = string
-  default = "sba-gov-audit-2"
+  default = "sba-gov-audit-3"
 }
 
 variable "gov_folder_id" {
@@ -28,13 +28,13 @@ variable "drone_folder_id" {
 variable "billing_project_id" {
   description = "The ID of the project in which the resource belongs."
   type        = string
-  default = "sba-gov-billing-2"
+  default = "sba-gov-billing-3"
 }
 
 variable "billing_project_name" {
     description = "The ID of the project in which the resource belongs."
   type        = string
-  default = "sba-gov-billing-2"
+  default = "sba-gov-billing-3"
 }
 
 variable "env" {

@@ -6,7 +6,7 @@ variable "project_id" {
 variable "audit_project_id" {
   description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
   type        = string
-  default = "sba-gov-audit-2"
+  default = "sba-gov-audit-3"
 }
 
 variable "env" {
