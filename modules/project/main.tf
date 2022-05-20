@@ -1,16 +1,12 @@
-data "google_folder" "drone_folder"{
-    
-}
-
-data "google_folder" "audit_folder"{
-    
+module "folders"{
+    source = "../folders"
 }
 
 
 resource "google_project" "project_drone" {
   name            = "${var.project_id}"
   project_id      = "${var.project_id}"
-  folder_id          =  data.google_folder.drone_folder.folder_id
+  folder_id          =  module.folders.drone_folder_id
   auto_create_network = false
 }
 
@@ -30,7 +26,7 @@ resource "google_project_service" "drone_service" {
 resource "google_project" "project_audit" {
   name            = var.audit_project_name
   project_id      = var.audit_project_id
-  folder_id          = data.google_folder.drone_folder.folder_id
+  folder_id          = module.folders.gov_folder_id
   auto_create_network = false
 }
 
@@ -52,7 +48,7 @@ resource "google_project_service" "audit_service" {
 resource "google_project" "project_billing" {
   name            = var.billing_project_name
   project_id      = var.billing_project_id
-  folder_id          = data.google_folder.audit_folder.folder_id
+  folder_id          = module.folders.gov_folder_id
   auto_create_network = false
 }
 

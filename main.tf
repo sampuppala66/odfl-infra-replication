@@ -1,14 +1,9 @@
-module "folders" {
-  source = "./modules/folders"
-}
+
 
 module "project" {
   source = "./modules/project"
   project_id = "${var.project_id}-${var.env}-1"
   env = var.env
-  depends_on = [
-    module.folders
-  ]
 }
 
 module "networks" {
