@@ -7,6 +7,7 @@ resource "google_project" "project_drone" {
   name            = "${var.project_id}"
   project_id      = "${var.project_id}"
   folder_id          =  module.folders.drone_folder_id
+  billing_account = 
   auto_create_network = false
 }
 

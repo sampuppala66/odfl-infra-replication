@@ -34,10 +34,16 @@ variable "billing_project_id" {
 variable "billing_project_name" {
     description = "The ID of the project in which the resource belongs."
   type        = string
-  default = "sba-gov-billing-4"
+  default = "sba-gov-billing-5"
 }
 
 variable "env" {
   type        = string
-  description = "Environment"
+  description = "Environment",
+
+}
+
+variable "billing_account"{
+  type = string
+  description = "The billing account "
 }
