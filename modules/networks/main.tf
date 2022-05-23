@@ -2,6 +2,7 @@ resource "google_compute_network" "vpc_network" {
   name = "${var.vpc_name}-${var.env}"
   project   = "${var.project_id}"
   auto_create_subnetworks = false
+
 }
 
 resource "google_compute_subnetwork" "drone_subnetwork" {
@@ -17,7 +18,7 @@ resource "google_compute_firewall" "rule-deny-ssh" {
   name        = "ssh-deny-fw-rule"
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule denying ssh"
-  source_tags = ["*"]
+  source_tags = ["drone"]
   deny {
     protocol = "tcp"
     ports    = ["22"]
@@ -29,7 +30,7 @@ resource "google_compute_firewall" "rule-allow-tcp" {
   name        = "tcp-allow-firewall-rule"
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule allowing tcp"
-  source_tags = ["*"]
+  source_tags = ["drone"]
 
   allow {
     protocol = "tcp"
