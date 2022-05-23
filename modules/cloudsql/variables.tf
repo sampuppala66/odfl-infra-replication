@@ -1,7 +1,7 @@
 variable "cloud_sql_name" {
   description = "The name of the db"
   type        = string
-  default = "cloudsql"
+  default = "cloudsql-1"
 }
 variable "env" {
   type        = string
@@ -35,7 +35,7 @@ variable "drone_database_tier" {
 variable "drone_database_protection" {
   description = "The database deletion protection"
   type        = string
-  default = "true"
+  default = "false"
 }
 
 variable "project_id" {
