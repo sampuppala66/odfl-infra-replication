@@ -1,7 +1,7 @@
 variable "cloud_sql_name" {
   description = "The name of the db"
   type        = string
-  default = "cloudsql"
+  default = "cloudsql-1"
 }
 variable "env" {
   type        = string
@@ -11,7 +11,7 @@ variable "env" {
 variable "drone_database_name" {
   description = "The name of the db"
   type        = string
-  default = "dronedb"
+  default = "dronedb-1"
 }
 
 variable "drone_database_region" {
