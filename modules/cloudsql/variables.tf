@@ -1,7 +1,7 @@
 variable "cloud_sql_name" {
   description = "The name of the db"
   type        = string
-  default = "cloudsql-1"
+  default = "cloudsql"
 }
 variable "env" {
   type        = string
