@@ -4,7 +4,7 @@ module "folders"{
 
 
 resource "google_project" "project_drone" {
-  name            = "${var.project_id}"
+  name            = "${var.drone_project_name}"
   project_id      = "${var.project_id}"
   folder_id          =  module.folders.drone_folder_id
   billing_account = var.billing_account
