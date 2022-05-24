@@ -22,6 +22,7 @@ resource "google_project_service" "drone_service" {
   ])
   service = each.key
   project            = google_project.project_drone.project_id
+  disable_dependent_services = true
 }
 
 resource "google_project" "project_audit" {
@@ -44,6 +45,7 @@ resource "google_project_service" "audit_service" {
   ])
   service = each.key
   project            = google_project.project_audit.project_id
+  disable_dependent_services = true
 }
 
 
@@ -67,4 +69,5 @@ resource "google_project_service" "billing_service" {
   ])
   service = each.key
   project            = google_project.project_audit.project_id
+  disable_dependent_services = true
 }
