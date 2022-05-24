@@ -3,12 +3,6 @@ variable "project_id" {
   type        = string
 }
 
-variable "drone_project_name" {
-  description = "The name of the project in which the resource belongs."
-  type        = string
-  default = "sba-drone-dev"
-}
-
 variable "audit_project_name" {
   description = "The name of the project in which the resource belongs."
   type        = string
