@@ -5,7 +5,6 @@ resource "google_bigquery_dataset" "drone_data" {
   description                 = var.dataset_description
   project                     = var.project_id
   location                    = var.location
-  disable_dependent_services = "true"
   labels    = var.dataset_labels
 }
 
@@ -15,6 +14,5 @@ resource "google_bigquery_dataset" "audit_data" {
   description                 = var.audit_dataset_description
   project                     = var.audit_project_id
   location                    = var.location
-  disable_dependent_services = "true"
   labels    = var.dataset_labels
 }
