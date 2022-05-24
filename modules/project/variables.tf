@@ -39,7 +39,7 @@ variable "billing_project_name" {
 
 variable "env" {
   type        = string
-  description = "Environment",
+  description = "Environment"
 
 }
 
