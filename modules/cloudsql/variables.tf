@@ -11,7 +11,7 @@ variable "env" {
 variable "drone_database_name" {
   description = "The name of the db"
   type        = string
-  default = "dronedb-3"
+  default = "dronedb"
 }
 
 variable "drone_database_region" {
