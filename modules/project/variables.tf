@@ -3,7 +3,6 @@ variable "project_id" {
   type        = string
 }
 
-
 variable "audit_project_name" {
   description = "The name of the project in which the resource belongs."
   type        = string

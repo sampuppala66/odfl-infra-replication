@@ -56,7 +56,7 @@ resource "google_project_iam_binding" "container_admin" {
 
 resource "google_project_iam_binding" "storage_admin" {
   project     =  "${var.project_id}"
-  role = " roles/storage.admin "
+  role = "roles/storage.admin"
   members = []
 }
 
