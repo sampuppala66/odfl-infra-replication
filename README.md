@@ -4,7 +4,7 @@ Provision GCP infrastructure resource for SBA
 # Code structure
 Two dimention structure for IaC:
 * Structured by module per product or service. Each module has its cohesiveness of provivisoning a GCP product or service.
-* Structured by environments: test, dev, stage and prd.  
+* This is just for the dev env.  
 
 
 ```shell
