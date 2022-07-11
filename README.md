@@ -66,7 +66,7 @@ Terrafrom remote state being created in GCP storage.
 ``` shell
   terraform {
     backend "gcs" {
-      bucket      = "sba-global-state"
+      bucket      = "odfl-global-state"
       prefix      = "foundations/"
     }
   }
