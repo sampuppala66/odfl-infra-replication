@@ -18,19 +18,7 @@ Two dimention structure for IaC:
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
-│   ├───cloudfunctions
-│   │       main.tf
-│   │       outputs.tf
-│   │       variables.tf
 │   ├───cloudsql
-│   │       main.tf
-│   │       outputs.tf
-│   │       variables.tf
-│   ├───cloudstorage
-│   │       main.tf
-│   │       outputs.tf
-│   │       variables.tf
-│   ├───firebase
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf

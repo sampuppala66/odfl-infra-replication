@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket      = "sba-devops-terraform-states"
+    bucket      = "odfl-devops-terraform-states"
     prefix      = "foundations/"
   }
 }

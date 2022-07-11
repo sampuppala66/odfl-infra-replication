@@ -8,13 +8,13 @@ variable "env" {
   description = "Environment"
 }
 
-variable "drone_database_name" {
+variable "data_database_name" {
   description = "The name of the db"
   type        = string
-  default = "dronedb"
+  default = "datadb"
 }
 
-variable "drone_database_region" {
+variable "data_database_region" {
   description = "The region of the db"
   type        = string
   default = "us-central1"
@@ -26,13 +26,13 @@ variable "drone_database_version" {
   default = "MYSQL_8_0"
 }
 
-variable "drone_database_tier" {
+variable "data_database_tier" {
   description = "The tier of the db"
   type        = string
   default = "db-f1-micro"
 }
 
-variable "drone_database_protection" {
+variable "data_database_protection" {
   description = "The database deletion protection"
   type        = string
   default = "false"

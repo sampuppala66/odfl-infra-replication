@@ -5,10 +5,10 @@ resource "google_compute_network" "vpc_network" {
 
 }
 
-resource "google_compute_subnetwork" "drone_subnetwork" {
+resource "google_compute_subnetwork" "data_subnetwork" {
   name = "${var.subnet_name}-${var.env}"
-  ip_cidr_range = var.drone_subnetwork_cidr_range
-  region = var.drone_subnetwork_region
+  ip_cidr_range = var.data_subnetwork_cidr_range
+  region = var.data_subnetwork_region
   network = google_compute_network.vpc_network.id
   project   = "${var.project_id}"
 }
@@ -18,7 +18,7 @@ resource "google_compute_firewall" "rule-deny-ssh" {
   name        = "ssh-deny-fw-rule"
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule denying ssh"
-  source_tags = ["drone"]
+  source_tags = ["data"]
   deny {
     protocol = "tcp"
     ports    = ["22"]
@@ -30,7 +30,7 @@ resource "google_compute_firewall" "rule-allow-tcp" {
   name        = "tcp-allow-firewall-rule"
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule allowing tcp"
-  source_tags = ["drone"]
+  source_tags = ["data"]
 
   allow {
     protocol = "tcp"

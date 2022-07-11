@@ -6,7 +6,7 @@ variable "project_id" {
 variable "audit_project_id" {
   description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
   type        = string
-  default = "sba-gov-audit"
+  default = "odfl-gov-audit"
 }
 
 variable "env" {
@@ -27,9 +27,9 @@ variable "dataset_name" {
 }
 
 variable "dataset_description" {
-    description = "sba dataset"
+    description = "odfl dataset"
     type = string
-    default = "sba supply chain analytical data"
+    default = "odfl supply chain analytical data"
 }
 
 variable "dataset_labels" {
@@ -41,29 +41,29 @@ variable "dataset_labels" {
 variable "audit_dataset_name" {
   description = "Name of dataset"
   type = string
-  default = "sba-audit-logs"
+  default = "odfl-audit-logs"
 }
 
 variable "audit_dataset_description" {
-  description = "sba audit logs"
+  description = "odfl audit logs"
   type = string
-  default = "sba audit logs data"
+  default = "odfl audit logs data"
 }
 
 variable "audit_dataset_id" {
-  description = "sba audit logs"
+  description = "odfl audit logs"
   type = string
-  default = "sba_gov_audit_logs"
+  default = "odfl_gov_audit_logs"
 }
 
-variable "drone_dataset_id" {
-  description = "sba audit logs"
+variable "data_dataset_id" {
+  description = "odfl audit logs"
   type = string
-  default = "sba_drone_data"
+  default = "odfl_data_data"
 }
 
-variable "drone_dataset_name" {
-  description = "sba audit logs"
+variable "data_dataset_name" {
+  description = "odfl audit logs"
   type = string
-  default = "sba audit logs data"
+  default = "odfl audit logs data"
 }

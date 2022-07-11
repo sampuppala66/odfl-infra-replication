@@ -1,19 +1,24 @@
 variable "gov_folder_name" {
     description = "Gov folder name"
     type = string
-    default = "sba-gov"
+    default = "odfl-gov"
 }
 variable "drone_folder_name" {
     description = "Drone folder name"
     type = string
-    default = "sba-drone"
+    default = "odfl-data"
 }
 
+variable "odfl_folder_name" {
+    description = "odfl folder name"
+    type = string
+    default = "odfl"
+}
 
 variable "shared_folder_name" {
     description = "Shared folder name"
     type = string
-    default = "sba-shared"
+    default = "odfl-shared"
 }
 variable "organization_path" {
     description = "Organization Path"

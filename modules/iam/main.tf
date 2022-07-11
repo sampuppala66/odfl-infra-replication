@@ -1,10 +1,4 @@
 
-resource "google_service_account" "fivetran_service_account" {
-  project      =  "${var.project_id}"
-  account_id   = "${var.project_id}"
-  display_name = "Service account for drone"
-}
-
 resource "google_project_iam_binding" "system_admin" {
   project     =  "${var.project_id}"
   role = "roles/iam.serviceAccountUser"

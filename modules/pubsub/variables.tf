@@ -4,10 +4,10 @@ variable "env" {
 }
 
 
-variable "drone_pubsub_name" {
-  description = "The name of the drone pubsub reservation"
+variable "data_pubsub_name" {
+  description = "The name of the data pubsub reservation"
   type        = string
-  default = "drone-reservation"
+  default = "data-reservation"
 }
 
 variable "project_id" {
