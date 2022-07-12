@@ -10,7 +10,7 @@ resource "google_folder" "gov_folder" {
 }
 
 resource "google_folder" "data_folder" {
-  display_name = var.drone_folder_name
+  display_name = var.data_folder_name
   parent       =google_folder.odfl_folder
 }
 

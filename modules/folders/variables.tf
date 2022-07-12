@@ -3,8 +3,8 @@ variable "gov_folder_name" {
     type = string
     default = "odfl-gov"
 }
-variable "drone_folder_name" {
-    description = "Drone folder name"
+variable "data_folder_name" {
+    description = "Data folder name"
     type = string
     default = "odfl-data"
 }
