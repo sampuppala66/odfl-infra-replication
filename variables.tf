@@ -29,7 +29,7 @@ variable "gcp_zone" {
 variable "terraform_project_id" {
   type        = string
   description = "Environment"
-  default = "odfl-devops-terraform"
+  default = "pandera-cloud-devops-terraform"
 }
 
 

@@ -1,20 +1,16 @@
-resource "google_folder" "odfl_folder" {
-  display_name = var.odfl_folder_name
-  parent       = var.organization_path
-}
 
 resource "google_folder" "gov_folder" {
   display_name = var.gov_folder_name
-  parent       = google_folder.odfl_folder.folder_id
+  parent       = var.odfl_folder_id
 }
 
 resource "google_folder" "data_folder" {
   display_name = var.data_folder_name
-  parent       =google_folder.odfl_folder.folder_id
+  parent       =var.odfl_folder_id
 }
 
 
 resource "google_folder" "shared_folder" {
   display_name = var.shared_folder_name
-  parent       = google_folder.odfl_folder.folder_id
+  parent       = var.odfl_folder_id
 }

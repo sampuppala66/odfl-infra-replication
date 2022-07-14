@@ -9,10 +9,10 @@ variable "data_folder_name" {
     default = "odfl-data"
 }
 
-variable "odfl_folder_name" {
+variable "odfl_folder_id" {
     description = "odfl folder name"
     type = string
-    default = "odfl"
+    default = "folders/878125556822"
 }
 
 variable "shared_folder_name" {
