@@ -1,5 +1,5 @@
-output "drone_project_id"{
- value = google_project.project_drone.project_id
+output "data_project_id"{
+ value = google_project.project_data.project_id
 }
 
 

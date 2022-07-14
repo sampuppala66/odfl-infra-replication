@@ -1,6 +1,6 @@
 
 resource "google_bigquery_dataset" "data_project_data" {
-  dataset_id                  = var._dataset_id
+  dataset_id                  = var.data_dataset_id
   friendly_name                = var.data_dataset_name
   description                 = var.dataset_description
   project                     = var.project_id

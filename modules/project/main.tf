@@ -6,7 +6,7 @@ module "folders"{
 resource "google_project" "project_data" {
   name            = "${var.project_id}"
   project_id      = "${var.project_id}"
-  folder_id          =  module.folders.drone_folder_id
+  folder_id          =  module.folders.data_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }
@@ -21,7 +21,7 @@ resource "google_project_service" "data_service" {
     "iap.googleapis.com"
   ])
   service = each.key
-  project            = google_project.project_drone.project_id
+  project            = google_project.project_data.project_id
   disable_dependent_services = true
 }
 

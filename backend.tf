@@ -1,6 +1,5 @@
 terraform {
-  backend "gcs" {
-    bucket      = "odfl-devops-terraform-states"
-    prefix      = "foundations/"
+  backend "local" {
+    path = "terraform.tfstate"
   }
 }

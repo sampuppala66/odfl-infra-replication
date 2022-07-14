@@ -42,6 +42,10 @@ Two dimention structure for IaC:
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
+│   ├───secret_manager
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
 │   └───...
 ├───backend.tf
 ├───dev.tfvars
@@ -75,16 +79,60 @@ Terrafrom remote state being created in GCP storage.
 ## variables.tf
 Define all the variables being used.
 
-# Terraform commands
-Run the following commands
-```shell
-terraform init -input=false -reconfigure      
-```
+# About
+
+This terraform configuration creates all the inner components of the NESTcc cloud.
+
+## Terraform Design
+
+The Terraform scripts are a multi environment solution. The environments are:
+
+-   `dev`
+-   `preprod`
+-   `prod`
+
+This solution will contain both static files and configurable files for each environment.
+
+# Getting Started
+
+The following dependencies are necessary to run the application.
+
+-   [Terraform](https://www.terraform.io/downloads.html)
+-   [Google Cloud SDK](https://cloud.google.com/sdk/install)
+
+Terraform uses service accounts to grant permissions to create resources within a GCP project.
+To run the scripts the JSON key must be downloaded and set as an environmental variable, `GOOGLE_APPLICATION_CREDENTIALS`.
+
+## 1. Setup Dependecies
 
 ```shell
-terraform plan  -input=false -var-file=".config/terraform.tfvars" -out="./output/tfplan"
+gcloud init
+gcloud auth application-default login
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/terraform/service/account.json
+terraform init
 ```
 
+## 2. Initialize Terraform
+
 ```shell
-terraform apply -input=false "./output/tfplan"
+ENV="dev" # Or whatever env (dev, preprod, prod)
+cd src/ # Navigate to the source folder
+terraform init -input=false -reconfigure -backend-config="../envs/${ENV}/config/backend.tfvars"
+```
+
+## 2. Plan
+
+Use the following command to produce a reviewable plan. Use the -out argument to persist the plan to an output file.
+
+```shell
+terraform plan -input=false -out="../output/tfplan" -var-file="../envs/${ENV}/config/terraform.tfvars"
+```
+
+## 3. Apply
+
+Use to run a generated plan. This will modify infrastructure.
+
+```shell
+terraform apply -input=false -auto-approve "../output/tfplan"
+
 ```

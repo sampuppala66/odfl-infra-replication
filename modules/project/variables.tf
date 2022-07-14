@@ -19,7 +19,7 @@ variable "gov_folder_id" {
   type        = string
   default = "958951584553"
 }
-variable "drone_folder_id" {
+variable "data_folder_id" {
   description = "The ID of the folder in which the resource belongs."
   type        = string
   default = "490944686407"

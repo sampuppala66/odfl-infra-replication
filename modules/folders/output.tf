@@ -1,5 +1,5 @@
-output drone_folder_id {
-    value = google_folder.drone_folder.folder_id
+output data_folder_id {
+    value = google_folder.data_folder.folder_id
 }
 
 
