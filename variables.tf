@@ -51,12 +51,10 @@ variable "cloudsql_database_version" {
   default = "POSTGRESQL_14"
 }
 
-
-
 variable "cloudsql_tier" {
   description = "The machine type to use. See tiers for more details and supported versions. Postgres supports only shared-core machine types such as db-f1-micro, and custom machine types such as db-custom-2-13312. See the Custom Machine Type Documentation to learn about specifying custom machine types."
   type        = string
-  default = "db-n1-standard-1"
+  default = "db-f1-micro"
 }
 
 variable "cloudsql_availability_type" {

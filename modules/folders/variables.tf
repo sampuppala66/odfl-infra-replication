@@ -23,5 +23,5 @@ variable "shared_folder_name" {
 variable "organization_path" {
     description = "Organization Path"
     type = string
-    default = "organizations/165518439462"
+    default = "organizations/602537848415"
 }
