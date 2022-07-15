@@ -37,6 +37,12 @@ variable "billing_project_name" {
   default = "odfl-gov-billing"
 }
 
+variable "project_shared_hvpc_id" {
+    description = "The ID of the project in which the resource belongs."
+  type        = string
+  default = "odfl-shared-hvpc"
+}
+
 variable "env" {
   type        = string
   description = "Environment"
@@ -48,3 +54,5 @@ variable "billing_account"{
   description = "The billing account"
   default = "01576B-0CD5E1-6341D4"
 }
+
+

@@ -72,16 +72,16 @@ resource "google_project_service" "billing_service" {
   disable_dependent_services = true
 }
 
-resource "google_project" "project_shared_hpvc" {
-  name            = var.project_shared_hpvc_id
-  project_id      = var.project_shared_hpvc_id
-  folder_id          = module.folders.gov_folder_id
+resource "google_project" "project_shared_hvpc" {
+  name            = var.project_shared_hvpc_id
+  project_id      = var.project_shared_hvpc_id
+  folder_id          = module.folders.shared_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }
 
 
-resource "google_project_service" "hpvc_service" {
+resource "google_project_service" "hvpc_service" {
   for_each = toset([
     "cloudresourcemanager.googleapis.com",
     "storage-api.googleapis.com",
@@ -91,6 +91,6 @@ resource "google_project_service" "hpvc_service" {
     "bigquery.googleapis.com"
   ])
   service = each.key
-  project            = google_project.project_audit.project_id
+  project            = google_project.project_shared_hvpc.project_id
   disable_dependent_services = true
 }
