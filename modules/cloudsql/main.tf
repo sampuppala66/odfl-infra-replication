@@ -1,7 +1,7 @@
-resource "google_sql_database_instance" "data_instance" {
+resource "google_sql_database_instance" "db_instance" {
   name             = "${var.project_id}-${random_string.four_chars.result}"
   region           = var.data_database_region
-  database_version = var.data_database_version
+  database_version = var.odfl_database_version
   settings {
     tier = var.data_database_tier
   }
@@ -9,6 +9,10 @@ resource "google_sql_database_instance" "data_instance" {
   deletion_protection  = var.data_database_protection
 }
 
+resource "google_sql_database" "database" {
+  name     = "odfl-database"
+  instance = google_sql_database_instance.db_instance.name
+}
 
 resource "random_string" "four_chars" {
   length  = 4
