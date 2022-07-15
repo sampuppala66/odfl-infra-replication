@@ -72,9 +72,9 @@ resource "google_project_service" "billing_service" {
   disable_dependent_services = true
 }
 
-resource "google_project" "project_hpvc" {
-  name            = var.billing_project_name
-  project_id      = var.billing_project_id
+resource "google_project" "project_shared_hpvc" {
+  name            = var.project_shared_hpvc_id
+  project_id      = var.project_shared_hpvc_id
   folder_id          = module.folders.gov_folder_id
   billing_account = var.billing_account
   auto_create_network = false

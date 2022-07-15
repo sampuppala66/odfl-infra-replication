@@ -1,17 +1,7 @@
-resource "random_id" "rand" {
-  byte_length = 2
-}
-
-resource "google_sql_database_instance" "data_instance" {
+resource "google_sql_database_instance" "db_instance" {
   name             = "${var.project_id}-${random_string.four_chars.result}"
   region           = var.data_database_region
-  database_version = var.data_database_version
-
-
- root_password    = var.cloudsql_root_password
-
-  deletion_protection = false
-
+  database_version = var.odfl_database_version
   settings {
     tier              = var.cloudsql_tier
     availability_type = var.cloudsql_availability_type
@@ -45,7 +35,7 @@ resource "google_sql_user" "users" {
   project  = var.project_id
   name     = "root"
   password = var.cloudsql_root_password
-  instance = google_sql_database_instance.data_instance.name
+  instance = google_sql_database_instance.db_instance.name
   type     = ""
 }
 
@@ -54,8 +44,8 @@ resource "google_sql_user" "users" {
  */
 resource "google_sql_ssl_cert" "client_cert" {
   project     = var.project_id
-  common_name = "${var.cloudsql_name}-${random_id.rand.hex}"
-  instance    = google_sql_database_instance.data_instance.name
+  common_name = "${var.cloudsql_name}-${random_string.four_chars.result}"
+  instance    = google_sql_database_instance.db_instance.name
 }
 
 /**
@@ -95,6 +85,10 @@ resource "google_secret_manager_secret" "server_ca_cert" {
   }
 }
 
+resource "google_sql_database" "database" {
+  name     = "odfl-database"
+  instance = google_sql_database_instance.db_instance.name
+}
 
 resource "random_string" "four_chars" {
   length  = 4

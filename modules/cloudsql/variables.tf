@@ -17,10 +17,10 @@ variable "data_database_name" {
 variable "data_database_region" {
   description = "The region of the db"
   type        = string
-  default = "us-central1"
+  default = "us-east1"
 }
 
-variable "data_database_version" {
+variable "odfl_database_version" {
   description = "The version of the db"
   type        = string
   default = "POSTGRES_14"
