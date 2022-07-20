@@ -25,7 +25,7 @@ resource "google_sql_database_instance" "db_instance" {
     }
   }
 
-  # depends_on = [module.networks.host_vpc_network]
+  depends_on = [module.networks.host_vpc_network]
 }
 
 /**
