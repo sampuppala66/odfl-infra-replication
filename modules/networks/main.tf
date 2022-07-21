@@ -5,6 +5,21 @@ resource "google_compute_network" "vpc_network" {
 
 }
 
+# resource "google_compute_global_address" "private_ip_address" {
+#   name          = "private-ip-address"
+#   purpose       = "VPC_PEERING"
+#   address_type  = "INTERNAL"
+#   prefix_length = 16
+#   network       = google_compute_network.vpc_network.id
+# }
+
+# resource "google_service_networking_connection" "private_vpc_connection" {
+#   network                 = google_compute_network.vpc_network.id
+#   service                 = "servicenetworking.googleapis.com"
+#   reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+# }
+
+
 resource "google_compute_subnetwork" "data_subnetwork" {
   name = "${var.subnet_name}-${var.env}"
   ip_cidr_range = var.data_subnetwork_cidr_range
@@ -13,27 +28,29 @@ resource "google_compute_subnetwork" "data_subnetwork" {
   project   = "${var.project_id}"
 }
 
-resource "google_compute_firewall" "rule-deny-ssh" {
-  project     = "${var.project_id}"
-  name        = "ssh-deny-fw-rule"
-  network     =  google_compute_network.vpc_network.name
-  description = "firewall rule denying ssh"
-  source_tags = ["data"]
-  deny {
-    protocol = "tcp"
-    ports    = ["22"]
-  }
-}
+# resource "google_compute_firewall" "rule-deny-ssh" {
+#   project     = "${var.project_id}"
+#   name        = "ssh-deny-fw-rule"
+#   network     =  google_compute_network.vpc_network.name
+#   description = "firewall rule denying ssh"
+#   source_tags = ["data"]
+#   deny {
+#     protocol = "tcp"
+#     ports    = ["22"]
+#   }
+# }
 
 resource "google_compute_firewall" "rule-allow-tcp" {
   project     = "${var.project_id}"
   name        = "tcp-allow-firewall-rule"
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule allowing tcp"
-  source_tags = ["data"]
+  target_tags = ["allow-ssh"]
+
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
+    ports    = ["80", "8080", "1000-2000", "22", "443"]
   }
 }
+

@@ -1,4 +1,14 @@
 
+
+resource "google_service_account" "hvr_service_account" {
+  project      =  var.project_id
+  account_id   = var.service_account_id
+  display_name = var.service_account_id
+  description = "hvr service account"
+}
+
+
+
 # resource "google_project_iam_binding" "system_admin" {
 #   project     =  "${var.project_id}"
 #   role = "roles/iam.serviceAccountUser"
@@ -21,7 +31,8 @@ data "google_iam_policy" "admin" {
     role = "roles/resourcemanager.folderAdmin"
 
     members = [
-      "user:sam.puppala@panderasystems.com"
+      "user:sam.puppala@panderasystems.com",
+      "user:joshua.ibrahim@panderasystems.com"
     ]
   }
 }
@@ -75,28 +86,46 @@ data "google_iam_policy" "admin" {
 # }
 
 
-# resource "google_project_iam_binding" "bigquery_user" {
-#   project     = "${var.project_id}"
-#   role = "roles/bigquery.user"
-#   members = [
-#   ]
-# }
-# resource "google_project_iam_binding" "bigquery_editor" {
-#   project     =  "${var.project_id}"
-#   role = "roles/bigquery.dataEditor"
-#   members = []
-# }
+resource "google_project_iam_binding" "bigquery_user" {
+  project     = "${var.project_id}"
+  role = "roles/bigquery.user"
+    members = ["user:carter.richard@panderasystems.com",
+               "group:ADFS_GCP-Developers@odfl.com",
+               "serviceAccount:${google_service_account.hvr_service_account.email}"]
+}
+
+resource "google_project_iam_binding" "bigquery_editor" {
+  project     =  "${var.project_id}"
+  role = "roles/bigquery.dataEditor"
+  members = ["user:carter.richard@panderasystems.com", 
+            "group:ADFS_GCP-Developers@odfl.com", 
+            "serviceAccount:${google_service_account.hvr_service_account.email}"]
+}
 
 
-# resource "google_project_iam_binding" "cloudsql_viewer" {
-#   project     =  "${var.project_id}"
-#   role = "roles/cloudsql.viewer"
-#   members = []
-# }
+resource "google_project_iam_binding" "cloudsql_admin" {
+  project     =  "${var.project_id}"
+  role = "roles/cloudsql.admin"
+  members = ["user:joshua.ibrahim@panderasystems.com",
+             "group:ADFS_GCP-Developers@odfl.com",
+              "user:carter.richard@panderasystems.com",
+              "user:sam.puppala@panderasystems.com"
+              ]
+}
 
 
-# resource "google_project_iam_binding" "auditor" {
-#   project     =  "${var.project_id}"
-#   role = "roles/storage.objectViewer"
-#   members = []
-# }
+
+resource "google_project_iam_binding" "service_account_admin" {
+  project     =  "${var.project_id}"
+  role = "roles/iam.serviceAccountAdmin"
+  members = ["user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com"
+              ]
+}
+
+
+resource "google_project_iam_binding" "cloudsql_client" {
+  project     =  "${var.project_id}"
+  role = "roles/cloudsql.client"
+  members = ["serviceAccount:${google_service_account.hvr_service_account.email}"]
+}

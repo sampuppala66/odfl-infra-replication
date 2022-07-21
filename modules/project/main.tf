@@ -18,7 +18,8 @@ resource "google_project_service" "data_service" {
     "storage-component.googleapis.com",
     "storage.googleapis.com",
     "bigquery.googleapis.com",
-    "iap.googleapis.com"
+    "iap.googleapis.com",
+    "servicenetworking.googleapis.com"
   ])
   service = each.key
   project            = google_project.project_data.project_id

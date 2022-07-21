@@ -17,7 +17,7 @@ variable "env" {
 variable "gcp_region" {
   type        = string
   description = "GCP region"
-  default     = "us-west1"
+  default     = "us-east1"
 }
 
 variable "gcp_zone" {
@@ -32,7 +32,11 @@ variable "terraform_project_id" {
   default = "pandera-cloud-devops-terraform"
 }
 
-
+variable "cloudsql_root_password" {
+   type        = string
+  description = ""
+  default = "Exp31n5er_=!"
+}
 variable "secret_id" {
   type        = string
   description = "Environment"
@@ -93,5 +97,44 @@ variable "cloudsql_backup_start_time" {
   type        = string
   default = "04:00"
 }
+variable "service_account_name" {
+  description = "HVR service Account name"
+  type        = string
+  default = "odfl-hvr-sa"
+}
 
+variable "delta_vm_type" {
+  description = "Vm instance type"
+  type        = string
+  default = "n2-standard-4"
+}
 
+variable "vm_instance_name" {
+  description = "Vm instance type"
+  type        = string
+  default = "odfl-pilot-hvr-vm"
+}
+
+variable "delta_vm_disk_type" {
+  description = "Vm instance type"
+  type        = string
+  default = "pd-standard"
+}
+
+variable "delta_vm_disk_size" {
+  description = "disk"
+  type        = string
+  default = "20"
+}
+
+variable "resources_zone" {
+  description = "Vm instance type"
+  type        = string
+  default = "us-east1-c"
+}
+
+variable "hostname" {
+  description = "hostname"
+  type        = string
+  default = "odfl-pilot-hvr-agent"
+}

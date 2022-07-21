@@ -28,6 +28,5 @@ variable "data_subnetwork_cidr_range" {
 variable "data_subnetwork_region" {
   description = "The region for the for the subnetwork"
   type = string
-  default = "us-central1"
   
 }
