@@ -7,6 +7,13 @@ resource "google_service_account" "hvr_service_account" {
   description = "hvr service account"
 }
 
+resource "google_service_account" "compute_service_account" {
+  project      =  var.project_id
+  account_id   = "odfl-pilot-vm-sa-dev"
+  display_name = "odfl-pilot-vm-sa-dev"
+  description = "compute service account"
+}
+
 
 
 # resource "google_project_iam_binding" "system_admin" {
@@ -119,7 +126,8 @@ resource "google_project_iam_binding" "service_account_admin" {
   project     =  "${var.project_id}"
   role = "roles/iam.serviceAccountAdmin"
   members = ["user:joshua.ibrahim@panderasystems.com",
-              "user:sam.puppala@panderasystems.com"
+              "user:sam.puppala@panderasystems.com",
+              "serviceAccount:${google_service_account.compute_service_account.email}"
               ]
 }
 
@@ -129,3 +137,5 @@ resource "google_project_iam_binding" "cloudsql_client" {
   role = "roles/cloudsql.client"
   members = ["serviceAccount:${google_service_account.hvr_service_account.email}"]
 }
+
+

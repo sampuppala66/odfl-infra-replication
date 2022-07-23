@@ -58,10 +58,10 @@ variable "type" {
   type        = string
 }
 
-# variable "hostname" {
-#   description = "the hostname"
-#   type        = string
-# }
+variable "service_account_email" {
+  description = "the service account email"
+  type        = string
+}
 
 variable "tags" {
   description = "the hostname"

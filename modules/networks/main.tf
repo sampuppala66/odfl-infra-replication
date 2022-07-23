@@ -46,11 +46,10 @@ resource "google_compute_firewall" "rule-allow-tcp" {
   network     =  google_compute_network.vpc_network.name
   description = "firewall rule allowing tcp"
   target_tags = ["allow-ssh"]
-
+  source_ranges = [ "35.235.240.0/20"]
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000", "22", "443"]
+    ports    = ["80", "8080", "22", "443",]
   }
 }
-

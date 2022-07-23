@@ -48,13 +48,14 @@ module "compute_instance" {
   name                     = "${var.vm_instance_name}-${var.env}"
   machine_type             = var.delta_vm_type
   zone                     = var.resources_zone
-  tags                     = ["allow-ssh", "allow-egress-delta", "allow-nginx"]
+  tags                     = ["allow-ssh"]
   image                    = "ubuntu-1804-bionic-v20210412"
   auto_delete              = true
   size                     = var.delta_vm_disk_size
   type                     = var.delta_vm_disk_type
   network                  = module.networks.host_vpc_network
   subnetwork               = module.networks.vpc_subnetwork
+  service_account_email = module.iam.compute_service_account_email
   # subnetwork_project       =  "${var.project_id}-${var.env}"
 
 }

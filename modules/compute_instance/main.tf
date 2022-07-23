@@ -1,8 +1,6 @@
-
-
-resource "google_compute_address" "static" {
-  name = "ipv4-address"
-}
+# resource "google_compute_address" "static" {
+#   name = "ipv4-address"
+# }
 
 /**
  * Create compute instance
@@ -13,6 +11,7 @@ resource "google_compute_instance" "hvr_agent_vm" {
   machine_type = var.machine_type
   zone         = var.zone
   tags         = var.tags
+  allow_stopping_for_update = true 
   # hostname = var.hostname
 
   boot_disk {
@@ -28,10 +27,39 @@ resource "google_compute_instance" "hvr_agent_vm" {
     network            = var.network
     subnetwork         = var.subnetwork
     # subnetwork_project = var.subnetwork_project
-    access_config {
-      nat_ip = google_compute_address.static.address
-    }
+    # access_config {
+    #   nat_ip = google_compute_address.static.address
+    # }
+  }
+  
+  service_account {
+    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+    email  = var.service_account_email
+    scopes = ["cloud-platform"]
+  }
+
+metadata = {
+        enable-os-login = "true"
   }
 }
 
+
+data "google_iam_policy" "admin" {
+  binding {
+    role = "roles/iap.tunnelResourceAccessor"
+    members = [
+      "user:sam.puppala@panderasystems.com",
+      "user:carter.richard@panderasystems.com",
+      "user:joshua.ibrahim@panderasystems.com"
+    ]
+  }
+}
+
+
+resource "google_iap_tunnel_instance_iam_policy" "policy" {
+  project = google_compute_instance.hvr_agent_vm.project
+  zone = google_compute_instance.hvr_agent_vm.zone
+  instance = google_compute_instance.hvr_agent_vm.name
+  policy_data = data.google_iam_policy.admin.policy_data
+}
 
