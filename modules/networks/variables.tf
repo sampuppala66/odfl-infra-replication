@@ -30,3 +30,9 @@ variable "data_subnetwork_region" {
   type = string
   
 }
+
+variable "host_project_id" {
+  description = "The host project_id"
+  type = string
+  
+}

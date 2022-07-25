@@ -138,3 +138,53 @@ variable "hostname" {
   type        = string
   default = "odfl-pilot-hvr-agent"
 }
+
+variable "odfl_folder_id" {
+  description = "ODFL folder Id"
+  type = string
+  default = "folders/878125556822"
+}
+
+variable "bigquery_users" {
+  description = "list of big query users"
+  type = list(string)
+  default = ["user:carter.richard@panderasystems.com",
+               "group:ADFS_GCP-Developers@odfl.com"
+               ]
+  
+}
+
+variable "bigquery_editors" {
+  description = "list of big query editors"
+  type = list(string)
+  default = ["user:carter.richard@panderasystems.com", 
+            "group:ADFS_GCP-Developers@odfl.com"
+            ]
+}
+
+variable "cloudsql_admins" {
+  description = "list of loudsql admin"
+  type = list(string)
+  default = ["user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com"
+              ]
+  
+}
+
+variable "service_account_admins" {
+  description = "list of service account admins"
+  type = list(string)
+  default = ["user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com",
+              ]
+  
+}
+
+
+variable "odfl_folder_admins" {
+  description = "list of odfl folder admins"
+  type = list(string)
+  default = ["user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com",
+              ]
+}
