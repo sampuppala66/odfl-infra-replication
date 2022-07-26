@@ -19,7 +19,10 @@ resource "google_project_service" "data_service" {
     "storage.googleapis.com",
     "bigquery.googleapis.com",
     "iap.googleapis.com",
-    "servicenetworking.googleapis.com"
+    "servicenetworking.googleapis.com",
+    "dlp.googleapis.com",
+    "datacatalog.googleapis.com",
+    "bigquerydatapolicy.googleapis.com"
   ])
   service = each.key
   project            = google_project.project_data.project_id
@@ -89,7 +92,8 @@ resource "google_project_service" "hvpc_service" {
     "iam.googleapis.com",
     "storage-component.googleapis.com",
     "storage.googleapis.com",
-    "bigquery.googleapis.com"
+    "bigquery.googleapis.com",
+     "servicenetworking.googleapis.com",
   ])
   service = each.key
   project            = google_project.project_shared_hvpc.project_id

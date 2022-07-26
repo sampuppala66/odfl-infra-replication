@@ -1,7 +1,7 @@
 variable "project_id" {
   description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
   type        = string
-  default = "odfl-gca-pilot"
+  default = "odfl-gca-pilot-test"
 }
 variable "credential_file" {
   type        = string
@@ -163,7 +163,7 @@ variable "bigquery_editors" {
 }
 
 variable "cloudsql_admins" {
-  description = "list of loudsql admin"
+  description = "list of cloudsql admin"
   type = list(string)
   default = ["user:joshua.ibrahim@panderasystems.com",
               "user:sam.puppala@panderasystems.com"
@@ -187,4 +187,15 @@ variable "odfl_folder_admins" {
   default = ["user:joshua.ibrahim@panderasystems.com",
               "user:sam.puppala@panderasystems.com",
               ]
+}
+
+variable "vpc_name" {
+    description = "vpc name"
+    type = string
+    default = "odfl-hostvpc"
+}
+variable "subnet_name" {
+    description = "subnet name"
+    type = string
+    default = "odfl-pilot-subnet"
 }
