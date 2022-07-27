@@ -11,7 +11,15 @@ Two dimention structure for IaC:
 │───README.md
 │
 ├───config
-│       terraform.tfvars
+│   ├───test
+│   │   terraform.tfvars
+│   │   backend.tfvars
+│   ├───dev
+│   │   terraform.tfvars
+│   │   backend.tfvars
+│   ├───prod
+│   │   terraform.tfvars
+│   │   backend.tfvars
 │
 ├───modules
 │   ├───bigquery
@@ -48,7 +56,6 @@ Two dimention structure for IaC:
 │   │       variables.tf
 │   └───...
 ├───backend.tf
-├───dev.tfvars
 ├───main.tf
 ├───provider.tf
 ├───variables.tf
