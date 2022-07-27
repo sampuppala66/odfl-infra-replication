@@ -6,7 +6,7 @@ variable "project_id" {
 variable "credential_file" {
   type        = string
   description = "Service account key file"
-  default     = "./odfl-devops-terraform-777240d02250.json"
+  default     = "odfl-devops-terraform-777240d02250.json"
 }
 
 variable "env" {
