@@ -1,7 +1,3 @@
-module "folders"{
-    source = "../folders"
-}
-
 
 resource "google_project" "project_data" {
   name            = "${var.project_id}"

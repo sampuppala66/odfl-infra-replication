@@ -1,0 +1,1547 @@
+{
+  "version": 4,
+  "terraform_version": "1.2.5",
+  "serial": 331,
+  "lineage": "ab604d8c-d99e-9487-08d0-324b043fbcc0",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_dataset",
+      "name": "audit_data",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access": [
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "OWNER",
+                "special_group": "",
+                "user_by_email": "terraform-internal-sa@pandera-cloud-devops-terraform.iam.gserviceaccount.com",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "OWNER",
+                "special_group": "projectOwners",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "READER",
+                "special_group": "projectReaders",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "WRITER",
+                "special_group": "projectWriters",
+                "user_by_email": "",
+                "view": []
+              }
+            ],
+            "creation_time": 1658406322118,
+            "dataset_id": "odfl_gov_audit_logs",
+            "default_encryption_configuration": [],
+            "default_partition_expiration_ms": 0,
+            "default_table_expiration_ms": 0,
+            "delete_contents_on_destroy": false,
+            "description": "odfl audit logs data",
+            "etag": "3NZOQHfZ62eql0kodhs6UA==",
+            "friendly_name": "odfl-audit-logs",
+            "id": "projects/odfl-gov-audit/datasets/odfl_gov_audit_logs",
+            "labels": {},
+            "last_modified_time": 1658406322118,
+            "location": "us-central1",
+            "project": "odfl-gov-audit",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/odfl-gov-audit/datasets/odfl_gov_audit_logs",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_dataset",
+      "name": "data_project_data",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access": [
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "OWNER",
+                "special_group": "",
+                "user_by_email": "terraform-internal-sa@pandera-cloud-devops-terraform.iam.gserviceaccount.com",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "OWNER",
+                "special_group": "projectOwners",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "READER",
+                "special_group": "projectReaders",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "role": "WRITER",
+                "special_group": "projectWriters",
+                "user_by_email": "",
+                "view": []
+              }
+            ],
+            "creation_time": 1658406322218,
+            "dataset_id": "odfl_data_data",
+            "default_encryption_configuration": [],
+            "default_partition_expiration_ms": 0,
+            "default_table_expiration_ms": 0,
+            "delete_contents_on_destroy": false,
+            "description": "odfl supply chain analytical data",
+            "etag": "aIdXl5N6wsgxVWhJFN2l3w==",
+            "friendly_name": "odfl audit logs data",
+            "id": "projects/odfl-gca-pilot-dev/datasets/odfl_data_data",
+            "labels": {},
+            "last_modified_time": 1658406322218,
+            "location": "us-central1",
+            "project": "odfl-gca-pilot-dev",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/odfl-gca-pilot-dev/datasets/odfl_data_data",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery_editor",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/bigquery.dataEditor",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/bigquery.dataEditor",
+            "members": [
+              "group:ADFS_GCP-Developers@odfl.com",
+              "user:carter.richard@panderasystems.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/bigquery.dataEditor"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery_user",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/bigquery.user",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/bigquery.user",
+            "members": [
+              "group:ADFS_GCP-Developers@odfl.com",
+              "user:carter.richard@panderasystems.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/bigquery.user"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudsql",
+      "mode": "managed",
+      "type": "google_sql_database",
+      "name": "database",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": []
+    },
+    {
+      "module": "module.cloudsql",
+      "mode": "managed",
+      "type": "random_string",
+      "name": "four_chars",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "id": "r9c5",
+            "keepers": null,
+            "length": 4,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "numeric": true,
+            "override_special": null,
+            "result": "r9c5",
+            "special": false,
+            "upper": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudsql_admins",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/iam.serviceAccountAdmin",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/iam.serviceAccountAdmin",
+            "members": [
+              "user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/iam.serviceAccountAdmin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.compute_instance",
+      "mode": "data",
+      "type": "google_iam_policy",
+      "name": "admin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "audit_config": null,
+            "binding": [
+              {
+                "condition": [],
+                "members": [
+                  "user:carter.richard@panderasystems.com",
+                  "user:joshua.ibrahim@panderasystems.com",
+                  "user:sam.puppala@panderasystems.com"
+                ],
+                "role": "roles/iap.tunnelResourceAccessor"
+              }
+            ],
+            "id": "495588869",
+            "policy_data": "{\"bindings\":[{\"members\":[\"user:carter.richard@panderasystems.com\",\"user:joshua.ibrahim@panderasystems.com\",\"user:sam.puppala@panderasystems.com\"],\"role\":\"roles/iap.tunnelResourceAccessor\"}]}"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.compute_instance",
+      "mode": "managed",
+      "type": "google_iap_tunnel_instance_iam_policy",
+      "name": "policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": []
+    },
+    {
+      "module": "module.compute_service_account",
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "service_account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "odfl-pilot-vm-sa-dev",
+            "description": "compute service account",
+            "disabled": false,
+            "display_name": "odfl-pilot-vm-sa-dev",
+            "email": "odfl-pilot-vm-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "id": "projects/odfl-gca-pilot-dev/serviceAccounts/odfl-pilot-vm-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "name": "projects/odfl-gca-pilot-dev/serviceAccounts/odfl-pilot-vm-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "project": "odfl-gca-pilot-dev",
+            "timeouts": null,
+            "unique_id": "102555643056015971150"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.compute_sevice_account_permissions",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/iam.serviceAccountAdmin",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXkore37jo=",
+            "id": "odfl-gca-pilot-dev/roles/iam.serviceAccountAdmin",
+            "members": [
+              "serviceAccount:odfl-pilot-vm-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/iam.serviceAccountAdmin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.compute_service_account.google_service_account.service_account",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.hvr_service_acount",
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "service_account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "odfl-hvr-sa-dev",
+            "description": "hvr service account",
+            "disabled": false,
+            "display_name": "odfl-hvr-sa-dev",
+            "email": "odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "id": "projects/odfl-gca-pilot-dev/serviceAccounts/odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "name": "projects/odfl-gca-pilot-dev/serviceAccounts/odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com",
+            "project": "odfl-gca-pilot-dev",
+            "timeouts": null,
+            "unique_id": "113604267537588853883"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.hvr_sevice_account_permissions",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/bigquery.dataEditor",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/bigquery.dataEditor",
+            "members": [
+              "serviceAccount:odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/bigquery.dataEditor"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.hvr_service_acount.google_service_account.service_account",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "roles/bigquery.user",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/bigquery.user",
+            "members": [
+              "serviceAccount:odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/bigquery.user"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.hvr_service_acount.google_service_account.service_account",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "roles/cloudsql.client",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXkore37jo=",
+            "id": "odfl-gca-pilot-dev/roles/cloudsql.client",
+            "members": [
+              "serviceAccount:odfl-hvr-sa-dev@odfl-gca-pilot-dev.iam.gserviceaccount.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/cloudsql.client"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.hvr_service_acount.google_service_account.service_account",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.iam",
+      "mode": "data",
+      "type": "google_iam_policy",
+      "name": "admin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "audit_config": null,
+            "binding": [
+              {
+                "condition": [],
+                "members": [
+                  "user:joshua.ibrahim@panderasystems.com",
+                  "user:sam.puppala@panderasystems.com"
+                ],
+                "role": "roles/resourcemanager.folderAdmin"
+              }
+            ],
+            "id": "89841340",
+            "policy_data": "{\"bindings\":[{\"members\":[\"user:joshua.ibrahim@panderasystems.com\",\"user:sam.puppala@panderasystems.com\"],\"role\":\"roles/resourcemanager.folderAdmin\"}]}"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.iam",
+      "mode": "managed",
+      "type": "google_folder_iam_policy",
+      "name": "odfl_folder_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "etag": "BwXkZPdQlRg=",
+            "folder": "folders/878125556822",
+            "id": "folders/878125556822",
+            "policy_data": "{\"bindings\":[{\"members\":[\"user:joshua.ibrahim@panderasystems.com\",\"user:sam.puppala@panderasystems.com\"],\"role\":\"roles/resourcemanager.folderAdmin\"}]}"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.iam.data.google_iam_policy.admin",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networks",
+      "mode": "managed",
+      "type": "google_compute_firewall",
+      "name": "rule-allow-tcp",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "allow": [
+              {
+                "ports": [
+                  "80",
+                  "8080",
+                  "22",
+                  "443"
+                ],
+                "protocol": "tcp"
+              }
+            ],
+            "creation_timestamp": "2022-07-25T09:25:27.501-07:00",
+            "deny": [],
+            "description": "firewall rule allowing tcp",
+            "destination_ranges": [],
+            "direction": "INGRESS",
+            "disabled": false,
+            "enable_logging": null,
+            "id": "projects/odfl-shared-hvpc/global/firewalls/odfl-fw-ingress-allow-ssh-vm-dev",
+            "log_config": [],
+            "name": "odfl-fw-ingress-allow-ssh-vm-dev",
+            "network": "https://www.googleapis.com/compute/v1/projects/odfl-shared-hvpc/global/networks/odfl-hostvpc-dev",
+            "priority": 1000,
+            "project": "odfl-shared-hvpc",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/odfl-shared-hvpc/global/firewalls/odfl-fw-ingress-allow-ssh-vm-dev",
+            "source_ranges": [
+              "35.235.240.0/20"
+            ],
+            "source_service_accounts": null,
+            "source_tags": null,
+            "target_service_accounts": null,
+            "target_tags": [
+              "allow-ssh"
+            ],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.networks.google_compute_network.vpc_network",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networks",
+      "mode": "managed",
+      "type": "google_compute_network",
+      "name": "vpc_network",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "auto_create_subnetworks": false,
+            "delete_default_routes_on_create": false,
+            "description": "",
+            "enable_ula_internal_ipv6": false,
+            "gateway_ipv4": "",
+            "id": "projects/odfl-shared-hvpc/global/networks/odfl-hostvpc-dev",
+            "internal_ipv6_range": "",
+            "mtu": 0,
+            "name": "odfl-hostvpc-dev",
+            "project": "odfl-shared-hvpc",
+            "routing_mode": "REGIONAL",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/odfl-shared-hvpc/global/networks/odfl-hostvpc-dev",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.networks",
+      "mode": "managed",
+      "type": "google_compute_subnetwork",
+      "name": "data_subnetwork",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "creation_timestamp": "2022-07-25T09:25:29.353-07:00",
+            "description": "",
+            "external_ipv6_prefix": "",
+            "fingerprint": null,
+            "gateway_address": "10.2.0.1",
+            "id": "projects/odfl-shared-hvpc/regions/us-east1/subnetworks/odfl-pilot-subnet-dev",
+            "ip_cidr_range": "10.2.0.0/26",
+            "ipv6_access_type": "",
+            "ipv6_cidr_range": "",
+            "log_config": [],
+            "name": "odfl-pilot-subnet-dev",
+            "network": "https://www.googleapis.com/compute/v1/projects/odfl-shared-hvpc/global/networks/odfl-hostvpc-dev",
+            "private_ip_google_access": false,
+            "private_ipv6_google_access": "DISABLE_GOOGLE_ACCESS",
+            "project": "odfl-shared-hvpc",
+            "purpose": "PRIVATE",
+            "region": "us-east1",
+            "role": "",
+            "secondary_ip_range": [],
+            "self_link": "https://www.googleapis.com/compute/v1/projects/odfl-shared-hvpc/regions/us-east1/subnetworks/odfl-pilot-subnet-dev",
+            "stack_type": "IPV4_ONLY",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.networks.google_compute_network.vpc_network",
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project",
+      "name": "project_audit",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "auto_create_network": false,
+            "billing_account": "01576B-0CD5E1-6341D4",
+            "folder_id": "849677534575",
+            "id": "projects/odfl-gov-audit",
+            "labels": {},
+            "name": "odfl-gov-audit",
+            "number": "184003029910",
+            "org_id": "",
+            "project_id": "odfl-gov-audit",
+            "skip_delete": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJyZWFkIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project",
+      "name": "project_billing",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "auto_create_network": false,
+            "billing_account": "01576B-0CD5E1-6341D4",
+            "folder_id": "849677534575",
+            "id": "projects/odfl-gov-billing",
+            "labels": {},
+            "name": "odfl-gov-billing",
+            "number": "404507999475",
+            "org_id": "",
+            "project_id": "odfl-gov-billing",
+            "skip_delete": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJyZWFkIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project",
+      "name": "project_data",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "auto_create_network": false,
+            "billing_account": "01576B-0CD5E1-6341D4",
+            "folder_id": "684427362895",
+            "id": "projects/odfl-gca-pilot-dev",
+            "labels": {},
+            "name": "odfl-gca-pilot-dev",
+            "number": "686523465160",
+            "org_id": "",
+            "project_id": "odfl-gca-pilot-dev",
+            "skip_delete": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJyZWFkIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project",
+      "name": "project_shared_hvpc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "auto_create_network": false,
+            "billing_account": "01576B-0CD5E1-6341D4",
+            "folder_id": "92914926716",
+            "id": "projects/odfl-shared-hvpc",
+            "labels": {},
+            "name": "odfl-shared-hvpc",
+            "number": "480227056901",
+            "org_id": "",
+            "project_id": "odfl-shared-hvpc",
+            "skip_delete": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJyZWFkIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "audit_service",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "bigquery.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/bigquery.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "bigquery.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "cloudresourcemanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/cloudresourcemanager.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "cloudresourcemanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "iam.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/iam.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "iam.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage-api.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage-api.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage-api.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage-component.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage-component.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage-component.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "billing_service",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "bigquery.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/bigquery.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "bigquery.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "cloudresourcemanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/cloudresourcemanager.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "cloudresourcemanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "iam.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/iam.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "iam.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage-api.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage-api.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage-api.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage-component.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage-component.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage-component.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gov-audit/storage.googleapis.com",
+            "project": "odfl-gov-audit",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.module.folders.google_folder.gov_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "data_service",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "bigquery.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/bigquery.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "bigquery.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "datacatalog.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/datacatalog.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "datacatalog.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data"
+          ]
+        },
+        {
+          "index_key": "dlp.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/dlp.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "dlp.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data"
+          ]
+        },
+        {
+          "index_key": "iam.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/iam.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "iam.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "iap.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/iap.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "iap.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "servicenetworking.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/servicenetworking.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "servicenetworking.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "storage-api.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/storage-api.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "storage-api.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "storage-component.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/storage-component.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "storage-component.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-gca-pilot-dev/storage.googleapis.com",
+            "project": "odfl-gca-pilot-dev",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_data",
+            "module.project.module.folders.google_folder.data_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project",
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "hvpc_service",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "bigquery.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/bigquery.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "bigquery.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "cloudresourcemanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/cloudresourcemanager.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "cloudresourcemanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "iam.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/iam.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "iam.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "storage-api.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/storage-api.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "storage-api.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "storage-component.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/storage-component.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "storage-component.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": true,
+            "disable_on_destroy": true,
+            "id": "odfl-shared-hvpc/storage.googleapis.com",
+            "project": "odfl-shared-hvpc",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.project.module.folders",
+      "mode": "managed",
+      "type": "google_folder",
+      "name": "data_folder",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "create_time": "2022-07-15T16:43:23.818Z",
+            "display_name": "odfl-data",
+            "folder_id": "684427362895",
+            "id": "folders/684427362895",
+            "lifecycle_state": "ACTIVE",
+            "name": "folders/684427362895",
+            "parent": "folders/878125556822",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNDAwMDAwMDAwMDAsImRlbGV0ZSI6MjQwMDAwMDAwMDAwLCJyZWFkIjoyNDAwMDAwMDAwMDAsInVwZGF0ZSI6MjQwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.project.module.folders",
+      "mode": "managed",
+      "type": "google_folder",
+      "name": "gov_folder",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "create_time": "2022-07-15T16:43:22.422Z",
+            "display_name": "odfl-gov",
+            "folder_id": "849677534575",
+            "id": "folders/849677534575",
+            "lifecycle_state": "ACTIVE",
+            "name": "folders/849677534575",
+            "parent": "folders/878125556822",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNDAwMDAwMDAwMDAsImRlbGV0ZSI6MjQwMDAwMDAwMDAwLCJyZWFkIjoyNDAwMDAwMDAwMDAsInVwZGF0ZSI6MjQwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.project.module.folders",
+      "mode": "managed",
+      "type": "google_folder",
+      "name": "shared_folder",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "create_time": "2022-07-15T16:47:13.759Z",
+            "display_name": "odfl-shared",
+            "folder_id": "92914926716",
+            "id": "folders/92914926716",
+            "lifecycle_state": "ACTIVE",
+            "name": "folders/92914926716",
+            "parent": "folders/878125556822",
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNDAwMDAwMDAwMDAsImRlbGV0ZSI6MjQwMDAwMDAwMDAwLCJyZWFkIjoyNDAwMDAwMDAwMDAsInVwZGF0ZSI6MjQwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.service_account_admin",
+      "mode": "managed",
+      "type": "google_project_iam_binding",
+      "name": "project_binding",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "roles/iam.serviceAccountAdmin",
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwXko6Eqbkg=",
+            "id": "odfl-gca-pilot-dev/roles/iam.serviceAccountAdmin",
+            "members": [
+              "user:joshua.ibrahim@panderasystems.com",
+              "user:sam.puppala@panderasystems.com"
+            ],
+            "project": "odfl-gca-pilot-dev",
+            "role": "roles/iam.serviceAccountAdmin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.project.google_project.project_audit",
+            "module.project.google_project.project_billing",
+            "module.project.google_project.project_data",
+            "module.project.google_project.project_shared_hvpc",
+            "module.project.google_project_service.audit_service",
+            "module.project.google_project_service.billing_service",
+            "module.project.google_project_service.data_service",
+            "module.project.google_project_service.hvpc_service",
+            "module.project.module.folders.google_folder.data_folder",
+            "module.project.module.folders.google_folder.gov_folder",
+            "module.project.module.folders.google_folder.shared_folder"
+          ]
+        }
+      ]
+    }
+  ]
+}

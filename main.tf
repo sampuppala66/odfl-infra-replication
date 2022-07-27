@@ -1,4 +1,6 @@
-
+module "folders"{
+    source = "../folders"
+}
 
 module "project" {
   source = "./modules/project"
