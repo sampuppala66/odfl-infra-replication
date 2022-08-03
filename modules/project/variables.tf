@@ -14,16 +14,6 @@ variable "audit_project_id" {
   default = "odfl-gov-audit"
 }
 
-variable "gov_folder_id" {
-  description = "The ID of the folder in which the resource belongs."
-  type        = string
-  default = "958951584553"
-}
-variable "data_folder_id" {
-  description = "The ID of the folder in which the resource belongs."
-  type        = string
-  default = "490944686407"
-}
 
 variable "billing_project_id" {
   description = "The ID of the project in which the resource belongs."
@@ -55,4 +45,17 @@ variable "billing_account"{
   default = "01576B-0CD5E1-6341D4"
 }
 
+variable "data_folder_id"{
+  type = string
+  description = "The data folder id"
+}
 
+variable "shared_folder_id"{
+  type = string
+  description = "The shared folder id"
+}
+
+variable "gov_folder_id"{
+  type = string
+  description = "The gov folder id"
+}

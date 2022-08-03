@@ -1,11 +1,18 @@
 module "folders"{
     source = "./modules/folders"
+    
 }
 
 module "project" {
   source = "./modules/project"
   project_id = "${var.project_id}-${var.env}"
+  shared_folder_id = module.folders.shared_folder_id
+  data_folder_id = module.folders.data_folder_id
+  gov_folder_id = module.folders.gov_folder_id
   env = var.env
+  depends_on = [
+    module.folders
+  ]
 }
 
 module "networks" {
@@ -69,7 +76,7 @@ module "cloudsql_admins" {
 module "bigquery_user" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/bigquery.user"]
+  roles = ["roles/bigquery.user", "roles/bigquerydatapolicy.maskedReader", "roles/datacatalog.categoryFineGrainedReader"]
   members = var.bigquery_users
   env = var.env
   
@@ -93,11 +100,14 @@ module "bigquery_editor" {
 }
 
 
+
 ##service accounts
-module "compute_sevice_account_permissions" {
+module "compute_service_account_permissions" {
    source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/iam.serviceAccountAdmin", ]
+  roles = ["roles/iam.serviceAccountAdmin","roles/bigquery.dataEditor",
+            "roles/cloudsql.client", "roles/compute.admin","roles/compute.instanceAdmin",
+            "roles/compute.instanceAdmin.v1" ]
   members = ["serviceAccount:${module.compute_service_account.email}"]
   env = var.env
   

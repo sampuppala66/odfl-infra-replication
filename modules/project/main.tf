@@ -2,7 +2,7 @@
 resource "google_project" "project_data" {
   name            = "${var.project_id}"
   project_id      = "${var.project_id}"
-  folder_id          =  module.folders.data_folder_id
+  folder_id          =  var.data_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }
@@ -28,7 +28,7 @@ resource "google_project_service" "data_service" {
 resource "google_project" "project_audit" {
   name            = var.audit_project_name
   project_id      = var.audit_project_id
-  folder_id          = module.folders.gov_folder_id
+  folder_id          = var.gov_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }
@@ -52,7 +52,7 @@ resource "google_project_service" "audit_service" {
 resource "google_project" "project_billing" {
   name            = var.billing_project_name
   project_id      = var.billing_project_id
-  folder_id          = module.folders.gov_folder_id
+  folder_id          = var.gov_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }
@@ -75,7 +75,7 @@ resource "google_project_service" "billing_service" {
 resource "google_project" "project_shared_hvpc" {
   name            = var.project_shared_hvpc_id
   project_id      = var.project_shared_hvpc_id
-  folder_id          = module.folders.shared_folder_id
+  folder_id          = var.shared_folder_id
   billing_account = var.billing_account
   auto_create_network = false
 }

@@ -143,4 +143,11 @@ Use to run a generated plan. This will modify infrastructure.
 terraform apply -input=false -auto-approve "../output/tfplan"
 
 ```
+**
+*3 FIrewall rules*
+*Iam permissions to odfl group: mask reader,
+*Carter : fine grained reader 
+*permissions for service accounts
+*cloudsql iam auth enabled
+**test shared vpc on test not dev
 
