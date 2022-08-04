@@ -199,3 +199,10 @@ variable "subnet_name" {
     type = string
     default = "odfl-pilot-subnet"
 }
+
+variable "instance_image_link" {
+  description = "The link to the vm image"
+  type = string
+  default = "projects/odfl-gca-pilot-dev/global/images/odfl-pilot-hvr-vm-dev-image"
+  
+}

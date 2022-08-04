@@ -67,3 +67,8 @@ variable "tags" {
   description = "the hostname"
   type        = list(string)
 }
+
+variable "instance_image_link" {
+  description = "The link to the vm image"
+  type = string  
+}

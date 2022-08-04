@@ -18,7 +18,9 @@ resource "google_project_service" "data_service" {
     "servicenetworking.googleapis.com",
     "dlp.googleapis.com",
     "datacatalog.googleapis.com",
-    "bigquerydatapolicy.googleapis.com"
+    "bigquerydatapolicy.googleapis.com",
+    "compute.googleapis.com",
+    "serviceusage.googleapis.com",
   ])
   service = each.key
   project            = google_project.project_data.project_id
