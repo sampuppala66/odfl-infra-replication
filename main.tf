@@ -38,13 +38,18 @@ module "hvr_service_acount" {
   description = "hvr service account"
 }
 
-module "compute_service_account" {
-  source = "./modules/service_account/create"
-  project      ="${var.project_id}-${var.env}"
-  account_id   = "odfl-pilot-vm-sa-${var.env}"
-  display_name = "odfl-pilot-vm-sa-${var.env}"
-  description = "compute service account"
+data "google_compute_default_service_account" "sv-ingestion" {
+  project      =  "${var.project_id}-${var.env}"
+
 }
+
+# module "compute_service_account" {
+#   source = "./modules/service_account/create"
+#   project      ="${var.project_id}-${var.env}"
+#   account_id   = "odfl-pilot-vm-sa-${var.env}"
+#   display_name = "odfl-pilot-vm-sa-${var.env}"
+#   description = "compute service account"
+# }
 
 
 module "service_account_admin" {
@@ -108,7 +113,7 @@ module "compute_service_account_permissions" {
   roles = ["roles/iam.serviceAccountAdmin","roles/bigquery.dataEditor",
             "roles/cloudsql.client", "roles/compute.admin","roles/compute.instanceAdmin",
             "roles/compute.instanceAdmin.v1" ]
-  members = ["serviceAccount:${module.compute_service_account.email}"]
+  members = ["serviceAccount:${data.google_compute_default_service_account.email}"]
   env = var.env
   
    depends_on = [
