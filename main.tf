@@ -3,7 +3,7 @@ module "project" {
   source = "./modules/project"
   project_id = "${var.project_id}-${var.env}"
   data_folder_id = var.data_folder_id
-  billing_account = var.billing_accocunt
+  billing_account = var.billing_account
   env = var.env
 }
 

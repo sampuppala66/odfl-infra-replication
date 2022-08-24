@@ -219,8 +219,3 @@ variable "host_project_id" {
   
 }
 
-variable "dynatrace_gcp_permissions" {
-  description = "dynatrace gcp permissions"
-  type = list(string)
-  
-}
