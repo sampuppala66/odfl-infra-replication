@@ -42,7 +42,6 @@ variable "env" {
 variable "billing_account"{
   type = string
   description = "The billing account"
-  default = "01576B-0CD5E1-6341D4"
 }
 
 variable "data_folder_id"{

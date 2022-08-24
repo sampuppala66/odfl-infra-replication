@@ -1,25 +1,16 @@
-module "folders"{
-    source = "./modules/folders"
-    
-}
 
 module "project" {
   source = "./modules/project"
   project_id = "${var.project_id}-${var.env}"
-  shared_folder_id = module.folders.shared_folder_id
-  data_folder_id = module.folders.data_folder_id
-  gov_folder_id = module.folders.gov_folder_id
+  data_folder_id = var.data_folder_id
+  billing_account = var.billing_accocunt
   env = var.env
-  depends_on = [
-    module.folders
-  ]
 }
 
 module "networks" {
   source = "./modules/networks"
   project_id = "${var.project_id}-${var.env}"
   data_subnetwork_region = var.gcp_region 
-  host_project_id = module.project.host_project_id
   env = var.env
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
@@ -135,13 +126,13 @@ module "hvr_sevice_account_permissions" {
 }
 
 
-module "iam" {
-  source = "./modules/iam/roles"
+module "iam_folder_policy" {
+  source = "./modules/iam/policy/folder_policy"
   project_id = "${var.project_id}-${var.env}"
-  odfl_folder_id = var.odfl_folder_id
-  odfl_folder_admins = var.odfl_folder_admins
+  folder_id = var.odfl_folder_id
+  folder_members = var.odfl_folder_admins
+  role = "roles/resourcemanager.folderAdmin"
   env = var.env
-
    depends_on = [
     module.project
   ]
@@ -202,30 +193,75 @@ module "compute_instance" {
 #   override_special = "_%@"
 # }
 
-# module "cloudsql" {
-#   source = "./modules/cloudsql"
-#   project_id = "${var.project_id}-${var.env}"
-#   env = var.env
-#   cloudsql_tier                      = var.cloudsql_tier
-#   cloudsql_disk_size                 = var.cloudsql_disk_size
-#   cloudsql_availability_type         = var.cloudsql_availability_type
-#   # cloudsql_backup_start_time         = var.cloudsql_backup_start_time
-#   cloudsql_name               = var.cloudsql_name
-#   cloudsql_region             = var.gcp_region
-#   cloudsql_database_version   = var.cloudsql_database_version
-#   # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
-#   cloudsql_root_password      = var.cloudsql_root_password
-#   cloudsql_disk_type          = var.cloudsql_disk_type
-#   cloudsql_ipv4_enabled       = false
-#   cloudsql_require_ssl        = false
-#   cloudsql_zone               = var.gcp_zone
-#   cloudsql_backup_enabled     = true
-#   cloudsql_binary_log_enabled = false
-#   cloudsql_start_time         = var.cloudsql_backup_start_time
-#   vpc_network                 = module.networks.host_vpc_network
+module "cloudsql" {
+  source = "./modules/cloudsql"
+  project_id = "${var.project_id}-${var.env}"
+  env = var.env
+  cloudsql_tier                      = var.cloudsql_tier
+  cloudsql_disk_size                 = var.cloudsql_disk_size
+  cloudsql_availability_type         = var.cloudsql_availability_type
+  # cloudsql_backup_start_time         = var.cloudsql_backup_start_time
+  cloudsql_name               = var.cloudsql_name
+  cloudsql_region             = var.gcp_region
+  cloudsql_database_version   = var.cloudsql_database_version
+  # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
+  cloudsql_root_password      = var.cloudsql_root_password
+  cloudsql_disk_type          = var.cloudsql_disk_type
+  cloudsql_ipv4_enabled       = false
+  cloudsql_require_ssl        = false
+  cloudsql_zone               = var.gcp_zone
+  cloudsql_backup_enabled     = true
+  cloudsql_binary_log_enabled = false
+  cloudsql_start_time         = var.cloudsql_backup_start_time
+  vpc_network                 = module.networks.host_vpc_network
 
-#    depends_on = [
-#     module.project
-#   ]
-# }
+   depends_on = [
+    module.project
+  ]
+}
 
+
+module "Dynatrace_GCP_Custom_role" {
+  source = "./modules/iam/custom_roles"
+  project_id = "${var.project_id}-${var.env}"
+  custom_role_name = "Dynatrace GCP Function cloud function deployment role-${var.env}"
+  permissions = ["appengine.applications.create",
+                 "appengine.applications.get",
+                 "cloudfunctions.functions.create",
+                 "cloudfunctions.functions.get",
+                 "cloudfunctions.functions.getIamPolicy",
+                 "cloudfunctions.functions.list",
+                 "cloudfunctions.functions.sourceCodeSet",
+                 "cloudfunctions.functions.update",
+                 "cloudfunctions.operations.get",
+                 "cloudfunctions.operations.list",
+                 "cloudscheduler.jobs.create",
+                 "cloudscheduler.jobs.delete",
+                 "cloudscheduler.jobs.get",
+                 "cloudscheduler.jobs.list",
+                 "cloudscheduler.locations.list",
+                 "iam.roles.create",
+                 "iam.roles.list",
+                 "iam.roles.update",
+                 "iam.serviceAccounts.actAs",
+                 "iam.serviceAccounts.create",
+                 "iam.serviceAccounts.getIamPolicy",
+                 "iam.serviceAccounts.list",
+                 "iam.serviceAccounts.setIamPolicy",
+                 "monitoring.dashboards.create",
+                 "monitoring.dashboards.list",
+                 "pubsub.topics.create",
+                 "pubsub.topics.list",
+                 "pubsub.topics.update",
+                 "resourcemanager.projects.get",
+                 "resourcemanager.projects.getIamPolicy",
+                "resourcemanager.projects.setIamPolicy",
+                "secretmanager.secrets.create",
+                "secretmanager.secrets.getIamPolicy",
+                "secretmanager.secrets.list",
+                "secretmanager.secrets.setIamPolicy",
+                "secretmanager.versions.add",
+                "secretmanager.versions.list",
+                "serviceusage.services.enable"
+                ]
+  }

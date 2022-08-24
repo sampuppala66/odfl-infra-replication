@@ -206,3 +206,21 @@ variable "instance_image_link" {
   default = "projects/odfl-gca-pilot-dev/global/images/odfl-pilot-hvr-vm-dev-image"
   
 }
+
+variable "data_folder_id" {
+  description = "The folder id of the data folder"
+  type = string
+  
+}
+
+variable "host_project_id" {
+  description = "The project_id of the host project"
+  type = string
+  
+}
+
+variable "dynatrace_gcp_permissions" {
+  description = "dynatrace gcp permissions"
+  type = list(string)
+  
+}

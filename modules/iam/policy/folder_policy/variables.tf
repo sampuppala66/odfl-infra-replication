@@ -8,14 +8,19 @@ variable "env" {
   type = string
 }
 
-
-variable "odfl_folder_id" {
-  description = "ODFL folder Id"
+variable "folder_id" {
+  description = "folder Id"
   type = string
 }
 
 
-variable "odfl_folder_admins" {
-  description = "ODFL folder admins"
+variable "folder_members" {
+  description = " the folder admins"
   type = list(string)
+}
+
+variable "role" {
+  description = " the folder role"
+  type = string
+  default = "roles/resourcemanager.folderAdmin"
 }
