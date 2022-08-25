@@ -30,6 +30,6 @@ service_account_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.pup
 odfl_folder_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com"]
 vpc_name = "odfl-hostvpc-test"
 subnet_name = "odfl-pilot-subnet"
-data_folder_id = "odfl-gca-pilot-data"
+data_folder_id = "folders/684427362895"
 billing_account = "01576B-0CD5E1-6341D4"
 host_project_id = "odfl-shared-hvpc"

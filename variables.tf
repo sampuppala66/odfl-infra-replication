@@ -219,3 +219,11 @@ variable "host_project_id" {
   
 }
 
+
+variable "billing_account" {
+  description = "The billing account attached to the project"
+  type = string
+  
+}
+
+

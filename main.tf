@@ -66,7 +66,6 @@ module "cloudsql_admins" {
    depends_on = [
     module.project
   ]
-  
 }
 
 module "bigquery_user" {
@@ -94,8 +93,6 @@ module "bigquery_editor" {
   ]
   
 }
-
-
 
 ##service accounts
 module "compute_service_account_permissions" {
@@ -139,10 +136,11 @@ module "iam_folder_policy" {
   
 }
 
-
-
-module "bigquery" {
+module "bigquery_dataset" {
   source = "./modules/bigquery"
+  dataset_id = "Odfl_gca_bq_dataset_${var.env}"
+  location = var.gcp_region
+  dataset_description = "Bigquery dataset"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
    depends_on = [
@@ -224,7 +222,7 @@ module "cloudsql" {
 module "Dynatrace_GCP_Custom_role" {
   source = "./modules/iam/custom_roles"
   project_id = "${var.project_id}-${var.env}"
-  custom_role_name = "Dynatrace GCP Function cloud function deployment role-${var.env}"
+  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
   permissions = ["appengine.applications.create",
                  "appengine.applications.get",
                  "cloudfunctions.functions.create",

@@ -44,7 +44,6 @@ resource "google_project_service" "data_service" {
     "datacatalog.googleapis.com",
     "iamcredentials.googleapis.com",
     "container.googleapis.com",
-    "source.googleapis.com",
     "servicemanagement.googleapis.com",
     "cloudapis.googleapis.com",
     "logging.googleapis.com",
