@@ -149,6 +149,51 @@ module "bigquery_dataset" {
 }
 
 
+module "Dynatrace_GCP_Custom_role" {
+  source = "./modules/iam/custom_roles"
+  project_id = "${var.project_id}-${var.env}"
+  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
+  permissions = ["appengine.applications.create",
+                 "appengine.applications.get",
+                 "cloudfunctions.functions.create",
+                 "cloudfunctions.functions.get",
+                 "cloudfunctions.functions.getIamPolicy",
+                 "cloudfunctions.functions.list",
+                 "cloudfunctions.functions.sourceCodeSet",
+                 "cloudfunctions.functions.update",
+                 "cloudfunctions.operations.get",
+                 "cloudfunctions.operations.list",
+                 "cloudscheduler.jobs.create",
+                 "cloudscheduler.jobs.delete",
+                 "cloudscheduler.jobs.get",
+                 "cloudscheduler.jobs.list",
+                 "cloudscheduler.locations.list",
+                 "iam.roles.create",
+                 "iam.roles.list",
+                 "iam.roles.update",
+                 "iam.serviceAccounts.actAs",
+                 "iam.serviceAccounts.create",
+                 "iam.serviceAccounts.getIamPolicy",
+                 "iam.serviceAccounts.list",
+                 "iam.serviceAccounts.setIamPolicy",
+                 "monitoring.dashboards.create",
+                 "monitoring.dashboards.list",
+                 "pubsub.topics.create",
+                 "pubsub.topics.list",
+                 "pubsub.topics.update",
+                 "resourcemanager.projects.get",
+                 "resourcemanager.projects.getIamPolicy",
+                "resourcemanager.projects.setIamPolicy",
+                "secretmanager.secrets.create",
+                "secretmanager.secrets.getIamPolicy",
+                "secretmanager.secrets.list",
+                "secretmanager.secrets.setIamPolicy",
+                "secretmanager.versions.add",
+                "secretmanager.versions.list",
+                "serviceusage.services.enable"
+                ]
+  }
+
 
 module "compute_instance" {
   source = "./modules/compute_instance"
@@ -219,47 +264,3 @@ module "cloudsql" {
 }
 
 
-module "Dynatrace_GCP_Custom_role" {
-  source = "./modules/iam/custom_roles"
-  project_id = "${var.project_id}-${var.env}"
-  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
-  permissions = ["appengine.applications.create",
-                 "appengine.applications.get",
-                 "cloudfunctions.functions.create",
-                 "cloudfunctions.functions.get",
-                 "cloudfunctions.functions.getIamPolicy",
-                 "cloudfunctions.functions.list",
-                 "cloudfunctions.functions.sourceCodeSet",
-                 "cloudfunctions.functions.update",
-                 "cloudfunctions.operations.get",
-                 "cloudfunctions.operations.list",
-                 "cloudscheduler.jobs.create",
-                 "cloudscheduler.jobs.delete",
-                 "cloudscheduler.jobs.get",
-                 "cloudscheduler.jobs.list",
-                 "cloudscheduler.locations.list",
-                 "iam.roles.create",
-                 "iam.roles.list",
-                 "iam.roles.update",
-                 "iam.serviceAccounts.actAs",
-                 "iam.serviceAccounts.create",
-                 "iam.serviceAccounts.getIamPolicy",
-                 "iam.serviceAccounts.list",
-                 "iam.serviceAccounts.setIamPolicy",
-                 "monitoring.dashboards.create",
-                 "monitoring.dashboards.list",
-                 "pubsub.topics.create",
-                 "pubsub.topics.list",
-                 "pubsub.topics.update",
-                 "resourcemanager.projects.get",
-                 "resourcemanager.projects.getIamPolicy",
-                "resourcemanager.projects.setIamPolicy",
-                "secretmanager.secrets.create",
-                "secretmanager.secrets.getIamPolicy",
-                "secretmanager.secrets.list",
-                "secretmanager.secrets.setIamPolicy",
-                "secretmanager.versions.add",
-                "secretmanager.versions.list",
-                "serviceusage.services.enable"
-                ]
-  }
