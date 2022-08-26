@@ -1,3 +1,30 @@
+/**
+ * Create private IP block
+ */
+resource "google_compute_global_address" "private_ip_block" {
+  address       = var.private_ip_address
+  name          = var.private_ip_name
+  purpose       = var.private_ip_purpose
+  address_type  = var.private_ip_address_type
+  ip_version    = var.private_ip_version
+  prefix_length = var.private_ip_prefix_length
+  network       = var.vpc_network
+  project       = var.vpc_project
+}
+
+/**
+ * Create private VPC connection
+ */
+resource "google_service_networking_connection" "private_vpc_connection" {
+  network                 = var.vpc_network
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.private_ip_block.name]
+
+  depends_on = [google_compute_global_address.private_ip_block]
+}
+
+
+
 resource "google_sql_database_instance" "db_instance" {
   name             = "${var.project_id}-${random_string.four_chars.result}"
   region           = var.data_database_region
