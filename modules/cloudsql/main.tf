@@ -1,3 +1,6 @@
+
+
+
 resource "google_sql_database_instance" "db_instance" {
   name             = "${var.project_id}-${random_string.four_chars.result}"
   region           = var.data_database_region
