@@ -117,3 +117,33 @@ variable "vpc_network" {
   description = "HH:MM format time indicating when backup configuration starts."
   type        = string
 }
+
+variable "private_ip_address" {
+  description = "The IP address or beginning of the address range represented by this resource. This can be supplied as an input to reserve a specific address or omitted to allow GCP to choose a valid one for you."
+  type        = string
+}
+
+variable "private_ip_name" {
+  description = "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."
+  type        = string
+}
+
+variable "private_ip_purpose" {
+  description = "The purpose of the resource. For global internal addresses it can be VPC_PEERING - for peer networks PRIVATE_SERVICE_CONNECT - for (Beta only) Private Service Connect networks This should only be set when using an Internal address. Possible values are VPC_PEERING and PRIVATE_SERVICE_CONNECT."
+  type        = string
+}
+
+variable "private_ip_address_type" {
+  description = "The type of the address to reserve. EXTERNAL indicates public/external single IP address. INTERNAL indicates internal IP ranges belonging to some network. Default value is EXTERNAL. Possible values are EXTERNAL and INTERNAL."
+  type        = string
+}
+
+variable "private_ip_version" {
+  description = "The IP Version that will be used by this address. The default value is IPV4. Possible values are IPV4 and IPV6."
+  type        = string
+}
+
+variable "private_ip_prefix_length" {
+  description = "he prefix length of the IP range. If not present, it means the address field is a single IP address. This field is not applicable to addresses with addressType=EXTERNAL, or addressType=INTERNAL when purpose=PRIVATE_SERVICE_CONNECT"
+  type        = number
+}
