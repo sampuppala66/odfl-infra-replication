@@ -1,6 +1,8 @@
 # Credentials
 credentials.json
-
+*.json
+tfplan*
+*.tfstate
 # Editors
 .vscode/
 .idea/
