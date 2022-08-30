@@ -51,6 +51,11 @@ resource "google_compute_instance_template" "hvr_instance" {
   disk {
     source_image = var.instance_image_link
   }
+
+  network_interface {
+    network            = var.network
+    subnetwork         = var.subnetwork
+  }
 }
 
 

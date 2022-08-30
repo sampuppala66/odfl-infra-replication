@@ -114,7 +114,7 @@ variable "cloudsql_start_time" {
 }
 
 variable "vpc_network" {
-  description = "HH:MM format time indicating when backup configuration starts."
+  description = "Vpc network"
   type        = string
 }
 

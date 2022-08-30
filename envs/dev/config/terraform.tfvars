@@ -34,3 +34,21 @@ data_folder_id = "folders/684427362895"
 billing_account = "01576B-0CD5E1-6341D4"
 host_project_id = "odfl-shared-hvpc"
 cloud_sql_ip_range = "10.79.176.0"
+data_folder_id = "folders/684427362895"
+billing_account = "01576B-0CD5E1-6341D4"
+host_project_id = "odfl-shared-hvpc"
+cloud_sql_ip_range = "10.78.176.0"
+iap_ports = ["22"]
+iap_source_ranges = [ "35.235.240.0/20"]
+ips_ports = ["80", "22", "4340", "4343"]
+ips_source_ranges = [ "0.0.0.0/0"]
+tcp_ports = ["80", "22", "443", "4343"]
+tcp_source_ranges = [ "216.54.213.8/29",
+                    "216.54.213.80/29",
+                    "216.54.213.96/28",
+                    "66.162.6.80/28",
+                    "209.136.214.192/26",
+                    "66.192.161.216/29",
+                    "35.248.29.128/26",
+                    "50.58.48.248/29"
+                  ]

@@ -20,6 +20,47 @@ module "networks" {
   ]
 }
 
+module "firewall-rule-allow-tcp"{
+  source = "./modules/firewall"
+  project_id = "${var.project_id}-${var.env}"
+  firewall_name = "odfl-fw-ig-allow-gca-pilot-hvrhub-to-hvragent-${var.env}"
+  description = "firewall rule allowing tcp"
+  ports =  var.tcp_ports
+  source_ranges = var.tcp_source_ranges
+  vpc_network = module.networks.host_vpc_network
+  sub_network = module.networks.vpc_subnetwork
+  env = var.env
+  priority = 1000
+  protocol = "tcp"
+}
+
+module "firewall-ips"{
+  source = "./modules/firewall"
+  project_id = "${var.project_id}-${var.env}"
+  firewall_name = "odfl-vm-allow-all-ips-${var.env}"
+  description = "firewall rule allowing ips"
+  ports =  var.ips_ports
+  source_ranges = var.ips_source_ranges
+ vpc_network = module.networks.host_vpc_network
+  sub_network = module.networks.vpc_subnetwork
+  env = var.env
+  priority = 1500
+  protocol = "tcp"
+}
+
+module "firewall-rule-allow-iap"{
+  source = "./modules/firewall"
+  project_id = "${var.project_id}-${var.env}"
+  description = "firewall rule allowing iap"
+  firewall_name = "odfl-fw-ig-allow-gca-pilot-iap-${var.env}"
+  ports = var.iap_ports
+  source_ranges = var.iap_source_ranges
+  vpc_network = module.networks.host_vpc_network
+  sub_network = module.networks.vpc_subnetwork
+  env = var.env
+  priority = 2000
+  protocol = "tcp"
+}
 
 module "hvr_service_acount" {
   source = "./modules/service_account/create"
@@ -194,26 +235,6 @@ module "Dynatrace_GCP_Custom_role" {
                 ]
   }
 
-
-module "compute_instance" {
-  source = "./modules/compute_instance"
-  project_id                = "${var.project_id}-${var.env}"
-  name                     = "${var.vm_instance_name}-${var.env}"
-  machine_type             = var.delta_vm_type
-  zone                     = var.resources_zone
-  tags                     = ["allow-ssh"]
-  image                    = "ubuntu-1804-bionic-v20210412"
-  auto_delete              = true
-  size                     = var.delta_vm_disk_size
-  type                     = var.delta_vm_disk_type
-  network                  = module.networks.host_vpc_network
-  subnetwork               = module.networks.vpc_subnetwork
-  service_account_email = module.compute_service_account.email
-  # subnetwork_project       =  "${var.project_id}-${var.env}"
-  instance_image_link = var.instance_image_link
-
-}
-
 module "cloudsql" {
   source = "./modules/cloudsql"
   project_id = "${var.project_id}-${var.env}"
@@ -228,9 +249,9 @@ module "cloudsql" {
   # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
   cloudsql_root_password      = var.cloudsql_root_password
   cloudsql_disk_type          = var.cloudsql_disk_type
-  cloudsql_ipv4_enabled       = false
+  cloudsql_ipv4_enabled       = true
   cloudsql_require_ssl        = false
-  cloudsql_zone               = var.gcp_zone
+  cloudsql_zone               = var.cloudsql_zone
   cloudsql_backup_enabled     = true
   cloudsql_binary_log_enabled = false
   cloudsql_start_time         = var.cloudsql_backup_start_time
@@ -248,3 +269,21 @@ module "cloudsql" {
 }
 
 
+
+//module "compute_instance" {
+//  source = "./modules/compute_instance"
+//  project_id                = "${var.project_id}-${var.env}"
+//  name                     = "${var.vm_instance_name}-${var.env}"
+//  machine_type             = var.delta_vm_type
+//  zone                     = var.resources_zone
+//  tags                     = ["allow-ssh"]
+//  image                    = "ubuntu-1804-bionic-v20210412"
+//  auto_delete              = true
+//  size                     = var.delta_vm_disk_size
+//  type                     = var.delta_vm_disk_type
+//  network                  = module.networks.host_vpc_network
+//  subnetwork               = module.networks.vpc_subnetwork
+//  service_account_email = module.compute_service_account.email
+//  # subnetwork_project       =  "${var.project_id}-${var.env}"
+//  instance_image_link = var.instance_image_link
+//}

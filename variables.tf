@@ -6,7 +6,7 @@ variable "project_id" {
 variable "credential_file" {
   type        = string
   description = "Service account key file"
-  default     = "odfl-devops-terraform-777240d022501.json"
+  default     = "./odfl-devops-terraform-777240d022501.json"
 }
 
 variable "env" {
@@ -47,6 +47,12 @@ variable "cloudsql_name" {
   description = "The name of the cloudsql resource"
   type        = string
   default = "odfl-gca-pilot-cloudsql"
+}
+
+variable "cloudsql_zone" {
+  description = "The name of the cloudsql resource"
+  type        = string
+  default = "us-east1c"
 }
 
 variable "cloudsql_database_version" {
@@ -226,11 +232,41 @@ variable "billing_account" {
   
 }
 
-
 variable "cloud_sql_ip_range" {
   description = "ip range of the cloud sql"
   type = string
 }
 
 
+
+variable "iap_ports" {
+  description = "list enabled ports"
+  type = list(string)
+}
+
+variable "iap_source_ranges" {
+  description = "ip ranges of the firewall rule for the iap"
+  type = list(string)
+}
+
+variable "ips_ports" {
+  description = "list enabled ports"
+  type = list(string)
+}
+
+variable "ips_source_ranges" {
+  description = "ip ranges of the firewall rule for the iap"
+  type = list(string)
+}
+
+
+variable "tcp_ports" {
+  description = "list enabled ports"
+  type = list(string)
+}
+
+variable "tcp_source_ranges" {
+  description = "ip ranges of the firewall rule for the iap"
+  type = list(string)
+}
 
