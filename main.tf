@@ -214,28 +214,6 @@ module "compute_instance" {
 
 }
 
-# module "pubsub" {
-#   source = "./modules/pubsub"
-#   project_id = "${var.project_id}-${var.env}"
-#   env = var.env
-#    depends_on = [
-#     module.project
-#   ]
-# }
-
-
-# module "project_data_cloud_secret_cloudsql" {
-#   source = "./modules/secret_manager"
-
-#   secret_id = "cloud-sql-root-password"
-#   project   = var.project_id
-#   location  = var.gcp_region
-
-#   length           = 16
-#   special          = true
-#   override_special = "_%@"
-# }
-
 module "cloudsql" {
   source = "./modules/cloudsql"
   project_id = "${var.project_id}-${var.env}"
@@ -257,7 +235,7 @@ module "cloudsql" {
   cloudsql_binary_log_enabled = false
   cloudsql_start_time         = var.cloudsql_backup_start_time
   vpc_network                 = module.networks.host_vpc_network
-  private_ip_address       = "10.79.176.3"
+  private_ip_address       = var.cloud_sql_ip_range
   private_ip_name          = "odfl-gca-pilot-${var.env}-ip-block"
   private_ip_purpose       = "VPC_PEERING"
   private_ip_address_type  = "INTERNAL"

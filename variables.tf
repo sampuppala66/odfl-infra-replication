@@ -6,7 +6,7 @@ variable "project_id" {
 variable "credential_file" {
   type        = string
   description = "Service account key file"
-  default     = "odfl-devops-terraform-777240d02250.json"
+  default     = "odfl-devops-terraform-777240d022501.json"
 }
 
 variable "env" {
@@ -46,7 +46,7 @@ variable "secret_id" {
 variable "cloudsql_name" {
   description = "The name of the cloudsql resource"
   type        = string
-  default = "odfl-cloud-dev"
+  default = "odfl-gca-pilot-cloudsql"
 }
 
 variable "cloudsql_database_version" {
@@ -70,7 +70,7 @@ variable "cloudsql_availability_type" {
 variable "cloudsql_disk_size" {
   description = "The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased."
   type        = number
-  default = 50
+  default = 1024
 }
 
 variable "cloudsql_disk_type" {
@@ -83,7 +83,7 @@ variable "cloudsql_disk_type" {
 variable "cloudsql_ipv4_enabled" {
   description = "Whether this Cloud SQL instance should be assigned a public IPV4 address. Either ipv4_enabled must be enabled or a private_network must be configured."
   type        = bool
-  default = false
+  default = true
 }
 
 variable "cloudsql_require_ssl" {
@@ -225,5 +225,12 @@ variable "billing_account" {
   type = string
   
 }
+
+
+variable "cloud_sql_ip_range" {
+  description = "ip range of the cloud sql"
+  type = string
+}
+
 
 
