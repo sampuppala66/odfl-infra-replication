@@ -10,7 +10,7 @@ module "project" {
 module "networks" {
   source = "./modules/networks"
   project_id = "${var.project_id}-${var.env}"
-  data_subnetwork_region = var.gcp_region 
+  data_subnetwork_region = var.gcp_region //list of regions
   env = var.env
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
@@ -34,33 +34,33 @@ module "firewall-rule-allow-tcp"{
   protocol = "tcp"
 }
 
-module "firewall-ips"{
-  source = "./modules/firewall"
-  project_id = "${var.project_id}-${var.env}"
-  firewall_name = "odfl-vm-allow-all-ips-${var.env}"
-  description = "firewall rule allowing ips"
-  ports =  var.ips_ports
-  source_ranges = var.ips_source_ranges
- vpc_network = module.networks.host_vpc_network
-  sub_network = module.networks.vpc_subnetwork
-  env = var.env
-  priority = 1500
-  protocol = "tcp"
-}
+# module "firewall-ips"{
+#   source = "./modules/firewall"
+#   project_id = "${var.project_id}-${var.env}"
+#   firewall_name = "odfl-vm-allow-all-ips-${var.env}"
+#   description = "firewall rule allowing ips"
+#   ports =  var.ips_ports
+#   source_ranges = var.ips_source_ranges
+#  vpc_network = module.networks.host_vpc_network
+#   sub_network = module.networks.vpc_subnetwork
+#   env = var.env
+#   priority = 1500
+#   protocol = "tcp"
+# }
 
-module "firewall-rule-allow-iap"{
-  source = "./modules/firewall"
-  project_id = "${var.project_id}-${var.env}"
-  description = "firewall rule allowing iap"
-  firewall_name = "odfl-fw-ig-allow-gca-pilot-iap-${var.env}"
-  ports = var.iap_ports
-  source_ranges = var.iap_source_ranges
-  vpc_network = module.networks.host_vpc_network
-  sub_network = module.networks.vpc_subnetwork
-  env = var.env
-  priority = 2000
-  protocol = "tcp"
-}
+# module "firewall-rule-allow-iap"{
+#   source = "./modules/firewall"
+#   project_id = "${var.project_id}-${var.env}"
+#   description = "firewall rule allowing iap"
+#   firewall_name = "odfl-fw-ig-allow-gca-pilot-iap-${var.env}"
+#   ports = var.iap_ports
+#   source_ranges = var.iap_source_ranges
+#   vpc_network = module.networks.host_vpc_network
+#   sub_network = module.networks.vpc_subnetwork
+#   env = var.env
+#   priority = 2000
+#   protocol = "tcp"
+# }
 
 module "hvr_service_acount" {
   source = "./modules/service_account/create"
