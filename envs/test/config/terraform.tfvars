@@ -8,9 +8,9 @@ cloudsql_root_password = "Exp31n5er_=!"
 secret_id = "kgfdfghjklxcfghjkiuytfdfghjklop"
 cloudsql_name = "odfl-cloud-test"
 cloudsql_database_version = "POSTGRESQL_14"
-cloudsql_tier =  "db-custom-1-3840"
+cloudsql_tier =  "db-custom-4-26624"
 cloudsql_availability_type = "ZONAL"
-cloudsql_disk_size =  50
+cloudsql_disk_size =  1024000
 cloudsql_disk_type = "PD_SSD"
 cloudsql_ipv4_enabled =  false 
 cloudsql_require_ssl =  false
@@ -34,10 +34,6 @@ data_folder_id = "folders/684427362895"
 billing_account = "01576B-0CD5E1-6341D4"
 host_project_id = "odfl-shared-hvpc"
 cloud_sql_ip_range = "10.78.176.0"
-iap_ports = ["22"]
-iap_source_ranges = [ "35.235.240.0/20"]
-ips_ports = ["80", "22", "4340", "4343"]
-ips_source_ranges = [ "0.0.0.0/0"]
 tcp_ports = ["80", "22", "443", "4343"]
 tcp_source_ranges = [ "216.54.213.8/29",
                     "216.54.213.80/29",
@@ -48,3 +44,4 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "35.248.29.128/26",
                     "50.58.48.248/29"
                   ]
+subnetwork_regions = ["us-east1c"]

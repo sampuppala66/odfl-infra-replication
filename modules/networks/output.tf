@@ -3,5 +3,5 @@ output host_vpc_network {
 }
 
 output vpc_subnetwork{
-    value = google_compute_subnetwork.data_subnetwork.id
+    value = google_compute_subnetwork.data_subnetwork
 }

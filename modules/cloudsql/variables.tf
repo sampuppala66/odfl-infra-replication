@@ -147,3 +147,8 @@ variable "private_ip_prefix_length" {
   description = "he prefix length of the IP range. If not present, it means the address field is a single IP address. This field is not applicable to addresses with addressType=EXTERNAL, or addressType=INTERNAL when purpose=PRIVATE_SERVICE_CONNECT"
   type        = number
 }
+
+variable "hvr_vm"{
+  type = string
+  description = "the hvr vm"
+}

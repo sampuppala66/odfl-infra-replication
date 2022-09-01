@@ -32,13 +32,18 @@ resource "google_sql_database_instance" "db_instance" {
   settings {
     tier              = var.cloudsql_tier
     availability_type = var.cloudsql_availability_type
-//    disk_size         = var.cloudsql_disk_size
+    disk_size         = var.cloudsql_disk_size
     disk_type         = var.cloudsql_disk_type
-    
+    disk_autoresize = true
 
     ip_configuration {
       ipv4_enabled    = var.cloudsql_ipv4_enabled
       private_network = var.vpc_network
+
+       authorized_networks = [{
+         name  = var.hvr_vm.name
+         value = var.hvr_vm.value.network_interface.0.access_config.0.nat_ip
+      }]
     }
 
     backup_configuration {

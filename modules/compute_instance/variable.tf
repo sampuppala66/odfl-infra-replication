@@ -37,10 +37,10 @@ variable "subnetwork" {
   type        = string
 }
 
-# variable "subnetwork_project" {
-#   description = "The project in which the subnetwork belongs. If the subnetwork is a self_link, this field is ignored in favor of the project defined in the subnetwork self_link. If the subnetwork is a name and this field is not provided, the provider project is used."
-#   type        = string
-# }
+// variable "subnetwork_project" {
+//   description = "The project in which the subnetwork belongs. If the subnetwork is a self_link, this field is ignored in favor of the project defined in the subnetwork self_link. If the subnetwork is a name and this field is not provided, the provider project is used."
+//   type        = string
+// }
 
 
 variable "auto_delete" {
@@ -68,7 +68,3 @@ variable "tags" {
   type        = list(string)
 }
 
-variable "instance_image_link" {
-  description = "The link to the vm image"
-  type = string  
-}

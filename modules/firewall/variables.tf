@@ -34,10 +34,6 @@ variable "vpc_network" {
   type = string
 }
 
-variable "sub_network" {
-  description = "sub network"
-  type = string
-}
 
 variable "priority" {
   description = "priority of the rule"

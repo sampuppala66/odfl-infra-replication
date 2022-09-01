@@ -238,28 +238,6 @@ variable "cloud_sql_ip_range" {
 }
 
 
-
-variable "iap_ports" {
-  description = "list enabled ports"
-  type = list(string)
-}
-
-variable "iap_source_ranges" {
-  description = "ip ranges of the firewall rule for the iap"
-  type = list(string)
-}
-
-variable "ips_ports" {
-  description = "list enabled ports"
-  type = list(string)
-}
-
-variable "ips_source_ranges" {
-  description = "ip ranges of the firewall rule for the iap"
-  type = list(string)
-}
-
-
 variable "tcp_ports" {
   description = "list enabled ports"
   type = list(string)
@@ -270,3 +248,8 @@ variable "tcp_source_ranges" {
   type = list(string)
 }
 
+
+variable "subnetwork_regions" {
+  description = "list of subnet zones"
+  type = list(string)
+}

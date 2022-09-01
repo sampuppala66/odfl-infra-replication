@@ -1,7 +1,7 @@
 
 resource "google_project" "project_data" {
-  name            = "${var.project_id}"
-  project_id      = "${var.project_id}"
+  name            = var.project_id
+  project_id      = var.project_id
   folder_id          =  var.data_folder_id
   billing_account = var.billing_account
   auto_create_network = false
@@ -40,7 +40,6 @@ resource "google_project_service" "data_service" {
     "oslogin.googleapis.com",
     "sql-component.googleapis.com",
     "cloudtrace.googleapis.com",
-    "eventarc.googleapis.com",
     "datacatalog.googleapis.com",
     "iamcredentials.googleapis.com",
     "container.googleapis.com",

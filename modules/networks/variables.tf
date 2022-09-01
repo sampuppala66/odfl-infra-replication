@@ -30,3 +30,8 @@ variable "data_subnetwork_region" {
   type = string
   
 }
+
+variable "subnetwork_regions" {
+  description = "list of subnet regions"
+  type = list(string)
+}
