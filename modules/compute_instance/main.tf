@@ -37,6 +37,7 @@
 #     email  = var.service_account_email
 #     scopes = ["cloud-platform"]
 #   }
+  metadata_startup_script = file(var.startup_script_url)
 
  metadata = {
          enable-os-login = "true"

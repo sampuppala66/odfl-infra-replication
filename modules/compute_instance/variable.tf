@@ -68,3 +68,8 @@ variable "tags" {
   type        = list(string)
 }
 
+variable startup_script_url{
+  description = "url to the startup script"
+  type = string
+}
+
