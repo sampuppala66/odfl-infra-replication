@@ -41,3 +41,8 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "50.58.48.248/29"
                   ]
 subnetwork_regions = ["us-west3"]
+odfl_folder_admins = ["user:sam.puppala@panderasystems.com"]
+security_reviewers = ["user:sam.puppala@panderasystems.com",
+                      "carter.richard@panderasystems.com",
+                      "joshua.ibrahim@panderasystems.com",
+                      "group:ADFS_GCP-Developers@odfl.com"]

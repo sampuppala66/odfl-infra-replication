@@ -210,3 +210,13 @@ variable "subnetwork_regions" {
   description = "list of subnet zones"
   type = list(string)
 }
+
+variable "odfl_folder_admins" {
+  description = "the list of odfl folder admins"
+  type = list(string)
+}
+
+variable "security_reviewers" {
+  description = "the list of security reviewers"
+  type = list(string)
+}

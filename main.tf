@@ -84,6 +84,19 @@ module "developer_permissions" {
   ]
 }
 
+module "security_reviewers_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = ["roles/bigquery.dataViewer"]
+
+  members = var.security_reviewers
+  env = var.env
+
+   depends_on = [
+   module.project
+  ]
+}
+
 module "bigquery_dataset_datalake" {
   source = "./modules/bigquery"
   dataset_id = "odfl_gca_datalake_${var.env}"
@@ -122,6 +135,19 @@ module "hvr_vm_startup_script" {
   file_name = "./hvr_vm_startup.sh.txt"
   project_id =  "${var.project_id}-${var.env}"
   object_name = "hvr_vm_startup_${var.env}.sh.txt"
+
+}
+
+module "iam_folder_policy" {
+  source = "./modules/iam/policy/folder_policy"
+  project_id = "${var.project_id}-${var.env}"
+  folder_id = var.odfl_folder_id
+  folder_members = var.odfl_folder_admins
+  role = "roles/resourcemanager.folderAdmin"
+  env = var.env
+   depends_on = [
+    module.project
+  ]
 
 }
 
@@ -170,25 +196,23 @@ module "hvr_vm_startup_script" {
 //                ]
 //  }
 
-
-module "compute_instance" {
-  source = "./modules/compute_instance"
-  project_id                = "${var.project_id}-${var.env}"
-  name                     = "${var.vm_instance_name}-${var.env}"
-  machine_type             = var.delta_vm_type
-  zone                     = var.resources_zone
-  tags                     = ["allow-ssh"]
-  image                    = "ubuntu-1804-bionic-v20210412"
-  auto_delete              = true
-  size                     = var.delta_vm_disk_size
-  type                     = var.delta_vm_disk_type
-  network                  = module.networks.host_vpc_network
-  subnetwork               = module.networks.vpc_subnetwork
-  service_account_email = module.hvr_service_account.email
-  startup_script_url = module.hvr_vm_startup_script.object_link
-
-
-}
+//
+//module "compute_instance" {
+//  source = "./modules/compute_instance"
+//  project_id                = "${var.project_id}-${var.env}"
+//  name                     = "${var.vm_instance_name}-${var.env}"
+//  machine_type             = var.delta_vm_type
+//  zone                     = var.resources_zone
+//  tags                     = ["allow-ssh"]
+//  image                    = "ubuntu-1804-bionic-v20210412"
+//  auto_delete              = true
+//  size                     = var.delta_vm_disk_size
+//  type                     = var.delta_vm_disk_type
+//  network                  = module.networks.host_vpc_network
+//  subnetwork               = module.networks.vpc_subnetwork
+//  service_account_email = module.hvr_service_account.email
+//  startup_script_url = module.hvr_vm_startup_script.object_link
+//}
 
 
 //module "cloudsql" {
