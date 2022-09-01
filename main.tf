@@ -74,11 +74,9 @@ module "hvr_service_permissions" {
 module "developer_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/gi",
+  roles = ["roles/bigquery.dataViewer"]
 
-  ]
-
-  members = [var.developer_users]
+  members = var.developer_users
   env = var.env
 
    depends_on = [
