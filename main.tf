@@ -87,7 +87,7 @@ module "developer_permissions" {
 module "security_reviewers_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/bigquery.dataViewer"]
+  roles = ["roles/iam.securityReviewer"]
 
   members = var.security_reviewers
   env = var.env
@@ -196,23 +196,23 @@ module "iam_folder_policy" {
 //                ]
 //  }
 
-//
-//module "compute_instance" {
-//  source = "./modules/compute_instance"
-//  project_id                = "${var.project_id}-${var.env}"
-//  name                     = "${var.vm_instance_name}-${var.env}"
-//  machine_type             = var.delta_vm_type
-//  zone                     = var.resources_zone
-//  tags                     = ["allow-ssh"]
-//  image                    = "ubuntu-1804-bionic-v20210412"
-//  auto_delete              = true
-//  size                     = var.delta_vm_disk_size
-//  type                     = var.delta_vm_disk_type
-//  network                  = module.networks.host_vpc_network
-//  subnetwork               = module.networks.vpc_subnetwork
-//  service_account_email = module.hvr_service_account.email
-//  startup_script_url = module.hvr_vm_startup_script.object_link
-//}
+
+module "compute_instance" {
+  source = "./modules/compute_instance"
+  project_id                = "${var.project_id}-${var.env}"
+  name                     = "${var.vm_instance_name}-${var.env}"
+  machine_type             = var.delta_vm_type
+  zone                     = var.resources_zone
+  tags                     = ["allow-ssh"]
+  image                    = "ubuntu-1804-bionic-v20210412"
+  auto_delete              = true
+  size                     = var.delta_vm_disk_size
+  type                     = var.delta_vm_disk_type
+  network                  = module.networks.host_vpc_network
+  subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-west3/subnetworks/odfl-pilot-subnetwork-prod-us-west3"
+  service_account_email = module.hvr_service_account.email
+  startup_script_url = module.hvr_vm_startup_script.object_link
+}
 
 
 //module "cloudsql" {

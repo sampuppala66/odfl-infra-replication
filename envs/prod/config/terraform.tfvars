@@ -20,7 +20,7 @@ delta_vm_type = "n2-standard-4"
 vm_instance_name = "odfl-pilot-hvr-vm"
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
-resources_zone = "us-east1-c"
+resources_zone = "us-west3-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
 developer_users = ["group:ADFS_GCP-Developers@odfl.com"]
@@ -43,6 +43,6 @@ tcp_source_ranges = [ "216.54.213.8/29",
 subnetwork_regions = ["us-west3"]
 odfl_folder_admins = ["user:sam.puppala@panderasystems.com"]
 security_reviewers = ["user:sam.puppala@panderasystems.com",
-                      "carter.richard@panderasystems.com",
-                      "joshua.ibrahim@panderasystems.com",
+                      "user:carter.richard@panderasystems.com",
+                      "user:joshua.ibrahim@panderasystems.com",
                       "group:ADFS_GCP-Developers@odfl.com"]

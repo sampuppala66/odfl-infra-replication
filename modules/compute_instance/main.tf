@@ -1,6 +1,6 @@
- resource "google_compute_address" "static" {
-   name = "ipv4-address"
- }
+// resource "google_compute_address" "static" {
+//   name = "ipv4-address"
+// }
 
 /**
  * Create compute instance
@@ -27,9 +27,9 @@
      network            = var.network
      subnetwork         = var.subnetwork
       subnetwork_project = var.project_id
-      access_config {
-        nat_ip = google_compute_address.static.address
-     }
+//      access_config {
+//        nat_ip = google_compute_address.static.address
+//     }
    }
 
 #   service_account {
@@ -37,7 +37,7 @@
 #     email  = var.service_account_email
 #     scopes = ["cloud-platform"]
 #   }
-  metadata_startup_script = file(var.startup_script_url)
+  metadata_startup_script = var.startup_script_url
 
  metadata = {
          enable-os-login = "true"
