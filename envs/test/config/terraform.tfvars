@@ -23,13 +23,9 @@ delta_vm_disk_size ="20"
 resources_zone = "us-east1-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
-bigquery_users = ["user:carter.richard@panderasystems.com","group:ADFS_GCP-Developers@odfl.com"]
-bigquery_editors = ["user:carter.richard@panderasystems.com", "group:ADFS_GCP-Developers@odfl.com"]
-cloudsql_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com"]
-service_account_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com",]
-odfl_folder_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com"]
-vpc_name = "odfl-hostvpc"
-subnet_name = "odfl-pilot-subnet"
+developer_users = ["group:ADFS_GCP-Developers@odfl.com"]
+vpc_name = "odfl-pilot-vpc"
+subnet_name = "odfl-pilot-subnetwork"
 data_folder_id = "folders/684427362895"
 billing_account = "01576B-0CD5E1-6341D4"
 host_project_id = "odfl-shared-hvpc"
@@ -44,4 +40,4 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "35.248.29.128/26",
                     "50.58.48.248/29"
                   ]
-subnetwork_regions = ["us-east1c"]
+subnetwork_regions = ["us-east1"]

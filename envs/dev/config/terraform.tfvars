@@ -12,7 +12,7 @@ cloudsql_tier =  "db-f1-micro"
 cloudsql_availability_type = "ZONAL"
 cloudsql_disk_size =  50
 cloudsql_disk_type = "PD_SSD"
-cloudsql_ipv4_enabled =  false 
+cloudsql_ipv4_enabled =  true
 cloudsql_require_ssl =  false
 cloudsql_backup_start_time =  "04:00"
 service_account_name =  "odfl-hvr-sa"
@@ -23,11 +23,7 @@ delta_vm_disk_size ="20"
 resources_zone = "us-east1-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
-bigquery_users = ["user:carter.richard@panderasystems.com","group:ADFS_GCP-Developers@odfl.com"]
-bigquery_editors = ["user:carter.richard@panderasystems.com", "group:ADFS_GCP-Developers@odfl.com"]
-cloudsql_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com"]
-service_account_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com",]
-odfl_folder_admins = ["user:joshua.ibrahim@panderasystems.com","user:sam.puppala@panderasystems.com"]
+developer_users = ["group:ADFS_GCP-Developers@odfl.com"]
 vpc_name = "odfl-hostvpc-test"
 subnet_name = "odfl-pilot-subnet"
 data_folder_id = "folders/684427362895"
@@ -48,3 +44,4 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "35.248.29.128/26",
                     "50.58.48.248/29"
                   ]
+subnetwork_regions = ["us-east1"]

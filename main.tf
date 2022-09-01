@@ -71,6 +71,21 @@ module "hvr_service_permissions" {
   ]
 }
 
+module "developer_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = ["roles/gi",
+
+  ]
+
+  members = [var.developer_users]
+  env = var.env
+
+   depends_on = [
+   module.project
+  ]
+}
+
 module "bigquery_dataset_datalake" {
   source = "./modules/bigquery"
   dataset_id = "odfl_gca_datalake_${var.env}"
