@@ -123,7 +123,7 @@ terraform init
 
 ```shell
 ENV="dev" # Or whatever env (dev, preprod, prod)
-cd src/ # Navigate to the source folder
+cd $project/ # Navigate to the project root folder
 terraform init -input=false -reconfigure -backend-config="../envs/${ENV}/config/backend.tfvars"
 ```
 
