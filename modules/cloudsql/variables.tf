@@ -17,7 +17,7 @@ variable "data_database_name" {
 variable "data_database_region" {
   description = "The region of the db"
   type        = string
-  default = "us-east1"
+  default = "us-west3"
 }
 
 variable "odfl_database_version" {
@@ -148,7 +148,12 @@ variable "private_ip_prefix_length" {
   type        = number
 }
 
-variable "hvr_vm"{
+/*variable "hvr_vm_ip"{
   type = string
   description = "the hvr vm"
 }
+
+variable "hvr_vm_name"{
+  type = string
+  description = "the hvr vm"
+}*/

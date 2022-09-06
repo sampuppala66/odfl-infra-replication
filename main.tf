@@ -15,7 +15,7 @@ module "networks" {
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
   subnetwork_regions = var.subnetwork_regions
-  
+
   depends_on = [
     module.project
   ]
@@ -65,7 +65,7 @@ module "hvr_service_permissions" {
               "serviceAccount:${module.hvr_service_account.email}"
             ]
   env = var.env
-  
+
    depends_on = [
    module.project
   ]
@@ -215,37 +215,37 @@ module "compute_instance" {
 }
 
 
-//module "cloudsql" {
-//  source = "./modules/cloudsql"
-//  project_id = "${var.project_id}-${var.env}"
-//  env = var.env
-//  cloudsql_tier                      = var.cloudsql_tier
-//  cloudsql_disk_size                 = var.cloudsql_disk_size
-//  cloudsql_availability_type         = var.cloudsql_availability_type
-//  # cloudsql_backup_start_time         = var.cloudsql_backup_start_time
-//  cloudsql_name               = var.cloudsql_name
-//  cloudsql_region             = var.gcp_region
-//  cloudsql_database_version   = var.cloudsql_database_version
-//  # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
-//  cloudsql_root_password      = var.cloudsql_root_password
-//  cloudsql_disk_type          = var.cloudsql_disk_type
-//  cloudsql_ipv4_enabled       = true
-//  cloudsql_require_ssl        = false
-//  cloudsql_zone               = var.cloudsql_zone
-//  cloudsql_backup_enabled     = true
-//  cloudsql_binary_log_enabled = false
-//  cloudsql_start_time         = var.cloudsql_backup_start_time
-//  vpc_network                 = module.networks.host_vpc_network
-//  private_ip_address       = var.cloud_sql_ip_range
-//  private_ip_name          = "odfl-gca-pilot-${var.env}-ip-block"
-//  private_ip_purpose       = "VPC_PEERING"
-//  private_ip_address_type  = "INTERNAL"
-//  private_ip_version       = "IPV4"
-//  private_ip_prefix_length = 24
-//  hvr_vm = module.compute_instance.hvr_vm
-//
-//  depends_on = [
-//    module.project
-//  ]
-//}
+module "cloudsql" {
+  source = "./modules/cloudsql"
+  project_id = "${var.project_id}-${var.env}"
+  env = var.env
+  cloudsql_tier                      = var.cloudsql_tier
+  cloudsql_disk_size                 = var.cloudsql_disk_size
+  cloudsql_availability_type         = var.cloudsql_availability_type
+  # cloudsql_backup_start_time         = var.cloudsql_backup_start_time
+  cloudsql_name               = var.cloudsql_name
+  cloudsql_region             = var.gcp_region
+  cloudsql_database_version   = var.cloudsql_database_version
+  # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
+  cloudsql_root_password      = var.cloudsql_root_password
+  cloudsql_disk_type          = var.cloudsql_disk_type
+  cloudsql_ipv4_enabled       = true
+  cloudsql_require_ssl        = false
+  cloudsql_zone               = var.cloudsql_zone
+  cloudsql_backup_enabled     = true
+  cloudsql_binary_log_enabled = false
+  cloudsql_start_time         = var.cloudsql_backup_start_time
+  vpc_network                 = module.networks.host_vpc_network
+  private_ip_address       = var.cloud_sql_ip_range
+  private_ip_name          = "odfl-gca-pilot-${var.env}-ip-block"
+  private_ip_purpose       = "VPC_PEERING"
+  private_ip_address_type  = "INTERNAL"
+  private_ip_version       = "IPV4"
+  private_ip_prefix_length = 24
+  //hvr_vm_ip = module.compute_instance.hvr_vm.network_interface.0.access_config.0.nat_ip
+  //hvr_vm_name = module.compute_instance.hvr_vm.name
 
+  depends_on = [
+    module.project
+  ]
+}

@@ -46,10 +46,10 @@ resource "google_project_service" "data_service" {
     "servicemanagement.googleapis.com",
     "cloudapis.googleapis.com",
     "logging.googleapis.com",
+    "servicenetworking.googleapis.com",
     "opsconfigmonitoring.googleapis.com"
   ])
   service = each.key
   project = google_project.project_data.project_id
   disable_dependent_services = true
 }
-

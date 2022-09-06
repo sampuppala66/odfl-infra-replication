@@ -1,7 +1,7 @@
 /**
  * Create private IP block
  */
-resource "google_compute_global_address" "private_ip_block" {
+/*resource "google_compute_global_address" "private_ip_block" {
   address       = var.private_ip_address
   name          = var.private_ip_name
   purpose       = var.private_ip_purpose
@@ -10,21 +10,20 @@ resource "google_compute_global_address" "private_ip_block" {
   prefix_length = var.private_ip_prefix_length
   network       = var.vpc_network
   project       = var.project_id
-}
+}*/
 
 ///**
 // * Create private VPC connection
 // */
-//resource "google_service_networking_connection" "private_vpc_connection" {
-//  network                 = var.vpc_network
-//  service                 = "servicenetworking.googleapis.com"
-//  reserved_peering_ranges = [google_compute_global_address.private_ip_block.name]
-//  depends_on = [google_compute_global_address.private_ip_block]
-//}
-
+/*resource "google_service_networking_connection" "private_vpc_connection" {
+  network                 = var.vpc_network
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.private_ip_block.name]
+  depends_on = [google_compute_global_address.private_ip_block]
+}*/
 
 resource "google_sql_database_instance" "db_instance" {
-  name             = "${var.project_id}-cloudsql-${random_string.four_chars.result}"
+  name             = "${var.project_id}-postgresql-${random_string.four_chars.result}"
   region           = var.data_database_region
   database_version = var.odfl_database_version
   project = var.project_id
@@ -38,22 +37,20 @@ resource "google_sql_database_instance" "db_instance" {
 
     ip_configuration {
       ipv4_enabled    = var.cloudsql_ipv4_enabled
-      private_network = var.vpc_network
-
-       authorized_networks = [{
-         name  = var.hvr_vm.name
-         value = var.hvr_vm.value.network_interface.0.access_config.0.nat_ip
-      }]
+      //private_network = var.vpc_network
+      /*authorized_networks {
+        name  = var.hvr_vm_name
+        value = var.hvr_vm_ip
+      }*/
     }
-
     backup_configuration {
       enabled            = var.cloudsql_backup_enabled
       binary_log_enabled = var.cloudsql_binary_log_enabled
       start_time         = var.cloudsql_start_time
     }
+    //depends_on = [google_service_networking_connection.private_vpc_connection]
+    //depends_on = [module.networks.host_vpc_network]
   }
-//  depends_on = [google_service_networking_connection.private_vpc_connection]
-  # depends_on = [module.networks.host_vpc_network]
 }
 
 resource "google_sql_database" "database" {
