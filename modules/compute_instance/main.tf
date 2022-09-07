@@ -26,15 +26,14 @@
    network_interface {
      network            = var.network
      subnetwork         = var.subnetwork
-      subnetwork_project = var.project_id
-      /*access_config {
-        nat_ip = google_compute_address.static.address
-     }*/
+     subnetwork_project = var.project_id
+     access_config {
+     }
    }
-   /*service_account {
-    email  = module.hvr_service_account.email
-    scopes = ["cloud-platform"]
-  }*/
+   service_account {
+      email  = var.service_account_email
+      scopes = ["cloud-platform"]
+  }
   metadata_startup_script = var.startup_script_url
   metadata = {
     enable-os-login = "true"
