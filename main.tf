@@ -27,6 +27,7 @@ module "firewall-rule-allow-tcp"{
   firewall_name = "odfl-fw-ig-allow-gca-pilot-hvrhub-to-hvragent-${var.env}"
   description = "firewall rule allowing tcp"
   ports =  var.tcp_ports
+  tags = var.tags
   source_ranges = var.tcp_source_ranges
   vpc_network = module.networks.host_vpc_network
   env = var.env
@@ -203,7 +204,7 @@ module "compute_instance" {
   name                     = "${var.vm_instance_name}-${var.env}"
   machine_type             = var.delta_vm_type
   zone                     = var.resources_zone
-  tags                     = ["allow-ssh"]
+  tags                     = var.tags
   image                    = "ubuntu-1804-bionic-v20210412"
   auto_delete              = true
   size                     = var.delta_vm_disk_size

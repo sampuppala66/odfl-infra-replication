@@ -5,7 +5,7 @@ resource "google_compute_firewall" "firewall_rule" {
   name        = var.firewall_name
   network     =  var.vpc_network
   description = var.description
-  # target_tags = ["*"]
+  target_tags = var.tags
   priority = var.priority
   source_ranges = var.source_ranges
   allow {
@@ -13,7 +13,3 @@ resource "google_compute_firewall" "firewall_rule" {
     ports    = var.ports
   }
 }
-
-
-
-

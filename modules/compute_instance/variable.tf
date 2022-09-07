@@ -1,5 +1,5 @@
 /**
- * Variables 
+ * Variables
  */
 variable "project_id" {
   description = "The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
@@ -64,7 +64,7 @@ variable "service_account_email" {
 }
 
 variable "tags" {
-  description = "the hostname"
+  description = "the network tags"
   type        = list(string)
 }
 
@@ -72,4 +72,3 @@ variable startup_script_url{
   description = "url to the startup script"
   type = string
 }
-

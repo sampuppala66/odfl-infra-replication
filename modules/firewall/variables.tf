@@ -22,11 +22,15 @@ variable "source_ranges" {
   type = list(string)
 }
 
+variable "tags" {
+  description = "The target tags "
+  type = list(string)
+}
 
 variable "description" {
   description = "The description of the firewall rule"
   type = string
-  
+
 }
 
 variable "vpc_network" {

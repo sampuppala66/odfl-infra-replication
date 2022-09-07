@@ -31,6 +31,7 @@ data_folder_id = "folders/684427362895"
 billing_account = "01576B-0CD5E1-6341D4"
 host_project_id = "odfl-shared-hvpc"
 cloud_sql_ip_range = "10.78.176.0"
+tags = ["allow-ssh", "allow-hvr"]
 tcp_ports = ["80", "22", "443", "4343"]
 tcp_source_ranges = [ "216.54.213.8/29",
                     "216.54.213.80/29",

@@ -155,7 +155,7 @@ variable "developer_users" {
   description = "list of big query users"
   type = list(string)
   default = ["group:ADFS_GCP-Developers@odfl.com"]
-  
+
 }
 
 
@@ -173,20 +173,20 @@ variable "subnet_name" {
 variable "data_folder_id" {
   description = "The folder id of the data folder"
   type = string
-  
+
 }
 
 variable "host_project_id" {
   description = "The project_id of the host project"
   type = string
-  
+
 }
 
 
 variable "billing_account" {
   description = "The billing account attached to the project"
   type = string
-  
+
 }
 
 variable "cloud_sql_ip_range" {
@@ -204,7 +204,10 @@ variable "tcp_source_ranges" {
   description = "ip ranges of the firewall rule for the iap"
   type = list(string)
 }
-
+variable "tags" {
+  description = "The target tags "
+  type = list(string)
+}
 
 variable "subnetwork_regions" {
   description = "list of subnet zones"
