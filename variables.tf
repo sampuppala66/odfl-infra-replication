@@ -204,6 +204,7 @@ variable "tcp_source_ranges" {
   description = "ip ranges of the firewall rule for the iap"
   type = list(string)
 }
+
 variable "tags" {
   description = "The target tags "
   type = list(string)
@@ -219,7 +220,35 @@ variable "odfl_folder_admins" {
   type = list(string)
 }
 
-variable "security_reviewers" {
+variable "reviewers" {
   description = "the list of security reviewers"
   type = list(string)
+}
+
+variable "sa_users" {
+  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  type        = list(string)
+}
+
+variable "roles" {
+  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  type        = list(string)
+}
+variable "reviewer_roles" {
+  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  type        = list(string)
+}
+variable "admin_roles" {
+  description = "A text description of the roles"
+  type        = list(string)
+}
+
+variable "admins" {
+  description = "A text description of the admins."
+  type        = list(string)
+}
+
+variable "developer_roles" {
+  description = "A text description of the roles"
+  type        = list(string)
 }

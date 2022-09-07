@@ -25,6 +25,13 @@ resources_zone = "us-west3-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
 developer_users = ["group:adfs_gcp-developers_prod@odfl.com"]
+sa_users = ["group:adfs_gcp-developers_prod@odfl.com", "group:adfs_gcp-dba_admin_prod@odfl.com",
+            "user:sam.puppala@panderasystems.com"]
+admins = ["group:adfs_gcp-dba_admin_prod@odfl.com", "user:sam.puppala@panderasystems.com",
+          "user:carter.richard@panderasystems.com"]
+reviewers = ["user:sam.puppala@panderasystems.com",
+            "user:carter.richard@panderasystems.com",
+            "user:joshua.ibrahim@panderasystems.com"]
 vpc_name = "odfl-pilot-vpc"
 subnet_name = "odfl-pilot-subnetwork"
 data_folder_id = "folders/684427362895"
@@ -44,7 +51,22 @@ tcp_source_ranges = [ "216.54.213.8/29",
                   ]
 subnetwork_regions = ["us-west3"]
 odfl_folder_admins = ["user:sam.puppala@panderasystems.com", "group:adfs_gcp-dba_admin_prod@odfl.com"]
-security_reviewers = ["user:sam.puppala@panderasystems.com",
-                      "user:carter.richard@panderasystems.com",
-                      "user:joshua.ibrahim@panderasystems.com",
-                      "group:adfs_gcp-dba_admin_prod@odfl.com"]
+roles = ["roles/bigquery.user",
+         "roles/bigquerydatapolicy.maskedReader",
+          "roles/datacatalog.categoryFineGrainedReader",
+          "roles/bigquery.dataEditor",
+          "roles/cloudsql.client"]
+reviewer_roles = ["roles/iam.securityReviewer"]
+developer_roles = ["roles/bigquery.user",
+         "roles/bigquerydatapolicy.maskedReader",
+          "roles/datacatalog.categoryFineGrainedReader",
+          "roles/bigquery.dataEditor",
+          "roles/cloudsql.client"]
+admin_roles = [
+        "roles/iam.serviceAccountAdmin",
+        "roles/bigquery.dataEditor",
+        "roles/bigquery.admin",
+        "roles/cloudsql.admin",
+        "roles/compute.admin",
+        "roles/compute.instanceAdmin",
+        "roles/compute.instanceAdmin.v1"]

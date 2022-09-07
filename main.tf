@@ -39,6 +39,8 @@ module "hvr_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
   account_id   = "${var.service_account_name}-${var.env}"
+  sa_users = var.sa_users
+  roles = var.roles
   display_name = "${var.service_account_name}-${var.env}"
   description = "hvr service account"
 }
@@ -51,17 +53,7 @@ data "google_compute_default_service_account" "hvr_service_account" {
 module "hvr_service_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/bigquery.user",
-            "roles/bigquerydatapolicy.maskedReader",
-            "roles/datacatalog.categoryFineGrainedReader",
-            "roles/iam.serviceAccountAdmin",
-            "roles/bigquery.dataEditor",
-            "roles/cloudsql.client",
-            "roles/compute.admin",
-            "roles/compute.instanceAdmin",
-            "roles/compute.instanceAdmin.v1"
-  ]
-
+  roles = var.roles
   members = [
               "serviceAccount:${module.hvr_service_account.email}"
             ]
@@ -75,7 +67,7 @@ module "hvr_service_permissions" {
 module "developer_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/bigquery.dataViewer"]
+  roles = var.developer_roles
 
   members = var.developer_users
   env = var.env
@@ -88,11 +80,21 @@ module "developer_permissions" {
 module "security_reviewers_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
-  roles = ["roles/iam.securityReviewer"]
+  roles = var.reviewer_roles
 
-  members = var.security_reviewers
+  members = var.reviewers
   env = var.env
 
+   depends_on = [
+   module.project
+  ]
+}
+module "admin_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = var.admin_roles
+  members = var.admins
+  env = var.env
    depends_on = [
    module.project
   ]

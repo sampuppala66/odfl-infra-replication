@@ -1,5 +1,5 @@
 /**
- * Variables 
+ * Variables
  */
 variable "project" {
   description = ""
@@ -21,4 +21,12 @@ variable "description" {
   type        = string
 }
 
+variable "sa_users" {
+  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  type        = list(string)
+}
 
+variable "roles" {
+  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  type        = list(string)
+}

@@ -1,5 +1,5 @@
 /**
- * Variables 
+ * Variables
  */
 variable "project_id" {
   description = "service project_id"
