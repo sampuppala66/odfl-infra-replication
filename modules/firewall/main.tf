@@ -1,6 +1,5 @@
 
-
-resource "google_compute_firewall" "firewall_rule" {
+resource "google_compute_firewall" "odfl-network_firewall_rule" {
   project     = var.project_id
   name        = var.firewall_name
   network     =  var.vpc_network

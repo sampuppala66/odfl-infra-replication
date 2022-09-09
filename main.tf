@@ -35,6 +35,20 @@ module "firewall-rule-allow-tcp"{
   protocol = "tcp"
 }
 
+module "firewall-rule-allow-single_ip"{
+  source = "./modules/firewall"
+  project_id = "${var.project_id}-${var.env}"
+  firewall_name = "odfl-fw-ig-allow-ssh-ip-to-hvragent"
+  description = "firewall rule allowing single ip"
+  ports =  var.tcp_ports
+  tags = var.tags
+  source_ranges = ["99.74.215.19/32"]
+  vpc_network = module.networks.host_vpc_network
+  env = var.env
+  priority = 2000
+  protocol = "tcp"
+}
+
 module "hvr_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
@@ -135,10 +149,19 @@ module "hvr_vm_startup_storage" {
 module "hvr_vm_startup_script" {
   source = "./modules/cloud_storage/cloud_storage_object"
   bucket = module.hvr_vm_startup_storage.bucket.name
-  file_name = "./hvr_vm_startup.sh.txt"
+  file_name = "./hvr_vm_startup.sh"
   project_id =  "${var.project_id}-${var.env}"
-  object_name = "hvr_vm_startup_${var.env}.sh.txt"
+  object_name = "hvr_vm_startup_${var.env}.sh"
+}
 
+module "hvr_vm_storage_access" {
+  source = "./modules/cloud_storage/storage_access"
+  bucket = module.hvr_vm_startup_storage.bucket.name
+  object_name = "hvr_vm_startup_${var.env}.sh"
+  service_account = "user-${module.hvr_service_account.email}"
+  depends_on = [
+   module.hvr_vm_startup_script, module.hvr_vm_startup_storage
+ ]
 }
 
 module "iam_folder_policy" {
@@ -214,7 +237,10 @@ module "compute_instance" {
   network                  = module.networks.host_vpc_network
   subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-west3/subnetworks/odfl-pilot-subnetwork-prod-us-west3"
   service_account_email = module.hvr_service_account.email
-  startup_script_url = module.hvr_vm_startup_script.object_link
+  startup_script_url = "hvr_vm_startup_prod.sh"
+  depends_on = [
+   module.hvr_vm_storage_access
+ ]
 }
 
 

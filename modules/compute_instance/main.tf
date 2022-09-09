@@ -33,9 +33,11 @@
    service_account {
       email  = var.service_account_email
       scopes = ["cloud-platform"]
-  }
-  metadata_startup_script = var.startup_script_url
+   }
+
+  metadata_startup_script = file("${path.module}/hvr_vm_startup.sh")
   metadata = {
+    serial-port-logging-enable = "TRUE"
     enable-os-login = "true"
    }
  }
