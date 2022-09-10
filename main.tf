@@ -38,7 +38,7 @@ module "firewall-rule-allow-tcp"{
 module "firewall-rule-allow-single_ip"{
   source = "./modules/firewall"
   project_id = "${var.project_id}-${var.env}"
-  firewall_name = "odfl-fw-ig-allow-ssh-ip-to-hvragent"
+  firewall_name = "odfl-fw-ig-allow-ssh-local-to-hvragent"
   description = "firewall rule allowing single ip"
   ports =  var.tcp_ports
   tags = var.tags
@@ -164,6 +164,14 @@ module "hvr_vm_storage_access" {
  ]
 }
 
+module "hvr_sa_key_json" {
+  source = "./modules/cloud_storage/cloud_storage_object"
+  bucket = module.hvr_vm_startup_storage.bucket.name
+  file_name = "./hvr_service_account_key.json"
+  project_id =  "${var.project_id}-${var.env}"
+  object_name = "hvr_service_account_key.json"
+}
+
 module "iam_folder_policy" {
   source = "./modules/iam/policy/folder_policy"
   project_id = "${var.project_id}-${var.env}"
@@ -230,7 +238,7 @@ module "compute_instance" {
   machine_type             = var.delta_vm_type
   zone                     = var.resources_zone
   tags                     = var.tags
-  image                    = "ubuntu-1804-bionic-v20210412"
+  image                    = "debian-11-bullseye-v20220822"
   auto_delete              = true
   size                     = var.delta_vm_disk_size
   type                     = var.delta_vm_disk_type

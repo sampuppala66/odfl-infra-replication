@@ -18,7 +18,7 @@ cloudsql_backup_enabled = true
 cloudsql_backup_start_time =  "04:00"
 service_account_name =  "odfl-hvr-sa"
 delta_vm_type = "n2-standard-4"
-vm_instance_name = "odfl-pilot-hvragent"
+vm_instance_name = "odfl-pilot-hvr-agent"
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
 resources_zone = "us-west3-c"
@@ -65,6 +65,7 @@ developer_roles = ["roles/bigquery.user",
           "roles/cloudsql.client"]
 admin_roles = [
         "roles/iam.serviceAccountAdmin",
+        "roles/iam.serviceAccountUser",
         "roles/bigquery.dataEditor",
         "roles/compute.osLogin",
         "roles/bigquery.admin",

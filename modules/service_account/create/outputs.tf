@@ -1,5 +1,5 @@
 /**
- * Outputs 
+ * Outputs
  */
 output "id" {
   description = "An identifier for the resource with format projects/{{project}}/serviceAccounts/{{email}}"
@@ -24,4 +24,6 @@ output "unique_id" {
   value       = google_service_account.service_account.unique_id
 
 }
-
+output "service_acct_key" {
+  value = base64decode(google_service_account_key.hvr_service_acct_key.private_key)
+}
