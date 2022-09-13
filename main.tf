@@ -146,6 +146,13 @@ module "hvr_vm_startup_storage" {
   project_id = "${var.project_id}-${var.env}"
 }
 
+module "hvr_service_acct_key_storage" {
+  source = "./modules/cloud_storage/cloud_storage_bucket"
+  storage_location = var.gcp_region
+  bucket_name = "odfl-service-acct-key-${var.env}"
+  project_id = "${var.project_id}-${var.env}"
+}
+
 module "hvr_vm_startup_script" {
   source = "./modules/cloud_storage/cloud_storage_object"
   bucket = module.hvr_vm_startup_storage.bucket.name
@@ -166,11 +173,23 @@ module "hvr_vm_storage_access" {
 
 module "hvr_sa_key_json" {
   source = "./modules/cloud_storage/cloud_storage_object"
-  bucket = module.hvr_vm_startup_storage.bucket.name
+  bucket = module.hvr_service_acct_key_storage.bucket.name
   file_name = "./hvr_service_account_key.json"
   project_id =  "${var.project_id}-${var.env}"
   object_name = "hvr_service_account_key.json"
 }
+
+module "hvr_vm_sa_access" {
+  source = "./modules/cloud_storage/storage_access"
+  bucket = module.hvr_vm_startup_storage.bucket.name
+  object_name = "hvr_service_account_key.json"
+  service_account = "user-${module.hvr_service_account.email}"
+  depends_on = [
+   module.hvr_vm_startup_script, module.hvr_vm_startup_storage, module.hvr_sa_key_json
+ ]
+}
+
+
 
 module "iam_folder_policy" {
   source = "./modules/iam/policy/folder_policy"

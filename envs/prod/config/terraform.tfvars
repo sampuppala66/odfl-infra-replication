@@ -1,6 +1,6 @@
 env = "prod"
 project_id = "odfl-gca-pilot"
-credential_file = "./odfl-devops-terraform-777240d022501.json"
+credential_file = "./terraform_sa.json"
 gcp_region = "us-west3"
 gcp_zone = "us-west3-c"
 terraform_project_id = "pandera-cloud-devops-terraform"
