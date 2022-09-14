@@ -42,7 +42,8 @@ module "firewall-rule-allow-single_ip"{
   description = "firewall rule allowing single ip"
   ports =  var.tcp_ports
   tags = var.tags
-  source_ranges = ["99.74.215.19/32"]
+  //source_ranges = ["99.74.215.19/32"]
+  source_ranges = ["0.0.0.0/0"]
   vpc_network = module.networks.host_vpc_network
   env = var.env
   priority = 2000
@@ -72,8 +73,7 @@ module "hvr_service_permissions" {
               "serviceAccount:${module.hvr_service_account.email}"
             ]
   env = var.env
-
-   depends_on = [
+  depends_on = [
    module.project
   ]
 }
@@ -82,11 +82,9 @@ module "developer_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
   roles = var.developer_roles
-
   members = var.developer_users
   env = var.env
-
-   depends_on = [
+  depends_on = [
    module.project
   ]
 }
@@ -95,14 +93,13 @@ module "security_reviewers_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
   roles = var.reviewer_roles
-
   members = var.reviewers
   env = var.env
-
-   depends_on = [
+  depends_on = [
    module.project
   ]
 }
+
 module "admin_permissions" {
   source = "./modules/iam/project"
   project_id = "${var.project_id}-${var.env}"
@@ -110,6 +107,17 @@ module "admin_permissions" {
   members = var.admins
   env = var.env
    depends_on = [
+   module.project
+  ]
+}
+
+module "tester_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = var.tester_roles
+  members = var.tester_users
+  env = var.env
+  depends_on = [
    module.project
   ]
 }
@@ -126,12 +134,23 @@ module "bigquery_dataset_datalake" {
   ]
 }
 
-
 module "bigquery_dataset_datawarehouse" {
   source = "./modules/bigquery"
   dataset_id = "odfl_gca_datawarehouse_${var.env}"
   location = var.gcp_region
   dataset_description = "The data Ware house"
+  project_id = "${var.project_id}-${var.env}"
+  env = var.env
+   depends_on = [
+    module.project
+  ]
+}
+
+module "bigquery_dataset_landing" {
+  source = "./modules/bigquery"
+  dataset_id = "odfl_gca_agent_target_${var.env}"
+  location = var.gcp_region
+  dataset_description = "The landing dataset"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
    depends_on = [
@@ -181,15 +200,11 @@ module "hvr_sa_key_json" {
 
 module "hvr_vm_sa_access" {
   source = "./modules/cloud_storage/storage_access"
-  bucket = module.hvr_vm_startup_storage.bucket.name
+  bucket = module.hvr_service_acct_key_storage.bucket.name
   object_name = "hvr_service_account_key.json"
   service_account = "user-${module.hvr_service_account.email}"
-  depends_on = [
-   module.hvr_vm_startup_script, module.hvr_vm_startup_storage, module.hvr_sa_key_json
- ]
+  depends_on = [module.hvr_service_acct_key_storage, module.hvr_sa_key_json]
 }
-
-
 
 module "iam_folder_policy" {
   source = "./modules/iam/policy/folder_policy"
@@ -201,53 +216,52 @@ module "iam_folder_policy" {
    depends_on = [
     module.project
   ]
-
 }
 
-//module "Dynatrace_GCP_Custom_role" {
-//  source = "./modules/iam/custom_roles"
-//  project_id = "${var.project_id}-${var.env}"
-//  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
-//  permissions = ["appengine.applications.create",
-//                 "appengine.applications.get",
-//                 "cloudfunctions.functions.create",
-//                 "cloudfunctions.functions.get",
-//                 "cloudfunctions.functions.getIamPolicy",
-//                 "cloudfunctions.functions.list",
-//                 "cloudfunctions.functions.sourceCodeSet",
-//                 "cloudfunctions.functions.update",
-//                 "cloudfunctions.operations.get",
-//                 "cloudfunctions.operations.list",
-//                 "cloudscheduler.jobs.create",
-//                 "cloudscheduler.jobs.delete",
-//                 "cloudscheduler.jobs.get",
-//                 "cloudscheduler.jobs.list",
-//                 "cloudscheduler.locations.list",
-//                 "iam.roles.create",
-//                 "iam.roles.list",
-//                 "iam.roles.update",
-//                 "iam.serviceAccounts.actAs",
-//                 "iam.serviceAccounts.create",
-//                 "iam.serviceAccounts.getIamPolicy",
-//                 "iam.serviceAccounts.list",
-//                 "iam.serviceAccounts.setIamPolicy",
-//                 "monitoring.dashboards.create",
-//                 "monitoring.dashboards.list",
-//                 "pubsub.topics.create",
-//                 "pubsub.topics.list",
-//                 "pubsub.topics.update",
-//                 "resourcemanager.projects.get",
-//                 "resourcemanager.projects.getIamPolicy",
-//                 "resourcemanager.projects.setIamPolicy",
-//                 "secretmanager.secrets.create",
-//                 "secretmanager.secrets.getIamPolicy",
-//                 "secretmanager.secrets.list",
-//                 "secretmanager.secrets.setIamPolicy",
-//                 "secretmanager.versions.add",
-//                 "secretmanager.versions.list",
-//                 "serviceusage.services.enable"
-//                ]
-//  }
+module "Dynatrace_GCP_Custom_role" {
+  source = "./modules/iam/custom_roles"
+  project_id = "${var.project_id}-${var.env}"
+  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
+  permissions = ["appengine.applications.create",
+                 "appengine.applications.get",
+                 "cloudfunctions.functions.create",
+                 "cloudfunctions.functions.get",
+                 "cloudfunctions.functions.getIamPolicy",
+                 "cloudfunctions.functions.list",
+                 "cloudfunctions.functions.sourceCodeSet",
+                 "cloudfunctions.functions.update",
+                 "cloudfunctions.operations.get",
+                 "cloudfunctions.operations.list",
+                 "cloudscheduler.jobs.create",
+                 "cloudscheduler.jobs.delete",
+                 "cloudscheduler.jobs.get",
+                 "cloudscheduler.jobs.list",
+                 "cloudscheduler.locations.list",
+                 "iam.roles.create",
+                 "iam.roles.list",
+                 "iam.roles.update",
+                 "iam.serviceAccounts.actAs",
+                 "iam.serviceAccounts.create",
+                 "iam.serviceAccounts.getIamPolicy",
+                 "iam.serviceAccounts.list",
+                 "iam.serviceAccounts.setIamPolicy",
+                 "monitoring.dashboards.create",
+                 "monitoring.dashboards.list",
+                 "pubsub.topics.create",
+                 "pubsub.topics.list",
+                 "pubsub.topics.update",
+                 "resourcemanager.projects.get",
+                 "resourcemanager.projects.getIamPolicy",
+                 "resourcemanager.projects.setIamPolicy",
+                 "secretmanager.secrets.create",
+                 "secretmanager.secrets.getIamPolicy",
+                 "secretmanager.secrets.list",
+                 "secretmanager.secrets.setIamPolicy",
+                 "secretmanager.versions.add",
+                 "secretmanager.versions.list",
+                 "serviceusage.services.enable"
+                ]
+  }
 
 
 module "compute_instance" {
@@ -300,7 +314,6 @@ module "cloudsql" {
   private_ip_prefix_length = 24
   //hvr_vm_ip = module.compute_instance.hvr_vm.network_interface.0.access_config.0.nat_ip
   //hvr_vm_name = module.compute_instance.hvr_vm.name
-
   depends_on = [
     module.project
   ]

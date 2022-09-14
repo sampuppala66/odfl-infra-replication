@@ -226,29 +226,36 @@ variable "reviewers" {
 }
 
 variable "sa_users" {
-  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  description = "service account impersonators"
   type        = list(string)
 }
 
 variable "roles" {
-  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  description = "Roles."
   type        = list(string)
 }
 variable "reviewer_roles" {
-  description = "A text description of the service account. Must be less than or equal to 256 UTF-8 bytes."
+  description = "Reviewer roles"
   type        = list(string)
 }
 variable "admin_roles" {
-  description = "A text description of the roles"
+  description = "Admin roles"
   type        = list(string)
 }
-
+variable "tester_roles" {
+  description = "QA roles"
+  type        = list(string)
+}
+variable "tester_users" {
+  description = "QA users"
+  type        = list(string)
+}
 variable "admins" {
-  description = "A text description of the admins."
+  description = "Admins."
   type        = list(string)
 }
 
 variable "developer_roles" {
-  description = "A text description of the roles"
+  description = "Developer roles"
   type        = list(string)
 }
