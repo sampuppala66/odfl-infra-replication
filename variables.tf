@@ -259,3 +259,16 @@ variable "developer_roles" {
   description = "Developer roles"
   type        = list(string)
 }
+variable "dynatrace_permissions" {
+  description = "Dynatrace permissions"
+  type        = list(string)
+}
+variable "monitoring_users" {
+  description = "Dynatrace users"
+  type        = list(string)
+}
+variable "oslogin" {
+  description = "OS Login enabled"
+  type = string
+  default = "TRUE"
+}

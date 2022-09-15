@@ -24,6 +24,7 @@ delta_vm_disk_size ="20"
 resources_zone = "us-west3-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
+monitoring_users = ["adfs_gcp-sysops-monitoring_admin_prod@odfl.com"]
 developer_users = ["group:adfs_gcp-developers_prod@odfl.com"]
 sa_users = ["group:adfs_gcp-developers_prod@odfl.com", "group:adfs_gcp-dba_admin_prod@odfl.com",
             "group:adfs_gcp-testers_prod@odfl.com", "user:sam.puppala@panderasystems.com"]
@@ -79,3 +80,43 @@ admin_roles = [
         "roles/compute.admin",
         "roles/compute.instanceAdmin",
         "roles/compute.instanceAdmin.v1"]
+
+dynatrace_permissions = ["appengine.applications.create",
+                       "appengine.applications.get",
+                       "cloudfunctions.functions.create",
+                       "cloudfunctions.functions.get",
+                       "cloudfunctions.functions.getIamPolicy",
+                       "cloudfunctions.functions.list",
+                       "cloudfunctions.functions.sourceCodeSet",
+                       "cloudfunctions.functions.update",
+                       "cloudfunctions.operations.get",
+                       "cloudfunctions.operations.list",
+                       "cloudscheduler.jobs.create",
+                       "cloudscheduler.jobs.delete",
+                       "cloudscheduler.jobs.get",
+                       "cloudscheduler.jobs.list",
+                       "cloudscheduler.locations.list",
+                       "iam.roles.create",
+                       "iam.roles.list",
+                       "iam.roles.update",
+                       "iam.serviceAccounts.actAs",
+                       "iam.serviceAccounts.create",
+                       "iam.serviceAccounts.getIamPolicy",
+                       "iam.serviceAccounts.list",
+                       "iam.serviceAccounts.setIamPolicy",
+                       "monitoring.dashboards.create",
+                       "monitoring.dashboards.list",
+                       "pubsub.topics.create",
+                       "pubsub.topics.list",
+                       "pubsub.topics.update",
+                       "resourcemanager.projects.get",
+                       "resourcemanager.projects.getIamPolicy",
+                       "resourcemanager.projects.setIamPolicy",
+                       "secretmanager.secrets.create",
+                       "secretmanager.secrets.getIamPolicy",
+                       "secretmanager.secrets.list",
+                       "secretmanager.secrets.setIamPolicy",
+                       "secretmanager.versions.add",
+                       "secretmanager.versions.list",
+                       "serviceusage.services.enable"
+        ]
