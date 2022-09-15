@@ -41,10 +41,10 @@ module "firewall-rule-allow-tcp"{
   protocol = "tcp"
 }
 
-module "firewall-rule-allow-single_ip"{
+module "firewall-rule-allow-workstation_ips"{
   source = "./modules/firewall"
   project_id = "${var.project_id}-${var.env}"
-  firewall_name = "odfl-fw-ig-allow-ssh-local-to-hvragent"
+  firewall_name = "odfl-fw-ig-allow-ssh-workstation-to-hvragent"
   description = "firewall rule allowing single ip"
   ports =  var.tcp_ports
   tags = var.tags
@@ -227,7 +227,7 @@ module "iam_folder_policy" {
 module "Dynatrace_GCP_Custom_role" {
   source = "./modules/iam/custom_roles"
   project_id = "${var.project_id}-${var.env}"
-  custom_role_name = "Dynatrace_GCP_Function_cloud_${var.env}"
+  custom_role_name = "dynatrace_function.cloud_function_deployment"
   permissions = var.dynatrace_permissions
 }
 
