@@ -48,7 +48,7 @@ module "firewall-rule-allow-workstation_ips"{
   description = "firewall rule allowing single ip"
   ports =  var.tcp_ports
   tags = var.tags
-  source_ranges = ["99.74.215.19/32"]
+  source_ranges = ["99.74.215.19/32", "172.10.123.148/32"]
   //source_ranges = ["0.0.0.0/0"]
   vpc_network = module.networks.host_vpc_network
   env = var.env
@@ -251,7 +251,6 @@ module "compute_instance" {
    module.hvr_vm_storage_access
  ]
 }
-
 
 module "cloudsql" {
   source = "./modules/cloudsql"

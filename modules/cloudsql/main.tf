@@ -1,26 +1,6 @@
-/**
- * Create private IP block
- */
-/*resource "google_compute_global_address" "private_ip_block" {
-  address       = var.private_ip_address
-  name          = var.private_ip_name
-  purpose       = var.private_ip_purpose
-  address_type  = var.private_ip_address_type
-  ip_version    = var.private_ip_version
-  prefix_length = var.private_ip_prefix_length
-  network       = var.vpc_network
-  project       = var.project_id
-}*/
-
-///**
-// * Create private VPC connection
-// */
-/*resource "google_service_networking_connection" "private_vpc_connection" {
-  network                 = var.vpc_network
-  service                 = "servicenetworking.googleapis.com"
-  reserved_peering_ranges = [google_compute_global_address.private_ip_block.name]
-  depends_on = [google_compute_global_address.private_ip_block]
-}*/
+locals {
+  onprem = ["34.106.193.182/32"]
+}
 
 resource "google_sql_database_instance" "db_instance" {
   name             = "${var.project_id}-postgresql-${random_string.four_chars.result}"
@@ -28,6 +8,7 @@ resource "google_sql_database_instance" "db_instance" {
   database_version = var.odfl_database_version
   project = var.project_id
   deletion_protection = false
+  root_password = "P@$$W0rd1"
   settings {
     tier              = var.cloudsql_tier
     availability_type = var.cloudsql_availability_type
@@ -38,10 +19,14 @@ resource "google_sql_database_instance" "db_instance" {
     ip_configuration {
       ipv4_enabled    = var.cloudsql_ipv4_enabled
       //private_network = var.vpc_network
-      /*authorized_networks {
-        name  = var.hvr_vm_name
-        value = var.hvr_vm_ip
-      }*/
+      dynamic "authorized_networks" {
+        for_each = local.onprem
+        iterator = onprem
+        content {
+          name  = "onprem-${onprem.key}"
+          value = onprem.value
+        }
+      }
     }
     backup_configuration {
       enabled            = var.cloudsql_backup_enabled

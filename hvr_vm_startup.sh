@@ -1,6 +1,6 @@
 #Add the following lines to the startup profile si that env variables are set on login
-sudo apt-get update
-sudo apt-get install wget
+sudo apt-get update -y
+sudo apt-get install wget -y
 sudo apt-get install postgresql-client -y
 adduser --disabled-password myhvr
 export HVR_HOME=/home/myhvr/hvr_home
