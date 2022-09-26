@@ -26,15 +26,27 @@ Two dimention structure for IaC:
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
+│   ├───cloud_storage
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
 │   ├───cloudsql
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
-│   ├───folders
+│   ├───compute_instance
+│   │       main.tf
+│   │       outputs.tf
+│   │       variables.tf
+│   ├───firewall
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
 │   ├───iam
+│   │       ├───project
+│   │       │   │           main.tf
+│   │       │   │           outputs.tf
+│   │       │   │           variables.tf
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
@@ -42,15 +54,15 @@ Two dimention structure for IaC:
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
-│   └───projects
-│   |        main.tf
-│   |        outputs.tf
-│   |        variables.tf
-│   ├───pubsub
+│   ├───project
+│   │       ├───metadata
+│   │       │   │           main.tf
+│   │       │   │           outputs.tf
+│   │       │   │           variables.tf  
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
-│   ├───secret_manager
+│   ├───service_account
 │   │       main.tf
 │   │       outputs.tf
 │   │       variables.tf
@@ -146,8 +158,7 @@ terraform apply -input=false -auto-approve "../output/tfplan"
 **
 *3 FIrewall rules*
 *Iam permissions to odfl group: mask reader,
-*Carter : fine grained reader 
+*Carter : fine grained reader
 *permissions for service accounts
 *cloudsql iam auth enabled
 **test shared vpc on test not dev
-

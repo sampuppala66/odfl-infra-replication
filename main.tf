@@ -66,6 +66,16 @@ module "hvr_service_account" {
   description = "hvr service account"
 }
 
+module "pilot_service_account" {
+  source = "./modules/service_account/create"
+  project      ="${var.project_id}-${var.env}"
+  account_id   = "${var.pilot_service_account_name}-${var.env}"
+  sa_users = var.sa_users
+  roles = var.roles
+  display_name = "${var.pilot_service_account_name}-${var.env}"
+  description = "pilot service account"
+}
+
 
 data "google_compute_default_service_account" "hvr_service_account" {
    project      =  "${var.project_id}-${var.env}"
@@ -77,6 +87,19 @@ module "hvr_service_permissions" {
   roles = var.roles
   members = [
               "serviceAccount:${module.hvr_service_account.email}"
+            ]
+  env = var.env
+  depends_on = [
+   module.project
+  ]
+}
+
+module "pilot_service_account_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = var.roles
+  members = [
+              "serviceAccount:${module.pilot_service_account.email}"
             ]
   env = var.env
   depends_on = [

@@ -108,7 +108,11 @@ variable "service_account_name" {
   type        = string
   default = "odfl-hvr-sa"
 }
-
+variable "pilot_service_account_name" {
+  description = "Pilot service Account name"
+  type        = string
+  default = "odfl-pilot-sa"
+}
 variable "delta_vm_type" {
   description = "Vm instance type"
   type        = string

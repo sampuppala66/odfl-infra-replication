@@ -17,8 +17,9 @@ cloudsql_require_ssl =  false
 cloudsql_backup_enabled = true
 cloudsql_backup_start_time =  "04:00"
 service_account_name =  "odfl-hvr-sa"
+pilot_service_account_name = "odfl-pilot-sa"
 delta_vm_type = "n2-standard-4"
-vm_instance_name = "odfl-gca-pilot-hvr-agent"
+vm_instance_name = "odfl-gca-pilot-hvragent"
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
 resources_zone = "us-west3-c"
@@ -49,7 +50,8 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "209.136.214.192/26",
                     "66.192.161.216/29",
                     "35.248.29.128/26",
-                    "50.58.48.248/29"
+                    "50.58.48.248/29",
+                    "35.235.240.0/20"
                   ]
 subnetwork_regions = ["us-west3"]
 odfl_folder_admins = ["user:sam.puppala@panderasystems.com", "group:adfs_gcp-dba_admin_prod@odfl.com"]
@@ -75,10 +77,9 @@ admin_roles = [
         "roles/iam.serviceAccountUser",
         "roles/bigquery.dataEditor",
         "roles/compute.osLogin",
+        "roles/iap.tunnelResourceAccessor",
         "roles/bigquery.admin",
         "roles/cloudsql.admin",
-        "roles/compute.admin",
-        "roles/compute.instanceAdmin",
         "roles/compute.instanceAdmin.v1"]
 
 dynatrace_permissions = ["appengine.applications.create",
