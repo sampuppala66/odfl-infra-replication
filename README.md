@@ -1,9 +1,9 @@
-# SBA Cloud Foundations
-Provision GCP infrastructure resource for SBA
+# ODFL Cloud Foundations
+Provision GCP infrastructure resource for ODFL
 
 # Code structure
-Two dimention structure for IaC:
-* Structured by module per product or service. Each module has its cohesiveness of provivisoning a GCP product or service.
+Two dimension structure for IaC:
+* Structured by module per product or service. Each module has its cohesiveness of provisioning a GCP product or service.
 * This is just for the dev env.  
 
 
