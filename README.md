@@ -1,4 +1,4 @@
-# ODFL Cloud Foundations
+# ODFL Data Replication Infrastructure
 Provision GCP infrastructure resource for ODFL
 
 # Code structure
@@ -100,14 +100,13 @@ Define all the variables being used.
 
 # About
 
-This terraform configuration creates all the inner components of the NESTcc cloud.
+This terraform configuration creates all the infrastructure for ODFL on GCP.
 
 ## Terraform Design
 
 The Terraform scripts are a multi environment solution. The environments are:
 
 -   `dev`
--   `preprod`
 -   `prod`
 
 This solution will contain both static files and configurable files for each environment.
