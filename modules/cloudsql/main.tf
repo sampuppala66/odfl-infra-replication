@@ -1,5 +1,5 @@
 locals {
-  onprem = ["34.106.193.182/32"]
+  onprem = ["35.229.27.116/32"]
 }
 
 resource "google_sql_database_instance" "db_instance" {

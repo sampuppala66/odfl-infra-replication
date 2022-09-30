@@ -1,8 +1,8 @@
 env = "prod"
 project_id = "odfl-gca-pilot"
 credential_file = "./terraform_sa.json"
-gcp_region = "us-west3"
-gcp_zone = "us-west3-c"
+gcp_region = "us-east1"
+gcp_zone = "us-east1-c"
 terraform_project_id = "pandera-cloud-devops-terraform"
 cloudsql_root_password = "Postgr3$"
 secret_id = "kgfdfghjklxcfghjkiuytfdfghjklop"
@@ -22,7 +22,7 @@ delta_vm_type = "n2-standard-4"
 vm_instance_name = "odfl-gca-pilot-hvragent"
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
-resources_zone = "us-west3-c"
+resources_zone = "us-east1-c"
 hostname = "odfl-pilot-hvr-agent"
 odfl_folder_id = "folders/878125556822"
 monitoring_users = ["adfs_gcp-sysops-monitoring_admin_prod@odfl.com"]
@@ -53,7 +53,7 @@ tcp_source_ranges = [ "216.54.213.8/29",
                     "50.58.48.248/29",
                     "35.235.240.0/20"
                   ]
-subnetwork_regions = ["us-west3"]
+subnetwork_regions = ["us-east1"]
 odfl_folder_admins = ["user:sam.puppala@panderasystems.com", "group:adfs_gcp-dba_admin_prod@odfl.com"]
 roles = ["roles/bigquery.user",
          "roles/bigquerydatapolicy.maskedReader",

@@ -17,7 +17,7 @@ variable "data_database_name" {
 variable "data_database_region" {
   description = "The region of the db"
   type        = string
-  default = "us-west3"
+  default = "us-east1"
 }
 
 variable "odfl_database_version" {

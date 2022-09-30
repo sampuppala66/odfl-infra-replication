@@ -23,7 +23,7 @@ variable "gcp_region" {
 variable "gcp_zone" {
   type        = string
   description = "GCP Zone"
-  default = "us-west1a"
+  default = "us-east1-c"
 }
 
 variable "terraform_project_id" {

@@ -18,5 +18,3 @@ variable "data_folder_id"{
   type = string
   description = "The data folder id"
 }
-
-

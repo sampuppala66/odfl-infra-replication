@@ -40,7 +40,7 @@ module "firewall-rule-allow-tcp"{
   priority = 1000
   protocol = "tcp"
 }
-
+// TODO Remove this rule once production is stable
 module "firewall-rule-allow-workstation_ips"{
   source = "./modules/firewall"
   project_id = "${var.project_id}-${var.env}"
@@ -49,7 +49,6 @@ module "firewall-rule-allow-workstation_ips"{
   ports =  var.tcp_ports
   tags = var.tags
   source_ranges = ["99.74.215.19/32", "172.10.123.148/32"]
-  //source_ranges = ["0.0.0.0/0"]
   vpc_network = module.networks.host_vpc_network
   env = var.env
   priority = 2000
@@ -267,7 +266,7 @@ module "compute_instance" {
   size                     = var.delta_vm_disk_size
   type                     = var.delta_vm_disk_type
   network                  = module.networks.host_vpc_network
-  subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-west3/subnetworks/odfl-pilot-subnetwork-prod-us-west3"
+  subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-east1/subnetworks/odfl-pilot-subnetwork-prod-us-east1"
   service_account_email = module.hvr_service_account.email
   startup_script_url = "hvr_vm_startup_prod.sh"
   depends_on = [
