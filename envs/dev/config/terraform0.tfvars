@@ -1,4 +1,4 @@
-env = "prod"
+env = "dev"
 project_id =
 credential_file = "./terraform_sa.json"
 gcp_region = "us-east1"
@@ -42,7 +42,7 @@ tcp_ports = ["80", "22", "443", "4343"]
 tcp_source_ranges = [
                   ]
 subnetwork_regions = ["us-east1"]
-odfl_folder_admins = 
+odfl_folder_admins =
 roles = ["roles/bigquery.user",
          "roles/bigquerydatapolicy.maskedReader",
           "roles/datacatalog.categoryFineGrainedReader",
