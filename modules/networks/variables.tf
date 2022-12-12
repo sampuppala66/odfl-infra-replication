@@ -6,12 +6,12 @@ variable "project_id" {
 variable "vpc_name" {
     description = "vpc name"
     type = string
-    default = "odfl-hostvpc"
+    default = ""
 }
 variable "subnet_name" {
     description = "subnet name"
     type = string
-    default = "odfl-pilot-subnet"
+    default = ""
 }
 variable "env" {
   type        = string
@@ -21,14 +21,14 @@ variable "env" {
 variable "data_subnetwork_cidr_range" {
   description = "The ip_cidr_range for the subnetwork"
   type = string
-  default = "10.2.0.0/26"
-  
+  default = ""
+
 }
 
 variable "data_subnetwork_region" {
   description = "The region for the for the subnetwork"
   type = string
-  
+
 }
 
 variable "subnetwork_regions" {

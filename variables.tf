@@ -40,13 +40,13 @@ variable "cloudsql_root_password" {
 variable "secret_id" {
   type        = string
   description = "Environment"
-  default = "kgfdfghjklxcfghjkiuytfdfghjklop"
+  default = ""
 }
 
 variable "cloudsql_name" {
   description = "The name of the cloudsql resource"
   type        = string
-  default = "odfl-gca-pilot-cloudsql"
+  default = ""
 }
 
 variable "cloudsql_zone" {
@@ -111,7 +111,7 @@ variable "service_account_name" {
 variable "pilot_service_account_name" {
   description = "Pilot service Account name"
   type        = string
-  default = "odfl-pilot-sa"
+  default = ""
 }
 variable "delta_vm_type" {
   description = "Vm instance type"
@@ -122,7 +122,7 @@ variable "delta_vm_type" {
 variable "vm_instance_name" {
   description = "Vm instance type"
   type        = string
-  default = "odfl-pilot-hvr-vm"
+  default = ""
 }
 
 variable "delta_vm_disk_type" {
@@ -146,13 +146,13 @@ variable "resources_zone" {
 variable "hostname" {
   description = "hostname"
   type        = string
-  default = "odfl-pilot-hvr-agent"
+  default = ""
 }
 
 variable "odfl_folder_id" {
   description = "ODFL folder Id"
   type = string
-  default = "folders/878125556822"
+  default = ""
 }
 
 variable "developer_users" {
@@ -166,12 +166,12 @@ variable "developer_users" {
 variable "vpc_name" {
     description = "vpc name"
     type = string
-    default = "odfl-hostvpc"
+    default = ""
 }
 variable "subnet_name" {
     description = "subnet name"
     type = string
-    default = "odfl-pilot-subnet"
+    default = ""
 }
 
 variable "data_folder_id" {
@@ -244,6 +244,10 @@ variable "reviewer_roles" {
 }
 variable "admin_roles" {
   description = "Admin roles"
+  type        = list(string)
+}
+variable "monitoring_roles" {
+  description = "Monitoring roles"
   type        = list(string)
 }
 variable "tester_roles" {

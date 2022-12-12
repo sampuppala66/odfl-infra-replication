@@ -38,6 +38,6 @@
   metadata_startup_script = file("${path.module}/hvr_vm_startup.sh")
   metadata = {
     serial-port-logging-enable = "TRUE"
-    enable-os-login = "true"
+    enable-os-login = "TRUE"
    }
  }

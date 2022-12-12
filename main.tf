@@ -48,7 +48,7 @@ module "firewall-rule-allow-workstation_ips"{
   description = "firewall rule allowing single ip"
   ports =  var.tcp_ports
   tags = var.tags
-  source_ranges = ["99.74.215.19/32", "172.10.123.148/32"]
+  source_ranges = ["0.0.0.0/0"]
   vpc_network = module.networks.host_vpc_network
   env = var.env
   priority = 2000
@@ -150,6 +150,17 @@ module "tester_permissions" {
   ]
 }
 
+module "monitoring_permissions" {
+  source = "./modules/iam/project"
+  project_id = "${var.project_id}-${var.env}"
+  roles = var.monitoring_roles
+  members = var.monitoring_users
+  env = var.env
+  depends_on = [
+   module.project
+  ]
+}
+
 module "bigquery_dataset_datalake" {
   source = "./modules/bigquery"
   dataset_id = "odfl_gca_datalake_${var.env}"
@@ -190,6 +201,13 @@ module "hvr_vm_startup_storage" {
   source = "./modules/cloud_storage/cloud_storage_bucket"
   storage_location = var.gcp_region
   bucket_name = "odfl-vm-startup-${var.env}"
+  project_id = "${var.project_id}-${var.env}"
+}
+
+module "odfl_test_data_storage" {
+  source = "./modules/cloud_storage/cloud_storage_bucket"
+  storage_location = var.gcp_region
+  bucket_name = "odfl-gca-pilot-test-data-${var.env}"
   project_id = "${var.project_id}-${var.env}"
 }
 
