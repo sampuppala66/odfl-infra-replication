@@ -2,5 +2,8 @@ terraform {
   # backend "local" {
   #   path = "terraform.tfstate"
   # }
-  backend "gcs" {}
+  backend "gcs" {
+    bucket = "pandera-terraform-managed-state"
+    prefix = "odfl/dev"
+  }
 }
