@@ -1,48 +1,41 @@
 env = "prod"
-project_id =
+project_id = "odfl-gca-pilot"
 credential_file = "./terraform_sa.json"
 gcp_region = "us-east1"
 gcp_zone = "us-east1-c"
 terraform_project_id = "pandera-cloud-devops-terraform"
-cloudsql_root_password =
-secret_id =
-cloudsql_name =
-cloudsql_database_version =
-cloudsql_tier =
-cloudsql_availability_type =
-cloudsql_disk_size =
-cloudsql_disk_type =
+cloudsql_root_password = ""
+secret_id = ""
+cloudsql_name = ""
 cloudsql_ipv4_enabled =  true
 cloudsql_require_ssl =  false
 cloudsql_backup_enabled = true
 cloudsql_backup_start_time =  "04:00"
-service_account_name =
-pilot_service_account_name =
+service_account_name = "odfl-hvr-sa-prod"
+pilot_service_account_name = "odfl-pilot-sa-prod"
 delta_vm_type = "n2-standard-4"
-vm_instance_name =
+vm_instance_name = ""
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
 resources_zone = "us-east1-c"
 hostname = "odfl-pilot-hvr-agentvm"
 odfl_folder_id = "folders/878125556822"
-monitoring_users =
-developer_users =
-sa_users =
-admins =
-reviewers =
-tester_users = []
-vpc_name =
-subnet_name =
-data_folder_id =
-billing_account =
-host_project_id = "odfl-shared-hvpc"
+monitoring_users =  ["adfs_gcp-sysops-monitoring_admin@odfl.com"]
+developer_users =  ["group:adfs_gcp-developers_prod@odfl.com"]
+sa_users =  ["group:adfs_gcp-dba_admin_prod@odfl.com"]
+admins = ["group:adfs_gcp-dba_admin_prod@odfl.com"]
+reviewers =  ["group:adfs_gcp-dba_admin_prod@odfl.com"]
+tester_users =  ["adfs_gcp-qateam@odfl.com"]
+vpc_name = "odfl-pilot-vpc"
+subnet_name = "odfl-pilot-subnetwork-prod-us-east1"
+data_folder_id = "684427362895"
+billing_account = "01576B-0CD5E1-6341D4"
 cloud_sql_ip_range = "10.78.176.0"
 tags = ["allow-ssh", "allow-hvr"]
 tcp_ports = ["80", "22", "443", "4343"]
-tcp_source_ranges = [
-                  ]
+tcp_source_ranges = ["0.0.0.0/0"]
 subnetwork_regions = ["us-east1"]
-odfl_folder_admins = 
+odfl_folder_admins =  ["user:paulg-admin@odfl.com", "user:pauln-admin@odfl.com"]
 roles = ["roles/bigquery.user",
          "roles/bigquerydatapolicy.maskedReader",
           "roles/datacatalog.categoryFineGrainedReader",
@@ -55,13 +48,11 @@ developer_roles = ["roles/bigquery.user",
          "roles/bigquerydatapolicy.maskedReader",
           "roles/datacatalog.categoryFineGrainedReader",
           "roles/cloudsql.client"]
-tester_roles = ["roles/bigquery.connectionUser",
-                "roles/bigquery.user",
+tester_roles = ["roles/notebooks.admin",
               "roles/bigquerydatapolicy.maskedReader",
-              "roles/storage.objectAdmin",
-              "roles/cloudsql.client"]
-admin_roles = [
-                      "roles/iam.serviceAccountAdmin",
+              "roles/storage.objectViewer",
+              "roles/iam.serviceAccountUser"]
+admin_roles = ["roles/iam.serviceAccountAdmin",
                       "roles/iam.serviceAccountUser",
                       "roles/bigquery.dataEditor",
                       "roles/compute.osLogin",

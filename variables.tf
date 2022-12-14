@@ -106,12 +106,10 @@ variable "cloudsql_backup_start_time" {
 variable "service_account_name" {
   description = "HVR service Account name"
   type        = string
-  default = "odfl-hvr-sa"
 }
 variable "pilot_service_account_name" {
   description = "Pilot service Account name"
   type        = string
-  default = ""
 }
 variable "delta_vm_type" {
   description = "Vm instance type"
@@ -122,9 +120,7 @@ variable "delta_vm_type" {
 variable "vm_instance_name" {
   description = "Vm instance type"
   type        = string
-  default = ""
 }
-
 variable "delta_vm_disk_type" {
   description = "Vm instance type"
   type        = string
@@ -148,56 +144,39 @@ variable "hostname" {
   type        = string
   default = ""
 }
-
 variable "odfl_folder_id" {
   description = "ODFL folder Id"
   type = string
-  default = ""
+  default = "folders/878125556822"
 }
-
 variable "developer_users" {
   description = "list of big query users"
   type = list(string)
-  default = ["group:ADFS_GCP-Developers@odfl.com"]
-
 }
-
-
 variable "vpc_name" {
     description = "vpc name"
     type = string
-    default = ""
 }
 variable "subnet_name" {
     description = "subnet name"
     type = string
-    default = ""
 }
 
 variable "data_folder_id" {
   description = "The folder id of the data folder"
   type = string
-
+  default = "folders/684427362895"
 }
-
-variable "host_project_id" {
-  description = "The project_id of the host project"
-  type = string
-
-}
-
 
 variable "billing_account" {
   description = "The billing account attached to the project"
   type = string
-
 }
 
 variable "cloud_sql_ip_range" {
   description = "ip range of the cloud sql"
   type = string
 }
-
 
 variable "tcp_ports" {
   description = "list enabled ports"

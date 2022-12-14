@@ -21,7 +21,6 @@ module "networks" {
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
   subnetwork_regions = var.subnetwork_regions
-
   depends_on = [
     module.project
   ]
@@ -58,7 +57,7 @@ module "firewall-rule-allow-workstation_ips"{
 module "hvr_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
-  account_id   = "${var.service_account_name}-${var.env}"
+  account_id   = "${var.service_account_name}"
   sa_users = var.sa_users
   roles = var.roles
   display_name = "${var.service_account_name}-${var.env}"
@@ -68,7 +67,7 @@ module "hvr_service_account" {
 module "pilot_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
-  account_id   = "${var.pilot_service_account_name}-${var.env}"
+  account_id   = "${var.pilot_service_account_name}"
   sa_users = var.sa_users
   roles = var.roles
   display_name = "${var.pilot_service_account_name}-${var.env}"
