@@ -3,8 +3,7 @@ Provision GCP infrastructure resource for ODFL
 
 # Code structure
 Two dimension structure for IaC:
-* Structured by module per product or service. Each module has its cohesiveness of provisioning a GCP product or service.
-* This is just for the dev env.  
+* Structured by module per product or service. Each module has its cohesiveness of provisioning a GCP product or service. 
 
 
 ```shell
