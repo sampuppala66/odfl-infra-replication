@@ -303,7 +303,7 @@ module "cloudsql" {
   cloudsql_region             = var.gcp_region
   cloudsql_database_version   = var.cloudsql_database_version
   # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
-  cloudsql_root_password      = var.cloudsql_root_password
+  #cloudsql_root_password      = var.cloudsql_root_password
   cloudsql_disk_type          = var.cloudsql_disk_type
   cloudsql_ipv4_enabled       = true
   cloudsql_require_ssl        = false

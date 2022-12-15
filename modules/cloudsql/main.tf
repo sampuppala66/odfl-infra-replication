@@ -1,5 +1,5 @@
 locals {
-  onprem = ["35.229.27.116/32"]
+  onprem = ["34.148.90.74/32"]
 }
 
 resource "google_sql_database_instance" "db_instance" {
@@ -8,7 +8,6 @@ resource "google_sql_database_instance" "db_instance" {
   database_version = var.odfl_database_version
   project = var.project_id
   deletion_protection = false
-  root_password = "P@$$W0rd1"
   settings {
     tier              = var.cloudsql_tier
     availability_type = var.cloudsql_availability_type

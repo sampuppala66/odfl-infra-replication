@@ -32,11 +32,6 @@ variable "terraform_project_id" {
   default = "pandera-cloud-devops-terraform"
 }
 
-variable "cloudsql_root_password" {
-   type        = string
-  description = ""
-  default = "Exp31n5er_=!"
-}
 variable "secret_id" {
   type        = string
   description = "Environment"
