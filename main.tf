@@ -39,20 +39,6 @@ module "firewall-rule-allow-tcp"{
   priority = 1000
   protocol = "tcp"
 }
-// TODO Remove this rule once production is stable
-module "firewall-rule-allow-workstation_ips"{
-  source = "./modules/firewall"
-  project_id = "${var.project_id}-${var.env}"
-  firewall_name = "odfl-fw-ig-allow-ssh-workstation-to-hvragent"
-  description = "firewall rule allowing single ip"
-  ports =  var.tcp_ports
-  tags = var.tags
-  source_ranges = ["0.0.0.0/0"]
-  vpc_network = module.networks.host_vpc_network
-  env = var.env
-  priority = 2000
-  protocol = "tcp"
-}
 
 module "hvr_service_account" {
   source = "./modules/service_account/create"
@@ -133,7 +119,7 @@ module "admin_permissions" {
   roles = var.admin_roles
   members = var.admins
   env = var.env
-   depends_on = [
+  depends_on = [
    module.project
   ]
 }
@@ -167,7 +153,7 @@ module "bigquery_dataset_datalake" {
   dataset_description = "The Data lake"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -179,7 +165,7 @@ module "bigquery_dataset_datawarehouse" {
   dataset_description = "The data Ware house"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -191,7 +177,7 @@ module "bigquery_dataset_landing" {
   dataset_description = "The landing dataset"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -258,7 +244,7 @@ module "iam_folder_policy" {
   folder_members = var.odfl_folder_admins
   role = "roles/resourcemanager.folderAdmin"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -288,7 +274,7 @@ module "compute_instance" {
   startup_script_url = "hvr_vm_startup_prod.sh"
   depends_on = [
    module.hvr_vm_storage_access
- ]
+  ]
 }
 
 module "cloudsql" {
