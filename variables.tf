@@ -254,3 +254,7 @@ variable "oslogin" {
   type = string
   default = "TRUE"
 }
+variable nat_ip {
+  description = "manually provisioned nat ip"
+  type = list(string)
+}

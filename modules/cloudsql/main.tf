@@ -1,5 +1,5 @@
 locals {
-  onprem = ["34.148.90.74/32"]
+  onprem = var.nat_ip
 }
 
 resource "google_sql_database_instance" "db_instance" {

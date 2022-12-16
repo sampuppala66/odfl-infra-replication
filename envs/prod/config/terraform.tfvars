@@ -18,6 +18,7 @@ vm_instance_name = "odfl-pilot-hvr-agentvm"
 delta_vm_disk_type = "pd-standard"
 delta_vm_disk_size ="20"
 resources_zone = "us-east1-c"
+nat_ip = ["34.148.90.74"]
 hostname = "odfl-gca-pilothvr"
 odfl_folder_id = "folders/878125556822"
 monitoring_users =  ["adfs_gcp-sysops-monitoring_admin@odfl.com"]

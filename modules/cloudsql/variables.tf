@@ -142,12 +142,7 @@ variable "private_ip_prefix_length" {
   type        = number
 }
 
-/*variable "hvr_vm_ip"{
-  type = string
-  description = "the hvr vm"
+variable nat_ip {
+  description = "manually provisioned nat ip"
+  type = list(string)
 }
-
-variable "hvr_vm_name"{
-  type = string
-  description = "the hvr vm"
-}*/

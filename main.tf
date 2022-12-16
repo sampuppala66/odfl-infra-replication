@@ -271,6 +271,7 @@ module "compute_instance" {
   network                  = module.networks.host_vpc_network
   subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-east1/subnetworks/odfl-pilot-subnetwork-prod-us-east1"
   service_account_email = module.hvr_service_account.email
+  nat_ip = var.nat_ip.0
   startup_script_url = "hvr_vm_startup_prod.sh"
   depends_on = [
    module.hvr_vm_storage_access
@@ -306,6 +307,7 @@ module "cloudsql" {
   private_ip_prefix_length = 24
   //hvr_vm_ip = module.compute_instance.hvr_vm.network_interface.0.access_config.0.nat_ip
   //hvr_vm_name = module.compute_instance.hvr_vm.name
+  nat_ip = var.nat_ip
   depends_on = [
     module.project
   ]

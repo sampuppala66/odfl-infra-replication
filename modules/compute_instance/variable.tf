@@ -72,3 +72,8 @@ variable startup_script_url{
   description = "url to the startup script"
   type = string
 }
+
+variable nat_ip {
+  description = "manually provisioned nat ip"
+  type = string
+}
