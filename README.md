@@ -1,10 +1,13 @@
 # ODFL Data Replication Infrastructure
+
 Provision GCP infrastructure resource for ODFL
 
 # Code structure
-Two dimension structure for IaC:
-* Structured by module per product or service. Each module has its cohesiveness of provisioning a GCP product or service. 
 
+Two dimension structure for IaC:
+
+* Structured by module per product or service. Each module has its cohesiveness of provisioning a GCP product or
+  service.
 
 ```shell
 │───README.md
@@ -74,11 +77,16 @@ Two dimension structure for IaC:
 ```
 
 # File Contents
+
 ## config/terraform.tfvars
-Apply variables needed for the modules defined in your main.tf in this file. Variables include: `project ID`, ... and `service account credentials file`
+
+Apply variables needed for the modules defined in your main.tf in this file. Variables include: `project ID`, ...
+and `service account credentials file`
 
 ## main.tf
-Resources being created for the client project should be designed by referencing modules from this repository.  To Reference a module use the following format:
+
+Resources being created for the client project should be designed by referencing modules from this repository. To
+Reference a module use the following format:
 
 ``` shell
 
@@ -95,6 +103,7 @@ Terrafrom remote state being created in GCP storage.
 ```
 
 ## variables.tf
+
 Define all the variables being used.
 
 # About
@@ -105,8 +114,8 @@ This terraform configuration creates all the infrastructure for ODFL on GCP.
 
 The Terraform scripts are a multi environment solution. The environments are:
 
--   `dev`
--   `prod`
+- `dev`
+- `prod`
 
 This solution will contain both static files and configurable files for each environment.
 
@@ -114,11 +123,12 @@ This solution will contain both static files and configurable files for each env
 
 The following dependencies are necessary to run the application.
 
--   [Terraform](https://www.terraform.io/downloads.html)
--   [Google Cloud SDK](https://cloud.google.com/sdk/install)
+- [Terraform](https://www.terraform.io/downloads.html)
+- [Google Cloud SDK](https://cloud.google.com/sdk/install)
 
 Terraform uses service accounts to grant permissions to create resources within a GCP project.
-To run the scripts the JSON key must be downloaded and set as an environmental variable, `GOOGLE_APPLICATION_CREDENTIALS`.
+To run the scripts the JSON key must be downloaded and set as an environmental
+variable, `GOOGLE_APPLICATION_CREDENTIALS`.
 
 ## 1. Setup Dependecies
 
@@ -126,7 +136,7 @@ To run the scripts the JSON key must be downloaded and set as an environmental v
 gcloud init
 gcloud auth application-default login
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/terraform/service/account.json
-terraform init
+Windows Example - From Power Shell - $env:GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
 ```
 
 ## 2. Initialize Terraform
@@ -153,6 +163,7 @@ Use to run a generated plan. This will modify infrastructure.
 terraform apply -input=false -auto-approve "../output/tfplan"
 
 ```
+
 **
 *3 FIrewall rules*
 *Iam permissions to odfl group: mask reader,
