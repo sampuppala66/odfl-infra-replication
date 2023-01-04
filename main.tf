@@ -21,7 +21,6 @@ module "networks" {
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
   subnetwork_regions = var.subnetwork_regions
-
   depends_on = [
     module.project
   ]
@@ -40,25 +39,11 @@ module "firewall-rule-allow-tcp"{
   priority = 1000
   protocol = "tcp"
 }
-// TODO Remove this rule once production is stable
-module "firewall-rule-allow-workstation_ips"{
-  source = "./modules/firewall"
-  project_id = "${var.project_id}-${var.env}"
-  firewall_name = "odfl-fw-ig-allow-ssh-workstation-to-hvragent"
-  description = "firewall rule allowing single ip"
-  ports =  var.tcp_ports
-  tags = var.tags
-  source_ranges = ["0.0.0.0/0"]
-  vpc_network = module.networks.host_vpc_network
-  env = var.env
-  priority = 2000
-  protocol = "tcp"
-}
 
 module "hvr_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
-  account_id   = "${var.service_account_name}-${var.env}"
+  account_id   = "${var.service_account_name}"
   sa_users = var.sa_users
   roles = var.roles
   display_name = "${var.service_account_name}-${var.env}"
@@ -68,7 +53,7 @@ module "hvr_service_account" {
 module "pilot_service_account" {
   source = "./modules/service_account/create"
   project      ="${var.project_id}-${var.env}"
-  account_id   = "${var.pilot_service_account_name}-${var.env}"
+  account_id   = "${var.pilot_service_account_name}"
   sa_users = var.sa_users
   roles = var.roles
   display_name = "${var.pilot_service_account_name}-${var.env}"
@@ -134,7 +119,7 @@ module "admin_permissions" {
   roles = var.admin_roles
   members = var.admins
   env = var.env
-   depends_on = [
+  depends_on = [
    module.project
   ]
 }
@@ -168,7 +153,7 @@ module "bigquery_dataset_datalake" {
   dataset_description = "The Data lake"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -180,7 +165,7 @@ module "bigquery_dataset_datawarehouse" {
   dataset_description = "The data Ware house"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -192,7 +177,7 @@ module "bigquery_dataset_landing" {
   dataset_description = "The landing dataset"
   project_id = "${var.project_id}-${var.env}"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -259,7 +244,7 @@ module "iam_folder_policy" {
   folder_members = var.odfl_folder_admins
   role = "roles/resourcemanager.folderAdmin"
   env = var.env
-   depends_on = [
+  depends_on = [
     module.project
   ]
 }
@@ -286,10 +271,11 @@ module "compute_instance" {
   network                  = module.networks.host_vpc_network
   subnetwork               = "projects/odfl-gca-pilot-prod/regions/us-east1/subnetworks/odfl-pilot-subnetwork-prod-us-east1"
   service_account_email = module.hvr_service_account.email
+  nat_ip = var.nat_ip.0
   startup_script_url = "hvr_vm_startup_prod.sh"
   depends_on = [
    module.hvr_vm_storage_access
- ]
+  ]
 }
 
 module "cloudsql" {
@@ -304,7 +290,7 @@ module "cloudsql" {
   cloudsql_region             = var.gcp_region
   cloudsql_database_version   = var.cloudsql_database_version
   # cloudsql_root_password      = module.project_data_cloud_secret_cloudsql.secret
-  cloudsql_root_password      = var.cloudsql_root_password
+  #cloudsql_root_password      = var.cloudsql_root_password
   cloudsql_disk_type          = var.cloudsql_disk_type
   cloudsql_ipv4_enabled       = true
   cloudsql_require_ssl        = false
@@ -321,6 +307,7 @@ module "cloudsql" {
   private_ip_prefix_length = 24
   //hvr_vm_ip = module.compute_instance.hvr_vm.network_interface.0.access_config.0.nat_ip
   //hvr_vm_name = module.compute_instance.hvr_vm.name
+  nat_ip = var.nat_ip
   depends_on = [
     module.project
   ]

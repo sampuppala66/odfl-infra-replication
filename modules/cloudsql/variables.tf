@@ -57,12 +57,6 @@ variable "cloudsql_database_version" {
   description = "The MySQL, PostgreSQL or SQL Server (beta) version to use."
   type        = string
 }
-
-variable "cloudsql_root_password" {
-  description = "Initial root password. Required for MS SQL Server, ignored by MySQL and PostgreSQL."
-  type        = string
-}
-
 variable "cloudsql_tier" {
   description = "The machine type to use. See tiers for more details and supported versions. Postgres supports only shared-core machine types such as db-f1-micro, and custom machine types such as db-custom-2-13312. See the Custom Machine Type Documentation to learn about specifying custom machine types."
   type        = string
@@ -148,12 +142,7 @@ variable "private_ip_prefix_length" {
   type        = number
 }
 
-/*variable "hvr_vm_ip"{
-  type = string
-  description = "the hvr vm"
+variable nat_ip {
+  description = "manually provisioned nat ip"
+  type = list(string)
 }
-
-variable "hvr_vm_name"{
-  type = string
-  description = "the hvr vm"
-}*/

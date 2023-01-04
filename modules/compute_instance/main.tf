@@ -1,7 +1,3 @@
-/*resource "google_compute_address" "static" {
-   name = "ipv4-address"
-}*/
-
 /**
  * Create compute instance
  */
@@ -28,6 +24,7 @@
      subnetwork         = var.subnetwork
      subnetwork_project = var.project_id
      access_config {
+      nat_ip = "34.148.90.74"
      }
    }
    service_account {
