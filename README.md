@@ -152,7 +152,7 @@ terraform init -input=false -reconfigure -backend-config="../envs/${ENV}/config/
 Use the following command to produce a reviewable plan. Use the -out argument to persist the plan to an output file.
 
 ```shell
-terraform plan -input=false -out="../output/tfplan" -var-file="../envs/${ENV}/config/terraform.tfvars"
+terraform plan -input=false -var-file="../envs/${ENV}/config/terraform.tfvars"
 ```
 
 ## 3. Apply
@@ -160,7 +160,7 @@ terraform plan -input=false -out="../output/tfplan" -var-file="../envs/${ENV}/co
 Use to run a generated plan. This will modify infrastructure.
 
 ```shell
-terraform apply -input=false -auto-approve "../output/tfplan"
+terraform apply -input=false -auto-approve -var-file="../envs/${ENV}/config/terraform.tfvars"
 
 ```
 
